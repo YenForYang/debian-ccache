@@ -1,0 +1,12 @@
+Package: ccache-dbgsym
+Source: ccache
+Version: 3.5-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Joel Rosdahl <joel@debian.org>
+Installed-Size: 131
+Depends: ccache (= 3.5-1)
+Section: debug
+Priority: optional
+Description: debug symbols for ccache
+Build-Ids: 6403332f309b33a2168645c0d92979710d420b99
