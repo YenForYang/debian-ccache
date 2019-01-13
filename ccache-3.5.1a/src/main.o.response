@@ -26,8 +26,11 @@
 -no-inline-max-per-routine
 -no-inline-max-per-compile
 -no-inline-max-size
--inline-max-total-size=19999
+-inline-max-total-size=22222
 -Wl,--as-needed
+-qopt-report=5
+-qopt-report-phase
+ipo
 -DHAVE_CONFIG_H
 -DSYSCONFDIR=/etc
 -I.
@@ -41,4 +44,5 @@
 -W
 -c
 -osrc/main.o
+-qopt-report-file=src/main.o.optrpt
 src/main.c

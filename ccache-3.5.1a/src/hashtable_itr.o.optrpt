@@ -1,0 +1,102 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/hashtable_itr.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/hashtable_itr.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: indexFor(unsigned int, unsigned int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (indexFor(unsigned int, unsigned int)) src/hashtable_private.h(34,60)
+
+===========================================================================
+
+Begin optimization report for: hashtable_iterator(struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_iterator(struct hashtable *)) [2/7=28.6%] src/hashtable_itr.c(14,1)
+  -> EXTERN: (17,9) malloc(size_t)
+
+===========================================================================
+
+Begin optimization report for: hashtable_iterator_key(struct hashtable_itr *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_iterator_key(struct hashtable_itr *)) [3/7=42.9%] src/hashtable_itr.c(44,1)
+
+===========================================================================
+
+Begin optimization report for: hashtable_iterator_value(struct hashtable_itr *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_iterator_value(struct hashtable_itr *)) [4/7=57.1%] src/hashtable_itr.c(48,1)
+
+===========================================================================
+
+Begin optimization report for: hashtable_iterator_advance(struct hashtable_itr *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_iterator_advance(struct hashtable_itr *)) [5/7=71.4%] src/hashtable_itr.c(56,1)
+
+===========================================================================
+
+Begin optimization report for: hashtable_iterator_remove(struct hashtable_itr *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_iterator_remove(struct hashtable_itr *)) [6/7=85.7%] src/hashtable_itr.c(101,1)
+  -> EXTERN: (117,5) free(void *)
+  -> INLINE: (121,11) hashtable_iterator_advance(struct hashtable_itr *) (isz = 66) (sz = 77)
+  -> EXTERN: (123,5) free(void *)
+
+===========================================================================
+
+Begin optimization report for: hashtable_iterator_search(struct hashtable_itr *, struct hashtable *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_iterator_search(struct hashtable_itr *, struct hashtable *, void *)) [7/7=100.0%] src/hashtable_itr.c(131,1)
+  -> EXTERN: (135,17) hash(struct hashtable *, void *)
+  -> INLINE (MANUAL): (136,13) indexFor(unsigned int, unsigned int) (isz = 0) (sz = 7)
+  -> INDIRECT-: (143,37)  h_298_V$21.0.7->eqfn_V$10
+     [[ Unable to inline indirect callsite  <1>]]
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The indirectly called function must be resolved to its targets before it 
+can be inlined.  Consider compiling with -ipo or -prof-gen followed by 
+-prof-use.
+

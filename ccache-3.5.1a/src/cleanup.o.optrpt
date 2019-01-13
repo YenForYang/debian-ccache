@@ -1,0 +1,235 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/cleanup.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/cleanup.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: files_compare(struct files **, struct files **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (files_compare(struct files **, struct files **)) [1/9=11.1%] src/cleanup.c(38,1)
+  -> EXTERN: (40,10) strcmp(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: traverse_fn(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (traverse_fn(const char *, struct stat *)) [2/9=22.2%] src/cleanup.c(51,1)
+  -> EXTERN: (56,12) basename(const char *)
+  -> EXTERN: (57,6) strcmp(const char *, const char *)
+  -> EXTERN: (61,6) strncmp(const char *, const char *, size_t)
+  -> EXTERN: (67,6) strstr(const char *, const char *)
+  -> EXTERN: (67,50) time(time_t *)
+  -> EXTERN: (68,3) x_unlink(const char *)
+  -> EXTERN: (72,6) strstr(const char *, const char *)
+  -> EXTERN: (78,28) x_realloc(void *, size_t)
+  -> EXTERN: (81,37) x_malloc(size_t)
+  -> EXTERN: (82,28) x_strdup(const char *)
+  -> EXTERN: (84,27) file_size(struct stat *)
+  -> EXTERN: (90,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: delete_file(const char *, size_t, bool)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (delete_file(const char *, size_t, bool)) src/cleanup.c(95,1)
+
+===========================================================================
+
+Begin optimization report for: sort_and_clean(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (sort_and_clean(void)) src/cleanup.c(113,1)
+
+===========================================================================
+
+Begin optimization report for: clean_up_dir(struct conf *, const char *, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (clean_up_dir(struct conf *, const char *, double)) [5/9=55.6%] src/cleanup.c(161,1)
+  -> EXTERN: (162,2) cc_log(const char *, ...)
+  -> EXTERN: (167,28) round(double)
+  -> EXTERN: (169,32) round(double)
+  -> EXTERN: (177,2) traverse(const char *, void (*)(const char *, struct stat *))
+  -> EXTERN: (180,2) cc_log(const char *, ...)
+  -> INLINE: (183,17) sort_and_clean(void) (isz = 153) (sz = 158)
+    -> EXTERN: (116,3) qsort(void *, size_t, size_t, __compar_fn_t)
+    -> EXTERN: (131,9) get_extension(const char *)
+    -> EXTERN: (132,7) strcmp(const char *, const char *)
+    -> EXTERN: (138,17) remove_extension(const char *)
+    -> EXTERN: (139,19) format(const char *, ...)
+    -> INLINE: (147,4) delete_file(const char *, size_t, bool) (isz = 36) (sz = 45)
+      -> EXTERN: (96,17) x_try_unlink(const char *)
+      -> EXTERN: (97,18) __errno_location(void)
+      -> EXTERN: (97,37) __errno_location(void)
+      -> EXTERN: (98,3) cc_log(const char *, ...)
+      -> EXTERN: (98,44) strerror(int)
+      -> EXTERN: (98,53) __errno_location(void)
+    -> EXTERN: (149,4) free(void *)
+    -> EXTERN: (150,4) free(void *)
+    -> INLINE: (152,3) delete_file(const char *, size_t, bool) (isz = 36) (sz = 45)
+      -> EXTERN: (96,17) x_try_unlink(const char *)
+      -> EXTERN: (97,18) __errno_location(void)
+      -> EXTERN: (97,37) __errno_location(void)
+      -> EXTERN: (98,3) cc_log(const char *, ...)
+      -> EXTERN: (98,44) strerror(int)
+      -> EXTERN: (98,53) __errno_location(void)
+  -> EXTERN: (184,2) cc_log(const char *, ...)
+  -> EXTERN: (189,3) cc_log(const char *, ...)
+  -> EXTERN: (190,3) stats_add_cleanup(const char *, unsigned int)
+  -> EXTERN: (193,2) stats_set_sizes(const char *, unsigned int, uint64_t)
+  -> EXTERN: (197,3) free(void *)
+  -> EXTERN: (198,3) free(void *)
+  -> EXTERN: (202,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: clean_up_all(struct conf *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (clean_up_all(struct conf *)) [6/9=66.7%] src/cleanup.c(214,1)
+  -> EXTERN: (216,17) format(const char *, ...)
+  -> INLINE: (217,3) clean_up_dir(struct conf *, const char *, double) (isz = 247) (sz = 256)
+    -> EXTERN: (162,2) cc_log(const char *, ...)
+    -> EXTERN: (167,28) round(double)
+    -> EXTERN: (169,32) round(double)
+    -> EXTERN: (177,2) traverse(const char *, void (*)(const char *, struct stat *))
+    -> EXTERN: (180,2) cc_log(const char *, ...)
+    -> INLINE: (183,17) sort_and_clean(void) (isz = 153) (sz = 158)
+      -> EXTERN: (116,3) qsort(void *, size_t, size_t, __compar_fn_t)
+      -> EXTERN: (131,9) get_extension(const char *)
+      -> EXTERN: (132,7) strcmp(const char *, const char *)
+      -> EXTERN: (138,17) remove_extension(const char *)
+      -> EXTERN: (139,19) format(const char *, ...)
+      -> INLINE: (147,4) delete_file(const char *, size_t, bool) (isz = 36) (sz = 45)
+        -> EXTERN: (96,17) x_try_unlink(const char *)
+        -> EXTERN: (97,18) __errno_location(void)
+        -> EXTERN: (97,37) __errno_location(void)
+        -> EXTERN: (98,3) cc_log(const char *, ...)
+        -> EXTERN: (98,44) strerror(int)
+        -> EXTERN: (98,53) __errno_location(void)
+      -> EXTERN: (149,4) free(void *)
+      -> EXTERN: (150,4) free(void *)
+      -> INLINE: (152,3) delete_file(const char *, size_t, bool) (isz = 36) (sz = 45)
+        -> EXTERN: (96,17) x_try_unlink(const char *)
+        -> EXTERN: (97,18) __errno_location(void)
+        -> EXTERN: (97,37) __errno_location(void)
+        -> EXTERN: (98,3) cc_log(const char *, ...)
+        -> EXTERN: (98,44) strerror(int)
+        -> EXTERN: (98,53) __errno_location(void)
+    -> EXTERN: (184,2) cc_log(const char *, ...)
+    -> EXTERN: (189,3) cc_log(const char *, ...)
+    -> EXTERN: (190,3) stats_add_cleanup(const char *, unsigned int)
+    -> EXTERN: (193,2) stats_set_sizes(const char *, unsigned int, uint64_t)
+    -> EXTERN: (197,3) free(void *)
+    -> EXTERN: (198,3) free(void *)
+    -> EXTERN: (202,3) free(void *)
+  -> EXTERN: (218,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: wipe_fn(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (wipe_fn(const char *, struct stat *)) [7/9=77.8%] src/cleanup.c(224,1)
+  -> EXTERN: (229,12) basename(const char *)
+  -> EXTERN: (230,6) strcmp(const char *, const char *)
+  -> EXTERN: (231,3) free(void *)
+  -> EXTERN: (234,2) free(void *)
+  -> EXTERN: (238,2) x_unlink(const char *)
+
+===========================================================================
+
+Begin optimization report for: wipe_dir(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (wipe_dir(const char *)) src/cleanup.c(244,1)
+
+===========================================================================
+
+Begin optimization report for: wipe_all(struct conf *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (wipe_all(struct conf *)) [9/9=100.0%] src/cleanup.c(261,1)
+  -> EXTERN: (263,17) format(const char *, ...)
+  -> INLINE: (264,3) wipe_dir(const char *) (isz = 16) (sz = 21)
+    -> EXTERN: (245,2) cc_log(const char *, ...)
+    -> EXTERN: (249,2) traverse(const char *, void (*)(const char *, struct stat *))
+    -> EXTERN: (252,3) cc_log(const char *, ...)
+    -> EXTERN: (253,3) stats_add_cleanup(const char *, unsigned int)
+  -> EXTERN: (265,3) free(void *)
+  -> INLINE: (269,2) clean_up_all(struct conf *) (isz = 266) (sz = 271)
+    -> EXTERN: (216,17) format(const char *, ...)
+    -> INLINE: (217,3) clean_up_dir(struct conf *, const char *, double) (isz = 247) (sz = 256)
+      -> EXTERN: (162,2) cc_log(const char *, ...)
+      -> EXTERN: (167,28) round(double)
+      -> EXTERN: (169,32) round(double)
+      -> EXTERN: (177,2) traverse(const char *, void (*)(const char *, struct stat *))
+      -> EXTERN: (180,2) cc_log(const char *, ...)
+      -> INLINE: (183,17) sort_and_clean(void) (isz = 153) (sz = 158)
+        -> EXTERN: (116,3) qsort(void *, size_t, size_t, __compar_fn_t)
+        -> EXTERN: (131,9) get_extension(const char *)
+        -> EXTERN: (132,7) strcmp(const char *, const char *)
+        -> EXTERN: (138,17) remove_extension(const char *)
+        -> EXTERN: (139,19) format(const char *, ...)
+        -> INLINE: (147,4) delete_file(const char *, size_t, bool) (isz = 36) (sz = 45)
+          -> EXTERN: (96,17) x_try_unlink(const char *)
+          -> EXTERN: (97,18) __errno_location(void)
+          -> EXTERN: (97,37) __errno_location(void)
+          -> EXTERN: (98,3) cc_log(const char *, ...)
+          -> EXTERN: (98,44) strerror(int)
+          -> EXTERN: (98,53) __errno_location(void)
+        -> EXTERN: (149,4) free(void *)
+        -> EXTERN: (150,4) free(void *)
+        -> INLINE: (152,3) delete_file(const char *, size_t, bool) (isz = 36) (sz = 45)
+          -> EXTERN: (96,17) x_try_unlink(const char *)
+          -> EXTERN: (97,18) __errno_location(void)
+          -> EXTERN: (97,37) __errno_location(void)
+          -> EXTERN: (98,3) cc_log(const char *, ...)
+          -> EXTERN: (98,44) strerror(int)
+          -> EXTERN: (98,53) __errno_location(void)
+      -> EXTERN: (184,2) cc_log(const char *, ...)
+      -> EXTERN: (189,3) cc_log(const char *, ...)
+      -> EXTERN: (190,3) stats_add_cleanup(const char *, unsigned int)
+      -> EXTERN: (193,2) stats_set_sizes(const char *, unsigned int, uint64_t)
+      -> EXTERN: (197,3) free(void *)
+      -> EXTERN: (198,3) free(void *)
+      -> EXTERN: (202,3) free(void *)
+    -> EXTERN: (218,3) free(void *)
+
+===========================================================================

@@ -1,0 +1,169 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/hashtable.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/hashtable.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: indexFor(unsigned int, unsigned int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (indexFor(unsigned int, unsigned int)) src/hashtable_private.h(34,60)
+
+===========================================================================
+
+Begin optimization report for: memset(void *, int, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (memset(void *, int, size_t))/usr/include/x86_64-linux-gnu/bits/string_fortified.h(60,1)
+
+===========================================================================
+
+Begin optimization report for: create_hashtable(unsigned int, unsigned int (*)(void *), int (*)(void *, void *))
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (create_hashtable(unsigned int, unsigned int (*)(void *), int (*)(void *, void *))) [3/10=30.0%] src/hashtable.c(65,1)
+  -> EXTERN: (74,29) malloc(size_t)
+  -> EXTERN: (76,33) malloc(size_t)
+  -> EXTERN: (77,29) free(void *)
+  -> INLINE (MANUAL): (78,5) memset(void *, int, size_t) (isz = 6) (sz = 17)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(71,10) __builtin___memset_chk(void *, int, unsigned long, unsigned long)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(71,55) __builtin_object_size(const void *, int)
+  -> EXTERN: (84,30) ceil(double)
+
+===========================================================================
+
+Begin optimization report for: hash(struct hashtable *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash(struct hashtable *, void *)) [4/10=40.0%] src/hashtable.c(92,1)
+  -> INDIRECT-: (95,22)  h_1903_V$19.0.4->hashfn_V$17
+     [[ Unable to inline indirect callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: hashtable_expand(struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (hashtable_expand(struct hashtable *)) src/hashtable.c(106,1)
+
+===========================================================================
+
+Begin optimization report for: hashtable_count(struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_count(struct hashtable *)) [6/10=60.0%] src/hashtable.c(166,1)
+
+===========================================================================
+
+Begin optimization report for: hashtable_insert(struct hashtable *, void *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_insert(struct hashtable *, void *, void *)) [7/10=70.0%] src/hashtable.c(173,1)
+  -> INLINE: (183,9) hashtable_expand(struct hashtable *) (isz = 170) (sz = 179)
+    -> EXTERN: (115,33) malloc(size_t)
+    -> INLINE (MANUAL): (118,9) memset(void *, int, size_t) (isz = 6) (sz = 17)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(71,10) __builtin___memset_chk(void *, int, unsigned long, unsigned long)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(71,55) __builtin_object_size(const void *, int)
+    -> INLINE (MANUAL): (124,25) indexFor(unsigned int, unsigned int) (isz = 0) (sz = 7)
+    -> EXTERN: (129,9) free(void *)
+    -> EXTERN: (137,20) realloc(void *, size_t)
+    -> INLINE (MANUAL): (140,9) memset(void *, int, size_t) (isz = 6) (sz = 17)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(71,10) __builtin___memset_chk(void *, int, unsigned long, unsigned long)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(71,55) __builtin_object_size(const void *, int)
+    -> INLINE (MANUAL): (143,25) indexFor(unsigned int, unsigned int) (isz = 0) (sz = 7)
+    -> EXTERN: (158,30) ceil(double)
+  -> EXTERN: (185,25) malloc(size_t)
+  -> INLINE: (187,12) hash(struct hashtable *, void *) (isz = 19) (sz = 28)
+    -> INDIRECT-: (95,22)  h_1903_V$19.0.4.22->hashfn_V$17
+       [[ Unable to inline indirect callsite  <1>]]
+  -> INLINE (MANUAL): (188,13) indexFor(unsigned int, unsigned int) (isz = 0) (sz = 7)
+
+===========================================================================
+
+Begin optimization report for: hashtable_search(struct hashtable *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_search(struct hashtable *, void *)) [8/10=80.0%] src/hashtable.c(199,1)
+  -> INLINE: (202,17) hash(struct hashtable *, void *) (isz = 19) (sz = 28)
+    -> INDIRECT-: (95,22)  h_1903_V$19.0.4.21->hashfn_V$17
+       [[ Unable to inline indirect callsite  <1>]]
+  -> INLINE (MANUAL): (203,13) indexFor(unsigned int, unsigned int) (isz = 0) (sz = 7)
+  -> INDIRECT-: (208,37)  h_1929_V$2e.0.8->eqfn_V$18
+     [[ Unable to inline indirect callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: hashtable_remove(struct hashtable *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_remove(struct hashtable *, void *)) [9/10=90.0%] src/hashtable.c(217,1)
+  -> INLINE: (226,17) hash(struct hashtable *, void *) (isz = 19) (sz = 28)
+    -> INDIRECT-: (95,22)  h_1903_V$19.0.4.20->hashfn_V$17
+       [[ Unable to inline indirect callsite  <1>]]
+  -> INLINE (MANUAL): (227,13) indexFor(unsigned int, unsigned int) (isz = 0) (sz = 7)
+  -> INLINE: (227,37) hash(struct hashtable *, void *) (isz = 19) (sz = 28)
+    -> INDIRECT-: (95,22)  h_1903_V$19.0.4.19->hashfn_V$17
+       [[ Unable to inline indirect callsite  <1>]]
+  -> INDIRECT-: (233,37)  h_1934_V$33.0.9->eqfn_V$18
+     [[ Unable to inline indirect callsite  <1>]]
+  -> EXTERN: (238,13) free(void *)
+  -> EXTERN: (239,13) free(void *)
+
+===========================================================================
+
+Begin optimization report for: hashtable_destroy(struct hashtable *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hashtable_destroy(struct hashtable *, int)) [10/10=100.0%] src/hashtable.c(252,1)
+  -> EXTERN: (262,35) free(void *)
+  -> EXTERN: (262,50) free(void *)
+  -> EXTERN: (262,62) free(void *)
+  -> EXTERN: (271,35) free(void *)
+  -> EXTERN: (271,50) free(void *)
+  -> EXTERN: (274,5) free(void *)
+  -> EXTERN: (275,5) free(void *)
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The indirectly called function must be resolved to its targets before it 
+can be inlined.  Consider compiling with -ipo or -prof-gen followed by 
+-prof-use.
+

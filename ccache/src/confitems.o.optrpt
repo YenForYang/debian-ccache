@@ -1,0 +1,248 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/confitems.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/confitems.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: format_string(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (format_string(void *)) src/confitems.c(22,1)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_bool(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_bool(const char *, void *, char **)) [2/19=10.5%] src/confitems.c(29,1)
+  -> EXTERN: (32,6) strcmp(const char *, const char *)
+  -> EXTERN: (35,13) strcmp(const char *, const char *)
+  -> EXTERN: (39,13) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_bool(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_bool(void *)) [3/19=15.8%] src/confitems.c(46,1)
+  -> EXTERN: (48,9) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_env_string(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_env_string(const char *, void *, char **)) [4/19=21.1%] src/confitems.c(53,1)
+  -> EXTERN: (55,2) free(void *)
+  -> EXTERN: (56,11) subst_env_in_string(const char *, char **)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_env_string(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_env_string(void *)) [5/19=26.3%] src/confitems.c(62,1)
+  -> INLINE: (63,9) format_string(void *) (isz = 3) (sz = 10)
+    -> EXTERN: (24,9) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_double(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_double(const char *, void *, char **)) [6/19=31.6%] src/confitems.c(68,1)
+  -> EXTERN: (70,2) __errno_location(void)
+  -> EXTERN: (72,13) strtod(const char *__restrict__, char **__restrict__)
+  -> EXTERN: (73,6) __errno_location(void)
+  -> EXTERN: (77,13) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_double(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_double(void *)) [7/19=36.8%] src/confitems.c(84,1)
+  -> EXTERN: (86,9) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_size(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_size(const char *, void *, char **)) [8/19=42.1%] src/confitems.c(91,1)
+  -> EXTERN: (94,6) parse_size_with_suffix(const char *, uint64_t *)
+  -> EXTERN: (98,13) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_size(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_size(void *)) [9/19=47.4%] src/confitems.c(105,1)
+  -> EXTERN: (107,9) format_parsable_size_with_suffix(uint64_t)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_sloppiness(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_sloppiness(const char *, void *, char **)) [10/19=52.6%] src/confitems.c(112,1)
+  -> EXTERN: (118,12) x_strdup(const char *)
+  -> EXTERN: (122,17) strtok_r(char *__restrict__, const char *__restrict__, char **__restrict__)
+  -> EXTERN: (122,17) strtok_r(char *__restrict__, const char *__restrict__, char **__restrict__)
+  -> EXTERN: (123,7) strcmp(const char *, const char *)
+  -> EXTERN: (125,14) strcmp(const char *, const char *)
+  -> EXTERN: (127,14) strcmp(const char *, const char *)
+  -> EXTERN: (129,14) strcmp(const char *, const char *)
+  -> EXTERN: (131,14) strcmp(const char *, const char *)
+  -> EXTERN: (133,14) strcmp(const char *, const char *)
+  -> EXTERN: (134,17) strcmp(const char *, const char *)
+  -> EXTERN: (136,14) strcmp(const char *, const char *)
+  -> EXTERN: (138,14) strcmp(const char *, const char *)
+  -> EXTERN: (140,14) strcmp(const char *, const char *)
+  -> EXTERN: (142,14) strcmp(const char *, const char *)
+  -> EXTERN: (145,14) format(const char *, ...)
+  -> EXTERN: (146,4) free(void *)
+  -> EXTERN: (151,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_sloppiness(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_sloppiness(void *)) [11/19=57.9%] src/confitems.c(157,1)
+  -> EXTERN: (159,12) x_strdup(const char *)
+  -> EXTERN: (161,3) reformat(char **, const char *, ...)
+  -> EXTERN: (164,3) reformat(char **, const char *, ...)
+  -> EXTERN: (167,3) reformat(char **, const char *, ...)
+  -> EXTERN: (170,3) reformat(char **, const char *, ...)
+  -> EXTERN: (173,3) reformat(char **, const char *, ...)
+  -> EXTERN: (176,3) reformat(char **, const char *, ...)
+  -> EXTERN: (179,3) reformat(char **, const char *, ...)
+  -> EXTERN: (182,3) reformat(char **, const char *, ...)
+  -> EXTERN: (185,3) reformat(char **, const char *, ...)
+  -> EXTERN: (188,3) reformat(char **, const char *, ...)
+  -> EXTERN: (192,5) strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_string(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_string(const char *, void *, char **)) [12/19=63.2%] src/confitems.c(199,1)
+  -> EXTERN: (203,2) free(void *)
+  -> EXTERN: (204,11) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_string(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_string(void *)) [13/19=68.4%] src/confitems.c(210,1)
+  -> INLINE: (211,9) format_string(void *) (isz = 3) (sz = 10)
+    -> EXTERN: (24,9) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_umask(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_umask(const char *, void *, char **)) [14/19=73.7%] src/confitems.c(216,1)
+  -> EXTERN: (218,6) strcmp(const char *, const char *)
+  -> EXTERN: (223,2) __errno_location(void)
+  -> EXTERN: (225,11) strtoul(const char *__restrict__, char **__restrict__, int)
+  -> EXTERN: (226,6) __errno_location(void)
+  -> EXTERN: (229,13) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_umask(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_umask(void *)) [15/19=78.9%] src/confitems.c(236,1)
+  -> EXTERN: (239,10) x_strdup(const char *)
+  -> EXTERN: (241,10) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_parse_unsigned(const char *, void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_parse_unsigned(const char *, void *, char **)) [16/19=84.2%] src/confitems.c(247,1)
+  -> EXTERN: (249,2) __errno_location(void)
+  -> EXTERN: (251,11) strtol(const char *__restrict__, char **__restrict__, int)
+  -> EXTERN: (252,6) __errno_location(void)
+  -> EXTERN: (256,13) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_format_unsigned(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_format_unsigned(void *)) [17/19=89.5%] src/confitems.c(263,1)
+  -> EXTERN: (265,9) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_verify_absolute_path(void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_verify_absolute_path(void *, char **)) [18/19=94.7%] src/confitems.c(270,1)
+  -> EXTERN: (272,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (273,6) strcmp(const char *, const char *)
+  -> EXTERN: (276,13) is_absolute_path(const char *)
+  -> EXTERN: (279,13) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: confitem_verify_dir_levels(void *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (confitem_verify_dir_levels(void *, char **)) [19/19=100.0%] src/confitems.c(286,1)
+  -> EXTERN: (288,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (292,13) format(const char *, ...)
+
+===========================================================================

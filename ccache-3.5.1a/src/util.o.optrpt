@@ -1,0 +1,2372 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/util.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/util.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: open(const char *, int, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (open(const char *, int, ...))/usr/include/x86_64-linux-gnu/bits/fcntl2.h(42,1)
+
+===========================================================================
+
+Begin optimization report for: stat(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (stat(const char *, struct stat *))/usr/include/x86_64-linux-gnu/sys/stat.h(454,1)
+
+===========================================================================
+
+Begin optimization report for: lstat(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (lstat(const char *, struct stat *))/usr/include/x86_64-linux-gnu/sys/stat.h(461,1)
+
+===========================================================================
+
+Begin optimization report for: fstat(int, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (fstat(int, struct stat *))/usr/include/x86_64-linux-gnu/sys/stat.h(468,1)
+
+===========================================================================
+
+Begin optimization report for: sprintf(char *__restrict__, const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (sprintf(char *__restrict__, const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(35,1)
+
+===========================================================================
+
+Begin optimization report for: snprintf(char *__restrict__, size_t, const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (snprintf(char *__restrict__, size_t, const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(66,1)
+
+===========================================================================
+
+Begin optimization report for: vsnprintf(char *__restrict__, size_t, const char *__restrict__, struct __va_list_tag *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (vsnprintf(char *__restrict__, size_t, const char *__restrict__, struct __va_list_tag *))/usr/include/x86_64-linux-gnu/bits/stdio2.h(79,1)
+
+===========================================================================
+
+Begin optimization report for: fprintf(FILE *__restrict__, const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (fprintf(FILE *__restrict__, const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(99,1)
+
+===========================================================================
+
+Begin optimization report for: vfprintf(FILE *__restrict__, const char *__restrict__, struct __va_list_tag *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (vfprintf(FILE *__restrict__, const char *__restrict__, struct __va_list_tag *))/usr/include/x86_64-linux-gnu/bits/stdio2.h(129,1)
+
+===========================================================================
+
+Begin optimization report for: vasprintf(char **__restrict__, const char *__restrict__, struct __va_list_tag *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (vasprintf(char **__restrict__, const char *__restrict__, struct __va_list_tag *))/usr/include/x86_64-linux-gnu/bits/stdio2.h(212,1)
+
+===========================================================================
+
+Begin optimization report for: realpath(const char *__restrict__, char *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (realpath(const char *__restrict__, char *__restrict__))/usr/include/x86_64-linux-gnu/bits/stdlib.h(38,1)
+
+===========================================================================
+
+Begin optimization report for: memcpy(void *__restrict__, const void *__restrict__, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (memcpy(void *__restrict__, const void *__restrict__, size_t))/usr/include/x86_64-linux-gnu/bits/string_fortified.h(33,1)
+
+===========================================================================
+
+Begin optimization report for: strcpy(char *__restrict__, const char *__restrict__)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (strcpy(char *__restrict__, const char *__restrict__))/usr/include/x86_64-linux-gnu/bits/string_fortified.h(89,1)
+
+===========================================================================
+
+Begin optimization report for: read(int, void *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (read(int, void *, size_t))/usr/include/x86_64-linux-gnu/bits/unistd.h(35,1)
+
+===========================================================================
+
+Begin optimization report for: readlink(const char *__restrict__, char *__restrict__, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (readlink(const char *__restrict__, char *__restrict__, size_t))/usr/include/x86_64-linux-gnu/bits/unistd.h(141,1)
+
+===========================================================================
+
+Begin optimization report for: getcwd(char *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (getcwd(char *, size_t))/usr/include/x86_64-linux-gnu/bits/unistd.h(201,1)
+
+===========================================================================
+
+Begin optimization report for: gethostname(char *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (gethostname(char *, size_t))/usr/include/x86_64-linux-gnu/bits/unistd.h(345,1)
+
+===========================================================================
+
+Begin optimization report for: append_log(const char *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (append_log(const char *, size_t)) src/util.c(73,1)
+
+===========================================================================
+
+Begin optimization report for: x_realloc(void *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_realloc(void *, size_t)) [19/85=22.4%] src/util.c(772,1)
+  -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+    -> EXTERN: (746,14) malloc(size_t)
+    -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (776,13) realloc(void *, size_t)
+  -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: log_prefix(bool)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (log_prefix(bool)) src/util.c(85,1)
+
+===========================================================================
+
+Begin optimization report for: vlog(const char *, struct __va_list_tag *, bool)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (vlog(const char *, struct __va_list_tag *, bool)) src/util.c(144,1)
+
+===========================================================================
+
+Begin optimization report for: cc_bulklog(const char *, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (cc_bulklog(const char *, ...)) [22/85=25.9%] src/util.c(185,1)
+  -> EXTERN: (187,2) __builtin_stdarg_start
+  -> INLINE: (188,2) vlog(const char *, struct __va_list_tag *, bool) (isz = 368) (sz = 378)
+    -> INLINE: (145,7) init_log(void) (isz = 75) (sz = 83)
+      -> EXTERN: (51,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (54,15) x_malloc(size_t) (isz = 11) (sz = 19)
+        -> EXTERN: (746,14) malloc(size_t)
+        -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (57,6) strcmp(const char *, const char *)
+      -> EXTERN: (60,12) fopen(const char *__restrict__, const char *__restrict__)
+      -> INLINE: (63,3) set_cloexec_flag(int) (isz = 12) (sz = 17)
+        -> EXTERN: (1743,14) fcntl(int, int, ...)
+        -> EXTERN: (1745,3) fcntl(int, int, ...)
+      -> EXTERN: (63,20) fileno(FILE *)
+    -> EXTERN: (150,2) __builtin_va_copy
+    -> INLINE: (151,2) log_prefix(bool) (isz = 111) (sz = 116)
+      -> EXTERN: (92,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+      -> EXTERN: (96,8) localtime(const time_t *)
+      -> EXTERN: (98,3) strftime(char *__restrict__, size_t, const char *__restrict__, const struct tm *__restrict__)
+      -> INLINE: (99,3) snprintf(char *__restrict__, size_t, const char *__restrict__, ...) (isz = 10) (sz = 21)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(67,10) __builtin___snprintf_chk(char *, unsigned long, int, unsigned long, const char *, ...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(68,8) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(68,28) __builtin_va_arg_pack(void)
+      -> EXTERN: (100,64) getpid(void)
+      -> EXTERN: (106,3) fputs(const char *__restrict__, FILE *__restrict__)
+      -> INLINE: (109,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+        -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+        -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+          -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+            -> EXTERN: (746,14) malloc(size_t)
+            -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+               [[ Unable to inline callsite  <1>]]
+          -> EXTERN: (776,13) realloc(void *, size_t)
+          -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+      -> EXTERN: (109,22) strlen(const char *)
+    -> INLINE (MANUAL): (153,13) vfprintf(FILE *__restrict__, const char *__restrict__, struct __va_list_tag *) (isz = 2) (sz = 13)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(130,10) __vfprintf_chk(FILE *__restrict__, int, const char *__restrict__, struct __va_list_tag *)
+    -> INLINE: (154,13) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> INLINE: (156,4) warn_log_fail(void) (isz = 21) (sz = 23)
+      -> INLINE: (137,2) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+      -> EXTERN: (138,26) strerror(int)
+      -> EXTERN: (138,35) __errno_location(void)
+      -> INLINE: (139,2) x_exit(int) (isz = 6) (sz = 10)
+        -> EXTERN: (1474,3) exit(int)
+        -> EXTERN: (1476,3) _exit(int)
+    -> INLINE (MANUAL): (161,16) vsnprintf(char *__restrict__, size_t, const char *__restrict__, struct __va_list_tag *) (isz = 7) (sz = 20)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(80,10) __builtin___vsnprintf_chk(char *, unsigned long, int, unsigned long, const char *, struct __va_list_tag *)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(81,9) __builtin_object_size(const void *, int)
+    -> INLINE: (162,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+      -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+        -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+          -> EXTERN: (746,14) malloc(size_t)
+          -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (776,13) realloc(void *, size_t)
+        -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+    -> INLINE: (163,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+      -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+        -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+          -> EXTERN: (746,14) malloc(size_t)
+          -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (776,13) realloc(void *, size_t)
+        -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+    -> EXTERN: (165,2) __builtin_va_end
+  -> EXTERN: (189,2) __builtin_va_end
+
+===========================================================================
+
+Begin optimization report for: cc_log_argv(const char *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (cc_log_argv(const char *, char **)) [23/85=27.1%] src/util.c(195,1)
+  -> INLINE: (196,7) init_log(void) (isz = 75) (sz = 83)
+    -> EXTERN: (51,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+    -> INLINE: (54,15) x_malloc(size_t) (isz = 11) (sz = 19)
+      -> EXTERN: (746,14) malloc(size_t)
+      -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (57,6) strcmp(const char *, const char *)
+    -> EXTERN: (60,12) fopen(const char *__restrict__, const char *__restrict__)
+    -> INLINE: (63,3) set_cloexec_flag(int) (isz = 12) (sz = 17)
+      -> EXTERN: (1743,14) fcntl(int, int, ...)
+      -> EXTERN: (1745,3) fcntl(int, int, ...)
+    -> EXTERN: (63,20) fileno(FILE *)
+  -> INLINE: (200,2) log_prefix(bool) (isz = 111) (sz = 116)
+    -> EXTERN: (92,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+    -> EXTERN: (96,8) localtime(const time_t *)
+    -> EXTERN: (98,3) strftime(char *__restrict__, size_t, const char *__restrict__, const struct tm *__restrict__)
+    -> INLINE: (99,3) snprintf(char *__restrict__, size_t, const char *__restrict__, ...) (isz = 10) (sz = 21)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(67,10) __builtin___snprintf_chk(char *, unsigned long, int, unsigned long, const char *, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(68,8) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(68,28) __builtin_va_arg_pack(void)
+    -> EXTERN: (100,64) getpid(void)
+    -> EXTERN: (106,3) fputs(const char *__restrict__, FILE *__restrict__)
+    -> INLINE: (109,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+      -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+        -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+          -> EXTERN: (746,14) malloc(size_t)
+          -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (776,13) realloc(void *, size_t)
+        -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+    -> EXTERN: (109,22) strlen(const char *)
+  -> EXTERN: (202,3) fputs(const char *__restrict__, FILE *__restrict__)
+  -> EXTERN: (203,3) print_command(FILE *, char **)
+  -> EXTERN: (204,12) fflush(FILE *)
+  -> INLINE: (206,4) warn_log_fail(void) (isz = 21) (sz = 23)
+    -> INLINE: (137,2) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> EXTERN: (138,26) strerror(int)
+    -> EXTERN: (138,35) __errno_location(void)
+    -> INLINE: (139,2) x_exit(int) (isz = 6) (sz = 10)
+      -> EXTERN: (1474,3) exit(int)
+      -> EXTERN: (1476,3) _exit(int)
+  -> INLINE: (210,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+    -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+    -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+      -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+        -> EXTERN: (746,14) malloc(size_t)
+        -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (776,13) realloc(void *, size_t)
+      -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+  -> EXTERN: (210,22) strlen(const char *)
+  -> EXTERN: (211,13) format_command(char **)
+  -> INLINE: (212,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+    -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+    -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+      -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+        -> EXTERN: (746,14) malloc(size_t)
+        -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (776,13) realloc(void *, size_t)
+      -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+  -> EXTERN: (212,17) strlen(const char *)
+  -> EXTERN: (213,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: copy_fd(int, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (copy_fd(int, int)) [24/85=28.2%] src/util.c(245,1)
+  -> EXTERN: (246,17) gzdopen(int, const char *)
+  -> EXTERN: (246,25) dup(int)
+  -> (248,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (253,14) gzread(gzFile, voidp, unsigned int)
+  -> EXTERN: (253,14) gzread(gzFile, voidp, unsigned int)
+  -> EXTERN: (256,20) write(int, const void *, size_t)
+  -> EXTERN: (258,9) __errno_location(void)
+  -> EXTERN: (258,28) __errno_location(void)
+  -> (259,6) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (267,2) gzclose(gzFile)
+
+===========================================================================
+
+Begin optimization report for: get_umask(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (get_umask(void)) src/util.c(290,1)
+
+===========================================================================
+
+Begin optimization report for: copy_file(const char *, const char *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (copy_file(const char *, const char *, int)) [26/85=30.6%] src/util.c(307,1)
+  -> INLINE: (314,19) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE: (315,11) create_tmp_fd(char **) (isz = 291) (sz = 298)
+    -> (1232,19) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1232,43) tmp_string(void) (isz = 36) (sz = 41)
+      -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+        -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+        -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+      -> EXTERN: (623,58) getpid(void)
+    -> EXTERN: (1233,11) mkstemp(char *)
+    -> EXTERN: (1234,18) __errno_location(void)
+    -> INLINE: (1235,7) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+      -> INLINE: (515,17) dirname(const char *) (isz = 37) (sz = 44)
+        -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+          -> EXTERN: (704,14) strdup(const char *)
+          -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (913,12) strrchr(const char *, int)
+        -> EXTERN: (921,3) free(void *)
+        -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+          -> EXTERN: (704,14) strdup(const char *)
+          -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (517,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+      -> EXTERN: (522,4) __errno_location(void)
+      -> (525,9) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+         [[ Callee not marked with inlining pragma  <2>]]
+      -> EXTERN: (527,10) mkdir(const char *, __mode_t)
+      -> EXTERN: (536,20) __errno_location(void)
+      -> EXTERN: (543,2) free(void *)
+    -> (1236,4) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1237,10) dirname(const char *) (isz = 37) (sz = 44)
+      -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (913,12) strrchr(const char *, int)
+      -> EXTERN: (921,3) free(void *)
+      -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1237,27) strerror(int)
+    -> EXTERN: (1237,36) __errno_location(void)
+    -> (1239,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1239,40) tmp_string(void) (isz = 36) (sz = 41)
+      -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+        -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+        -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+      -> EXTERN: (623,58) getpid(void)
+    -> EXTERN: (1240,8) mkstemp(char *)
+    -> (1243,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1244,17) strerror(int)
+    -> EXTERN: (1244,26) __errno_location(void)
+    -> INLINE: (1246,2) set_cloexec_flag(int) (isz = 12) (sz = 17)
+      -> EXTERN: (1743,14) fcntl(int, int, ...)
+      -> EXTERN: (1745,3) fcntl(int, int, ...)
+    -> EXTERN: (1249,2) fchmod(int, __mode_t)
+    -> INLINE: (1249,21) get_umask(void) (isz = 10) (sz = 15)
+      -> EXTERN: (294,10) umask(__mode_t)
+      -> EXTERN: (295,3) umask(__mode_t)
+    -> EXTERN: (1252,2) free(void *)
+  -> (316,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (320,14) open(const char *, int, ...) (isz = 48) (sz = 60)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(43,7) __builtin_va_arg_pack_len(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(44,5) __open_too_many_args(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(46,7) __builtin_constant_p(...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(48,42) __builtin_va_arg_pack_len(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(50,4) __open_missing_mode(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(51,11) __open_2(const char *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,14) __open_alias(const char *, int, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,45) __builtin_va_arg_pack(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(56,7) __builtin_va_arg_pack_len(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(57,12) __open_2(const char *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,10) __open_alias(const char *, int, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,41) __builtin_va_arg_pack(void)
+  -> EXTERN: (322,17) __errno_location(void)
+  -> (323,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (323,28) strerror(int)
+  -> EXTERN: (327,10) gzdopen(int, const char *)
+  -> EXTERN: (329,17) __errno_location(void)
+  -> (330,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (330,36) strerror(int)
+  -> EXTERN: (331,3) close(int)
+  -> INLINE: (340,7) x_fstat(int, struct stat *) (isz = 15) (sz = 24)
+    -> INLINE (MANUAL): (797,15) fstat(int, struct stat *) (isz = 2) (sz = 11)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(469,10) __fxstat(int, int, struct stat *)
+    -> (799,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (799,43) strerror(int)
+    -> EXTERN: (799,52) __errno_location(void)
+  -> INLINE: (343,7) file_size(struct stat *) (isz = 11) (sz = 18)
+  -> EXTERN: (349,12) gzdopen(int, const char *)
+  -> EXTERN: (349,20) dup(int)
+  -> EXTERN: (351,18) __errno_location(void)
+  -> (352,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (352,38) strerror(int)
+  -> EXTERN: (355,3) gzsetparams(gzFile, int, int)
+  -> EXTERN: (360,14) gzread(gzFile, voidp, unsigned int)
+  -> EXTERN: (360,14) gzread(gzFile, voidp, unsigned int)
+  -> EXTERN: (363,14) gzwrite(gzFile, voidpc, unsigned int)
+  -> EXTERN: (367,21) write(int, const void *, size_t)
+  -> EXTERN: (368,24) __errno_location(void)
+  -> EXTERN: (369,20) __errno_location(void)
+  -> (378,5) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (379,12) gzerror(gzFile, int *)
+  -> EXTERN: (380,12) strerror(int)
+  -> (382,5) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (382,31) strerror(int)
+  -> EXTERN: (391,2) gzerror(gzFile, int *)
+  -> EXTERN: (392,7) gzeof(gzFile)
+  -> EXTERN: (393,17) __errno_location(void)
+  -> (394,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (395,10) gzerror(gzFile, int *)
+  -> EXTERN: (395,35) strerror(int)
+  -> EXTERN: (396,3) gzclose(gzFile)
+  -> EXTERN: (398,4) gzclose(gzFile)
+  -> EXTERN: (400,3) close(int)
+  -> INLINE: (401,3) tmp_unlink(const char *) (isz = 18) (sz = 25)
+    -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1529,11) unlink(const char *)
+    -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1531,31) strerror(int)
+    -> EXTERN: (1531,40) __errno_location(void)
+  -> EXTERN: (402,3) free(void *)
+  -> EXTERN: (406,2) gzclose(gzFile)
+  -> EXTERN: (409,3) gzclose(gzFile)
+  -> EXTERN: (414,2) fchmod(int, __mode_t)
+  -> INLINE: (414,25) get_umask(void) (isz = 10) (sz = 15)
+    -> EXTERN: (294,10) umask(__mode_t)
+    -> EXTERN: (295,3) umask(__mode_t)
+  -> EXTERN: (418,6) close(int)
+  -> EXTERN: (419,17) __errno_location(void)
+  -> (420,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (420,29) strerror(int)
+  -> INLINE: (424,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+    -> EXTERN: (1485,9) rename(const char *, const char *)
+  -> EXTERN: (425,17) __errno_location(void)
+  -> (426,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (426,30) strerror(int)
+  -> EXTERN: (430,2) free(void *)
+  -> EXTERN: (436,3) gzclose(gzFile)
+  -> EXTERN: (439,3) gzclose(gzFile)
+  -> EXTERN: (442,3) close(int)
+  -> INLINE: (444,2) tmp_unlink(const char *) (isz = 18) (sz = 25)
+    -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1529,11) unlink(const char *)
+    -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1531,31) strerror(int)
+    -> EXTERN: (1531,40) __errno_location(void)
+  -> EXTERN: (445,2) free(void *)
+  -> EXTERN: (446,2) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: create_parent_dirs(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (create_parent_dirs(const char *)) [27/85=31.8%] src/util.c(513,1)
+  -> INLINE: (515,17) dirname(const char *) (isz = 37) (sz = 44)
+    -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+      -> EXTERN: (704,14) strdup(const char *)
+      -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (913,12) strrchr(const char *, int)
+    -> EXTERN: (921,3) free(void *)
+    -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+      -> EXTERN: (704,14) strdup(const char *)
+      -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (517,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> EXTERN: (522,4) __errno_location(void)
+  -> (525,9) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+     [[ Callee not marked with inlining pragma  <2>]]
+  -> EXTERN: (527,10) mkdir(const char *, __mode_t)
+  -> EXTERN: (536,20) __errno_location(void)
+  -> EXTERN: (543,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: move_file(const char *, const char *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (move_file(const char *, const char *, int)) [28/85=32.9%] src/util.c(453,1)
+  -> INLINE: (454,12) copy_file(const char *, const char *, int) (isz = 707) (sz = 720)
+    -> INLINE: (314,19) x_strdup(const char *) (isz = 7) (sz = 14)
+      -> EXTERN: (704,14) strdup(const char *)
+      -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> INLINE: (315,11) create_tmp_fd(char **) (isz = 291) (sz = 298)
+      -> (1232,19) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (1232,43) tmp_string(void) (isz = 36) (sz = 41)
+        -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+          -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+          -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+        -> EXTERN: (623,58) getpid(void)
+      -> EXTERN: (1233,11) mkstemp(char *)
+      -> EXTERN: (1234,18) __errno_location(void)
+      -> INLINE: (1235,7) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+        -> INLINE: (515,17) dirname(const char *) (isz = 37) (sz = 44)
+          -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+            -> EXTERN: (704,14) strdup(const char *)
+            -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+               [[ Unable to inline callsite  <1>]]
+          -> EXTERN: (913,12) strrchr(const char *, int)
+          -> EXTERN: (921,3) free(void *)
+          -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+            -> EXTERN: (704,14) strdup(const char *)
+            -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+               [[ Unable to inline callsite  <1>]]
+        -> INLINE (MANUAL): (517,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+        -> EXTERN: (522,4) __errno_location(void)
+        -> (525,9) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+           [[ Callee not marked with inlining pragma  <2>]]
+        -> EXTERN: (527,10) mkdir(const char *, __mode_t)
+        -> EXTERN: (536,20) __errno_location(void)
+        -> EXTERN: (543,2) free(void *)
+      -> (1236,4) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (1237,10) dirname(const char *) (isz = 37) (sz = 44)
+        -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+          -> EXTERN: (704,14) strdup(const char *)
+          -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (913,12) strrchr(const char *, int)
+        -> EXTERN: (921,3) free(void *)
+        -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+          -> EXTERN: (704,14) strdup(const char *)
+          -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1237,27) strerror(int)
+      -> EXTERN: (1237,36) __errno_location(void)
+      -> (1239,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (1239,40) tmp_string(void) (isz = 36) (sz = 41)
+        -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+          -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+          -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+        -> EXTERN: (623,58) getpid(void)
+      -> EXTERN: (1240,8) mkstemp(char *)
+      -> (1243,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1244,17) strerror(int)
+      -> EXTERN: (1244,26) __errno_location(void)
+      -> INLINE: (1246,2) set_cloexec_flag(int) (isz = 12) (sz = 17)
+        -> EXTERN: (1743,14) fcntl(int, int, ...)
+        -> EXTERN: (1745,3) fcntl(int, int, ...)
+      -> EXTERN: (1249,2) fchmod(int, __mode_t)
+      -> INLINE: (1249,21) get_umask(void) (isz = 10) (sz = 15)
+        -> EXTERN: (294,10) umask(__mode_t)
+        -> EXTERN: (295,3) umask(__mode_t)
+      -> EXTERN: (1252,2) free(void *)
+    -> (316,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (320,14) open(const char *, int, ...) (isz = 48) (sz = 60)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(43,7) __builtin_va_arg_pack_len(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(44,5) __open_too_many_args(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(46,7) __builtin_constant_p(...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(48,42) __builtin_va_arg_pack_len(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(50,4) __open_missing_mode(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(51,11) __open_2(const char *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,14) __open_alias(const char *, int, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,45) __builtin_va_arg_pack(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(56,7) __builtin_va_arg_pack_len(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(57,12) __open_2(const char *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,10) __open_alias(const char *, int, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,41) __builtin_va_arg_pack(void)
+    -> EXTERN: (322,17) __errno_location(void)
+    -> (323,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (323,28) strerror(int)
+    -> EXTERN: (327,10) gzdopen(int, const char *)
+    -> EXTERN: (329,17) __errno_location(void)
+    -> (330,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (330,36) strerror(int)
+    -> EXTERN: (331,3) close(int)
+    -> INLINE: (340,7) x_fstat(int, struct stat *) (isz = 15) (sz = 24)
+      -> INLINE (MANUAL): (797,15) fstat(int, struct stat *) (isz = 2) (sz = 11)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(469,10) __fxstat(int, int, struct stat *)
+      -> (799,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (799,43) strerror(int)
+      -> EXTERN: (799,52) __errno_location(void)
+    -> INLINE: (343,7) file_size(struct stat *) (isz = 11) (sz = 18)
+    -> EXTERN: (349,12) gzdopen(int, const char *)
+    -> EXTERN: (349,20) dup(int)
+    -> EXTERN: (351,18) __errno_location(void)
+    -> (352,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (352,38) strerror(int)
+    -> EXTERN: (355,3) gzsetparams(gzFile, int, int)
+    -> EXTERN: (360,14) gzread(gzFile, voidp, unsigned int)
+    -> EXTERN: (360,14) gzread(gzFile, voidp, unsigned int)
+    -> EXTERN: (363,14) gzwrite(gzFile, voidpc, unsigned int)
+    -> EXTERN: (367,21) write(int, const void *, size_t)
+    -> EXTERN: (368,24) __errno_location(void)
+    -> EXTERN: (369,20) __errno_location(void)
+    -> (378,5) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (379,12) gzerror(gzFile, int *)
+    -> EXTERN: (380,12) strerror(int)
+    -> (382,5) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (382,31) strerror(int)
+    -> EXTERN: (391,2) gzerror(gzFile, int *)
+    -> EXTERN: (392,7) gzeof(gzFile)
+    -> EXTERN: (393,17) __errno_location(void)
+    -> (394,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (395,10) gzerror(gzFile, int *)
+    -> EXTERN: (395,35) strerror(int)
+    -> EXTERN: (396,3) gzclose(gzFile)
+    -> EXTERN: (398,4) gzclose(gzFile)
+    -> EXTERN: (400,3) close(int)
+    -> INLINE: (401,3) tmp_unlink(const char *) (isz = 18) (sz = 25)
+      -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1529,11) unlink(const char *)
+      -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1531,31) strerror(int)
+      -> EXTERN: (1531,40) __errno_location(void)
+    -> EXTERN: (402,3) free(void *)
+    -> EXTERN: (406,2) gzclose(gzFile)
+    -> EXTERN: (409,3) gzclose(gzFile)
+    -> EXTERN: (414,2) fchmod(int, __mode_t)
+    -> INLINE: (414,25) get_umask(void) (isz = 10) (sz = 15)
+      -> EXTERN: (294,10) umask(__mode_t)
+      -> EXTERN: (295,3) umask(__mode_t)
+    -> EXTERN: (418,6) close(int)
+    -> EXTERN: (419,17) __errno_location(void)
+    -> (420,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (420,29) strerror(int)
+    -> INLINE: (424,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+      -> EXTERN: (1485,9) rename(const char *, const char *)
+    -> EXTERN: (425,17) __errno_location(void)
+    -> (426,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (426,30) strerror(int)
+    -> EXTERN: (430,2) free(void *)
+    -> EXTERN: (436,3) gzclose(gzFile)
+    -> EXTERN: (439,3) gzclose(gzFile)
+    -> EXTERN: (442,3) close(int)
+    -> INLINE: (444,2) tmp_unlink(const char *) (isz = 18) (sz = 25)
+      -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1529,11) unlink(const char *)
+      -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1531,31) strerror(int)
+      -> EXTERN: (1531,40) __errno_location(void)
+    -> EXTERN: (445,2) free(void *)
+    -> EXTERN: (446,2) __errno_location(void)
+  -> INLINE: (456,3) x_unlink(const char *) (isz = 109) (sz = 116)
+    -> INLINE: (1576,9) do_x_unlink(const char *, bool) (isz = 107) (sz = 116)
+      -> (1544,19) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (1544,44) tmp_string(void) (isz = 36) (sz = 41)
+        -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+          -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+          -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+        -> EXTERN: (623,58) getpid(void)
+      -> INLINE: (1547,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+        -> EXTERN: (1485,9) rename(const char *, const char *)
+      -> EXTERN: (1549,17) __errno_location(void)
+      -> EXTERN: (1552,6) unlink(const char *)
+      -> EXTERN: (1554,7) __errno_location(void)
+      -> EXTERN: (1554,26) __errno_location(void)
+      -> EXTERN: (1556,18) __errno_location(void)
+      -> (1562,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> (1564,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (1564,34) strerror(int)
+      -> EXTERN: (1567,2) free(void *)
+      -> EXTERN: (1568,2) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: cc_log(const char *, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (cc_log(const char *, ...)) [29/85=34.1%] src/util.c(171,1)
+  -> EXTERN: (173,2) __builtin_stdarg_start
+  -> INLINE: (174,2) vlog(const char *, struct __va_list_tag *, bool) (isz = 368) (sz = 378)
+    -> INLINE: (145,7) init_log(void) (isz = 75) (sz = 83)
+      -> EXTERN: (51,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (54,15) x_malloc(size_t) (isz = 11) (sz = 19)
+        -> EXTERN: (746,14) malloc(size_t)
+        -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (57,6) strcmp(const char *, const char *)
+      -> EXTERN: (60,12) fopen(const char *__restrict__, const char *__restrict__)
+      -> INLINE: (63,3) set_cloexec_flag(int) (isz = 12) (sz = 17)
+        -> EXTERN: (1743,14) fcntl(int, int, ...)
+        -> EXTERN: (1745,3) fcntl(int, int, ...)
+      -> EXTERN: (63,20) fileno(FILE *)
+    -> EXTERN: (150,2) __builtin_va_copy
+    -> INLINE: (151,2) log_prefix(bool) (isz = 111) (sz = 116)
+      -> EXTERN: (92,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
+      -> EXTERN: (96,8) localtime(const time_t *)
+      -> EXTERN: (98,3) strftime(char *__restrict__, size_t, const char *__restrict__, const struct tm *__restrict__)
+      -> INLINE: (99,3) snprintf(char *__restrict__, size_t, const char *__restrict__, ...) (isz = 10) (sz = 21)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(67,10) __builtin___snprintf_chk(char *, unsigned long, int, unsigned long, const char *, ...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(68,8) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(68,28) __builtin_va_arg_pack(void)
+      -> EXTERN: (100,64) getpid(void)
+      -> EXTERN: (106,3) fputs(const char *__restrict__, FILE *__restrict__)
+      -> INLINE: (109,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+        -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+        -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+          -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+            -> EXTERN: (746,14) malloc(size_t)
+            -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+               [[ Unable to inline callsite  <1>]]
+          -> EXTERN: (776,13) realloc(void *, size_t)
+          -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+      -> EXTERN: (109,22) strlen(const char *)
+    -> INLINE (MANUAL): (153,13) vfprintf(FILE *__restrict__, const char *__restrict__, struct __va_list_tag *) (isz = 2) (sz = 13)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(130,10) __vfprintf_chk(FILE *__restrict__, int, const char *__restrict__, struct __va_list_tag *)
+    -> INLINE: (154,13) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> INLINE: (156,4) warn_log_fail(void) (isz = 21) (sz = 23)
+      -> INLINE: (137,2) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+      -> EXTERN: (138,26) strerror(int)
+      -> EXTERN: (138,35) __errno_location(void)
+      -> INLINE: (139,2) x_exit(int) (isz = 6) (sz = 10)
+        -> EXTERN: (1474,3) exit(int)
+        -> EXTERN: (1476,3) _exit(int)
+    -> INLINE (MANUAL): (161,16) vsnprintf(char *__restrict__, size_t, const char *__restrict__, struct __va_list_tag *) (isz = 7) (sz = 20)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(80,10) __builtin___vsnprintf_chk(char *, unsigned long, int, unsigned long, const char *, struct __va_list_tag *)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(81,9) __builtin_object_size(const void *, int)
+    -> INLINE: (162,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+      -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+        -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+          -> EXTERN: (746,14) malloc(size_t)
+          -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (776,13) realloc(void *, size_t)
+        -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+    -> INLINE: (163,3) append_log(const char *, size_t) (isz = 28) (sz = 35)
+      -> EXTERN: (74,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> INLINE: (77,15) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+        -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+          -> EXTERN: (746,14) malloc(size_t)
+          -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (776,13) realloc(void *, size_t)
+        -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (79,2) memcpy(void *__restrict__, const void *__restrict__, size_t) (isz = 6) (sz = 17)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,10) __builtin___memcpy_chk(void *, const void *, unsigned long, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(34,56) __builtin_object_size(const void *, int)
+    -> EXTERN: (165,2) __builtin_va_end
+  -> EXTERN: (175,2) __builtin_va_end
+  -> EXTERN: (177,3) fflush(FILE *)
+
+===========================================================================
+
+Begin optimization report for: move_uncompressed_file(const char *, const char *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (move_uncompressed_file(const char *, const char *, int)) [30/85=35.3%] src/util.c(465,1)
+  -> INLINE: (467,10) move_file(const char *, const char *, int) (isz = 823) (sz = 834)
+    -> INLINE: (454,12) copy_file(const char *, const char *, int) (isz = 707) (sz = 720)
+      -> INLINE: (314,19) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> INLINE: (315,11) create_tmp_fd(char **) (isz = 291) (sz = 298)
+        -> (1232,19) format(const char *, ...) (isz = 27) (sz = 34)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (1232,43) tmp_string(void) (isz = 36) (sz = 41)
+          -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+             [[ Unable to inline callsite  <1>]]
+          -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+            -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+            -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+          -> EXTERN: (623,58) getpid(void)
+        -> EXTERN: (1233,11) mkstemp(char *)
+        -> EXTERN: (1234,18) __errno_location(void)
+        -> INLINE: (1235,7) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+          -> INLINE: (515,17) dirname(const char *) (isz = 37) (sz = 44)
+            -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+              -> EXTERN: (704,14) strdup(const char *)
+              -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+                 [[ Unable to inline callsite  <1>]]
+            -> EXTERN: (913,12) strrchr(const char *, int)
+            -> EXTERN: (921,3) free(void *)
+            -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+              -> EXTERN: (704,14) strdup(const char *)
+              -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+                 [[ Unable to inline callsite  <1>]]
+          -> INLINE (MANUAL): (517,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+            -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+          -> EXTERN: (522,4) __errno_location(void)
+          -> (525,9) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+             [[ Callee not marked with inlining pragma  <2>]]
+          -> EXTERN: (527,10) mkdir(const char *, __mode_t)
+          -> EXTERN: (536,20) __errno_location(void)
+          -> EXTERN: (543,2) free(void *)
+        -> (1236,4) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (1237,10) dirname(const char *) (isz = 37) (sz = 44)
+          -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+            -> EXTERN: (704,14) strdup(const char *)
+            -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+               [[ Unable to inline callsite  <1>]]
+          -> EXTERN: (913,12) strrchr(const char *, int)
+          -> EXTERN: (921,3) free(void *)
+          -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+            -> EXTERN: (704,14) strdup(const char *)
+            -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+               [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1237,27) strerror(int)
+        -> EXTERN: (1237,36) __errno_location(void)
+        -> (1239,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (1239,40) tmp_string(void) (isz = 36) (sz = 41)
+          -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+             [[ Unable to inline callsite  <1>]]
+          -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+            -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+            -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+          -> EXTERN: (623,58) getpid(void)
+        -> EXTERN: (1240,8) mkstemp(char *)
+        -> (1243,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1244,17) strerror(int)
+        -> EXTERN: (1244,26) __errno_location(void)
+        -> INLINE: (1246,2) set_cloexec_flag(int) (isz = 12) (sz = 17)
+          -> EXTERN: (1743,14) fcntl(int, int, ...)
+          -> EXTERN: (1745,3) fcntl(int, int, ...)
+        -> EXTERN: (1249,2) fchmod(int, __mode_t)
+        -> INLINE: (1249,21) get_umask(void) (isz = 10) (sz = 15)
+          -> EXTERN: (294,10) umask(__mode_t)
+          -> EXTERN: (295,3) umask(__mode_t)
+        -> EXTERN: (1252,2) free(void *)
+      -> (316,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (320,14) open(const char *, int, ...) (isz = 48) (sz = 60)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(43,7) __builtin_va_arg_pack_len(void)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(44,5) __open_too_many_args(void)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(46,7) __builtin_constant_p(...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(48,42) __builtin_va_arg_pack_len(void)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(50,4) __open_missing_mode(void)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(51,11) __open_2(const char *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,14) __open_alias(const char *, int, ...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,45) __builtin_va_arg_pack(void)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(56,7) __builtin_va_arg_pack_len(void)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(57,12) __open_2(const char *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,10) __open_alias(const char *, int, ...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,41) __builtin_va_arg_pack(void)
+      -> EXTERN: (322,17) __errno_location(void)
+      -> (323,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (323,28) strerror(int)
+      -> EXTERN: (327,10) gzdopen(int, const char *)
+      -> EXTERN: (329,17) __errno_location(void)
+      -> (330,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (330,36) strerror(int)
+      -> EXTERN: (331,3) close(int)
+      -> INLINE: (340,7) x_fstat(int, struct stat *) (isz = 15) (sz = 24)
+        -> INLINE (MANUAL): (797,15) fstat(int, struct stat *) (isz = 2) (sz = 11)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(469,10) __fxstat(int, int, struct stat *)
+        -> (799,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (799,43) strerror(int)
+        -> EXTERN: (799,52) __errno_location(void)
+      -> INLINE: (343,7) file_size(struct stat *) (isz = 11) (sz = 18)
+      -> EXTERN: (349,12) gzdopen(int, const char *)
+      -> EXTERN: (349,20) dup(int)
+      -> EXTERN: (351,18) __errno_location(void)
+      -> (352,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (352,38) strerror(int)
+      -> EXTERN: (355,3) gzsetparams(gzFile, int, int)
+      -> EXTERN: (360,14) gzread(gzFile, voidp, unsigned int)
+      -> EXTERN: (360,14) gzread(gzFile, voidp, unsigned int)
+      -> EXTERN: (363,14) gzwrite(gzFile, voidpc, unsigned int)
+      -> EXTERN: (367,21) write(int, const void *, size_t)
+      -> EXTERN: (368,24) __errno_location(void)
+      -> EXTERN: (369,20) __errno_location(void)
+      -> (378,5) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (379,12) gzerror(gzFile, int *)
+      -> EXTERN: (380,12) strerror(int)
+      -> (382,5) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (382,31) strerror(int)
+      -> EXTERN: (391,2) gzerror(gzFile, int *)
+      -> EXTERN: (392,7) gzeof(gzFile)
+      -> EXTERN: (393,17) __errno_location(void)
+      -> (394,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (395,10) gzerror(gzFile, int *)
+      -> EXTERN: (395,35) strerror(int)
+      -> EXTERN: (396,3) gzclose(gzFile)
+      -> EXTERN: (398,4) gzclose(gzFile)
+      -> EXTERN: (400,3) close(int)
+      -> INLINE: (401,3) tmp_unlink(const char *) (isz = 18) (sz = 25)
+        -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1529,11) unlink(const char *)
+        -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1531,31) strerror(int)
+        -> EXTERN: (1531,40) __errno_location(void)
+      -> EXTERN: (402,3) free(void *)
+      -> EXTERN: (406,2) gzclose(gzFile)
+      -> EXTERN: (409,3) gzclose(gzFile)
+      -> EXTERN: (414,2) fchmod(int, __mode_t)
+      -> INLINE: (414,25) get_umask(void) (isz = 10) (sz = 15)
+        -> EXTERN: (294,10) umask(__mode_t)
+        -> EXTERN: (295,3) umask(__mode_t)
+      -> EXTERN: (418,6) close(int)
+      -> EXTERN: (419,17) __errno_location(void)
+      -> (420,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (420,29) strerror(int)
+      -> INLINE: (424,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+        -> EXTERN: (1485,9) rename(const char *, const char *)
+      -> EXTERN: (425,17) __errno_location(void)
+      -> (426,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (426,30) strerror(int)
+      -> EXTERN: (430,2) free(void *)
+      -> EXTERN: (436,3) gzclose(gzFile)
+      -> EXTERN: (439,3) gzclose(gzFile)
+      -> EXTERN: (442,3) close(int)
+      -> INLINE: (444,2) tmp_unlink(const char *) (isz = 18) (sz = 25)
+        -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1529,11) unlink(const char *)
+        -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1531,31) strerror(int)
+        -> EXTERN: (1531,40) __errno_location(void)
+      -> EXTERN: (445,2) free(void *)
+      -> EXTERN: (446,2) __errno_location(void)
+    -> INLINE: (456,3) x_unlink(const char *) (isz = 109) (sz = 116)
+      -> INLINE: (1576,9) do_x_unlink(const char *, bool) (isz = 107) (sz = 116)
+        -> (1544,19) format(const char *, ...) (isz = 27) (sz = 34)
+           [[ Unable to inline callsite  <1>]]
+        -> INLINE: (1544,44) tmp_string(void) (isz = 36) (sz = 41)
+          -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+             [[ Unable to inline callsite  <1>]]
+          -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+            -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+            -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+              -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+          -> EXTERN: (623,58) getpid(void)
+        -> INLINE: (1547,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+          -> EXTERN: (1485,9) rename(const char *, const char *)
+        -> EXTERN: (1549,17) __errno_location(void)
+        -> EXTERN: (1552,6) unlink(const char *)
+        -> EXTERN: (1554,7) __errno_location(void)
+        -> EXTERN: (1554,26) __errno_location(void)
+        -> EXTERN: (1556,18) __errno_location(void)
+        -> (1562,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> (1564,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+           [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (1564,34) strerror(int)
+        -> EXTERN: (1567,2) free(void *)
+        -> EXTERN: (1568,2) __errno_location(void)
+  -> INLINE: (469,10) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+    -> EXTERN: (1485,9) rename(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: file_is_compressed(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (file_is_compressed(const char *)) [31/85=36.5%] src/util.c(476,1)
+  -> EXTERN: (477,12) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (483,7) fgetc(FILE *)
+  -> EXTERN: (483,29) fgetc(FILE *)
+  -> EXTERN: (484,3) fclose(FILE *)
+  -> EXTERN: (488,2) fclose(FILE *)
+
+===========================================================================
+
+Begin optimization report for: create_dir(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (create_dir(const char *)) [32/85=37.6%] src/util.c(495,1)
+  -> INLINE (MANUAL): (497,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> EXTERN: (501,3) __errno_location(void)
+  -> EXTERN: (504,6) mkdir(const char *, __mode_t)
+  -> EXTERN: (504,31) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: get_hostname(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (get_hostname(void)) [33/85=38.8%] src/util.c(550,1)
+  -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+  -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+
+===========================================================================
+
+Begin optimization report for: tmp_string(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (tmp_string(void)) [34/85=40.0%] src/util.c(620,1)
+  -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+    -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+    -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+  -> EXTERN: (623,58) getpid(void)
+
+===========================================================================
+
+Begin optimization report for: format_hash_as_string(const unsigned char *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (format_hash_as_string(const unsigned char *, int)) [35/85=41.2%] src/util.c(632,1)
+  -> INLINE: (634,14) x_malloc(size_t) (isz = 11) (sz = 19)
+    -> EXTERN: (746,14) malloc(size_t)
+    -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE: (636,3) sprintf(char *__restrict__, const char *__restrict__, ...) (isz = 10) (sz = 19)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(36,10) __builtin___sprintf_chk(char *, int, unsigned long, const char *, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(37,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(37,27) __builtin_va_arg_pack(void)
+  -> INLINE: (639,3) sprintf(char *__restrict__, const char *__restrict__, ...) (isz = 10) (sz = 19)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(36,10) __builtin___sprintf_chk(char *, int, unsigned long, const char *, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(37,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(37,27) __builtin_va_arg_pack(void)
+
+===========================================================================
+
+Begin optimization report for: create_cachedirtag(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (create_cachedirtag(const char *)) [36/85=42.4%] src/util.c(652,1)
+  -> (653,19) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (655,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> EXTERN: (659,3) __errno_location(void)
+  -> EXTERN: (662,12) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (666,6) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (667,3) fclose(FILE *)
+  -> EXTERN: (670,6) fclose(FILE *)
+  -> EXTERN: (674,2) free(void *)
+  -> EXTERN: (677,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: x_strdup(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_strdup(const char *)) [37/85=43.5%] src/util.c(703,1)
+  -> EXTERN: (704,14) strdup(const char *)
+  -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: x_strndup(const char *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_strndup(const char *, size_t)) [38/85=44.7%] src/util.c(714,1)
+  -> EXTERN: (729,14) strndup(const char *, size_t)
+  -> (732,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: x_malloc(size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_malloc(size_t)) [39/85=45.9%] src/util.c(740,1)
+  -> EXTERN: (746,14) malloc(size_t)
+  -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: x_calloc(size_t, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_calloc(size_t, size_t)) [40/85=47.1%] src/util.c(756,1)
+  -> EXTERN: (762,14) calloc(size_t, size_t)
+  -> (764,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: x_unsetenv(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_unsetenv(const char *)) [41/85=48.2%] src/util.c(785,1)
+  -> EXTERN: (787,2) unsetenv(const char *)
+
+===========================================================================
+
+Begin optimization report for: x_fstat(int, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_fstat(int, struct stat *)) [42/85=49.4%] src/util.c(796,1)
+  -> INLINE (MANUAL): (797,15) fstat(int, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(469,10) __fxstat(int, int, struct stat *)
+  -> (799,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (799,43) strerror(int)
+  -> EXTERN: (799,52) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: x_lstat(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_lstat(const char *, struct stat *)) [43/85=50.6%] src/util.c(807,1)
+  -> INLINE (MANUAL): (808,15) lstat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(462,10) __lxstat(int, const char *, struct stat *)
+  -> (810,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (810,46) strerror(int)
+  -> EXTERN: (810,55) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: x_stat(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_stat(const char *, struct stat *)) [44/85=51.8%] src/util.c(818,1)
+  -> INLINE (MANUAL): (819,15) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> (821,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (821,45) strerror(int)
+  -> EXTERN: (821,54) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: traverse(const char *, void (*)(const char *, struct stat *))
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (traverse(const char *, void (*)(const char *, struct stat *))) [45/85=52.9%] src/util.c(849,1)
+  -> EXTERN: (850,11) opendir(const char *)
+  -> EXTERN: (856,15) readdir(DIR *)
+  -> EXTERN: (856,15) readdir(DIR *)
+  -> EXTERN: (857,7) strcmp(const char *, const char *)
+  -> EXTERN: (860,7) strcmp(const char *, const char *)
+  -> (868,17) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (870,7) lstat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(462,10) __lxstat(int, const char *, struct stat *)
+  -> EXTERN: (871,8) __errno_location(void)
+  -> EXTERN: (871,27) __errno_location(void)
+  -> (872,5) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (872,41) strerror(int)
+  -> EXTERN: (872,50) __errno_location(void)
+  -> EXTERN: (874,4) free(void *)
+  -> (879,4) traverse(const char *, void (*)(const char *, struct stat *)) (isz = 100) (sz = 108)
+     [[ Callee not marked with inlining pragma  <2>]]
+  -> INDIRECT-: (882,3)  fn_1648_V$130.0.52
+     [[ Callee not marked with inlining pragma  <2>]]
+  -> EXTERN: (883,3) free(void *)
+  -> EXTERN: (886,2) closedir(DIR *)
+
+===========================================================================
+
+Begin optimization report for: basename(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (basename(const char *)) [46/85=54.1%] src/util.c(893,1)
+  -> EXTERN: (894,12) strrchr(const char *, int)
+  -> INLINE: (905,9) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: dirname(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (dirname(const char *)) [47/85=55.3%] src/util.c(911,1)
+  -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (913,12) strrchr(const char *, int)
+  -> EXTERN: (921,3) free(void *)
+  -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: get_extension(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (get_extension(const char *)) [48/85=56.5%] src/util.c(936,1)
+  -> EXTERN: (937,15) strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: remove_extension(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (remove_extension(const char *)) [49/85=57.6%] src/util.c(953,1)
+  -> INLINE: (954,9) x_strndup(const char *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (729,14) strndup(const char *, size_t)
+    -> (732,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (954,25) strlen(const char *)
+  -> EXTERN: (954,40) strlen(const char *)
+  -> INLINE: (954,47) get_extension(const char *) (isz = 26) (sz = 34)
+    -> EXTERN: (937,15) strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: file_size(struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (file_size(struct stat *)) [50/85=58.8%] src/util.c(960,1)
+
+===========================================================================
+
+Begin optimization report for: format_human_readable_size(uint64_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (format_human_readable_size(uint64_t)) [51/85=60.0%] src/util.c(976,1)
+  -> (979,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> (981,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> (983,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: format_parsable_size_with_suffix(uint64_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (format_parsable_size_with_suffix(uint64_t)) [52/85=61.2%] src/util.c(991,1)
+  -> (994,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> (996,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> (998,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> (1000,7) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: parse_size_with_suffix(const char *, uint64_t *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (parse_size_with_suffix(const char *, uint64_t *)) [53/85=62.4%] src/util.c(1010,1)
+  -> EXTERN: (1011,2) __errno_location(void)
+  -> EXTERN: (1014,13) strtod(const char *__restrict__, char **__restrict__)
+  -> EXTERN: (1015,6) __errno_location(void)
+  -> EXTERN: (1019,9) __ctype_b_loc(void)
+  -> EXTERN: (1019,9) __ctype_b_loc(void)
+
+===========================================================================
+
+Begin optimization report for: x_realpath(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_realpath(const char *)) [54/85=63.5%] src/util.c(1135,1)
+  -> DELETED: (1136,16) path_max(const char *) (isz = 0) (sz = 5)
+  -> INLINE: (1137,14) x_malloc(size_t) (isz = 11) (sz = 19)
+    -> EXTERN: (746,14) malloc(size_t)
+    -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (1141,6) realpath(const char *__restrict__, char *__restrict__) (isz = 33) (sz = 44)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(39,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(42,11) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(43,9) __realpath_chk_warn(const char *__restrict__, char *__restrict__, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(43,50) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(45,14) __realpath_chk(const char *__restrict__, char *__restrict__, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(45,50) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdlib.h:(48,10) __realpath_alias(const char *__restrict__, char *__restrict__)
+  -> INLINE: (1175,7) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1176,3) free(void *)
+  -> EXTERN: (1179,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: path_max(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (path_max(const char *)) src/util.c(115,1)
+
+===========================================================================
+
+Begin optimization report for: gnu_getcwd(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (gnu_getcwd(void)) [56/85=65.9%] src/util.c(1186,1)
+  -> INLINE: (1190,26) x_malloc(size_t) (isz = 11) (sz = 19)
+    -> EXTERN: (746,14) malloc(size_t)
+    -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (1191,7) getcwd(char *, size_t) (isz = 39) (sz = 50)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(202,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(204,12) __builtin_constant_p(...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(205,9) __getcwd_chk(char *, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(205,38) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(207,20) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(208,9) __getcwd_chk_warn(char *, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(208,43) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(210,10) __getcwd_alias(char *, size_t)
+  -> EXTERN: (1194,3) free(void *)
+  -> EXTERN: (1195,7) __errno_location(void)
+  -> (1196,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1196,36) __errno_location(void)
+  -> EXTERN: (1196,43) strerror(int)
+  -> EXTERN: (1196,52) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: create_tmp_fd(char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (create_tmp_fd(char **)) [57/85=67.1%] src/util.c(1231,1)
+  -> (1232,19) format(const char *, ...) (isz = 27) (sz = 34)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1232,43) tmp_string(void) (isz = 36) (sz = 41)
+    -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+      -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+      -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+    -> EXTERN: (623,58) getpid(void)
+  -> EXTERN: (1233,11) mkstemp(char *)
+  -> EXTERN: (1234,18) __errno_location(void)
+  -> INLINE: (1235,7) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+    -> INLINE: (515,17) dirname(const char *) (isz = 37) (sz = 44)
+      -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (913,12) strrchr(const char *, int)
+      -> EXTERN: (921,3) free(void *)
+      -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+    -> INLINE (MANUAL): (517,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+    -> EXTERN: (522,4) __errno_location(void)
+    -> (525,9) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (527,10) mkdir(const char *, __mode_t)
+    -> EXTERN: (536,20) __errno_location(void)
+    -> EXTERN: (543,2) free(void *)
+  -> (1236,4) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1237,10) dirname(const char *) (isz = 37) (sz = 44)
+    -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+      -> EXTERN: (704,14) strdup(const char *)
+      -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (913,12) strrchr(const char *, int)
+    -> EXTERN: (921,3) free(void *)
+    -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+      -> EXTERN: (704,14) strdup(const char *)
+      -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1237,27) strerror(int)
+  -> EXTERN: (1237,36) __errno_location(void)
+  -> (1239,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1239,40) tmp_string(void) (isz = 36) (sz = 41)
+    -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+      -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+      -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+    -> EXTERN: (623,58) getpid(void)
+  -> EXTERN: (1240,8) mkstemp(char *)
+  -> (1243,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1244,17) strerror(int)
+  -> EXTERN: (1244,26) __errno_location(void)
+  -> INLINE: (1246,2) set_cloexec_flag(int) (isz = 12) (sz = 17)
+    -> EXTERN: (1743,14) fcntl(int, int, ...)
+    -> EXTERN: (1745,3) fcntl(int, int, ...)
+  -> EXTERN: (1249,2) fchmod(int, __mode_t)
+  -> INLINE: (1249,21) get_umask(void) (isz = 10) (sz = 15)
+    -> EXTERN: (294,10) umask(__mode_t)
+    -> EXTERN: (295,3) umask(__mode_t)
+  -> EXTERN: (1252,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: create_tmp_file(char **, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (create_tmp_file(char **, const char *)) [58/85=68.2%] src/util.c(1261,1)
+  -> EXTERN: (1262,15) fdopen(int, const char *)
+  -> INLINE: (1262,22) create_tmp_fd(char **) (isz = 291) (sz = 298)
+    -> (1232,19) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1232,43) tmp_string(void) (isz = 36) (sz = 41)
+      -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+        -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+        -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+      -> EXTERN: (623,58) getpid(void)
+    -> EXTERN: (1233,11) mkstemp(char *)
+    -> EXTERN: (1234,18) __errno_location(void)
+    -> INLINE: (1235,7) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+      -> INLINE: (515,17) dirname(const char *) (isz = 37) (sz = 44)
+        -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+          -> EXTERN: (704,14) strdup(const char *)
+          -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+        -> EXTERN: (913,12) strrchr(const char *, int)
+        -> EXTERN: (921,3) free(void *)
+        -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+          -> EXTERN: (704,14) strdup(const char *)
+          -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+             [[ Unable to inline callsite  <1>]]
+      -> INLINE (MANUAL): (517,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+      -> EXTERN: (522,4) __errno_location(void)
+      -> (525,9) create_parent_dirs(const char *) (isz = 77) (sz = 84)
+         [[ Callee not marked with inlining pragma  <2>]]
+      -> EXTERN: (527,10) mkdir(const char *, __mode_t)
+      -> EXTERN: (536,20) __errno_location(void)
+      -> EXTERN: (543,2) free(void *)
+    -> (1236,4) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1237,10) dirname(const char *) (isz = 37) (sz = 44)
+      -> INLINE: (912,12) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (913,12) strrchr(const char *, int)
+      -> EXTERN: (921,3) free(void *)
+      -> INLINE: (922,7) x_strdup(const char *) (isz = 7) (sz = 14)
+        -> EXTERN: (704,14) strdup(const char *)
+        -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1237,27) strerror(int)
+    -> EXTERN: (1237,36) __errno_location(void)
+    -> (1239,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1239,40) tmp_string(void) (isz = 36) (sz = 41)
+      -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+        -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+        -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+      -> EXTERN: (623,58) getpid(void)
+    -> EXTERN: (1240,8) mkstemp(char *)
+    -> (1243,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1244,17) strerror(int)
+    -> EXTERN: (1244,26) __errno_location(void)
+    -> INLINE: (1246,2) set_cloexec_flag(int) (isz = 12) (sz = 17)
+      -> EXTERN: (1743,14) fcntl(int, int, ...)
+      -> EXTERN: (1745,3) fcntl(int, int, ...)
+    -> EXTERN: (1249,2) fchmod(int, __mode_t)
+    -> INLINE: (1249,21) get_umask(void) (isz = 10) (sz = 15)
+      -> EXTERN: (294,10) umask(__mode_t)
+      -> EXTERN: (295,3) umask(__mode_t)
+    -> EXTERN: (1252,2) free(void *)
+  -> (1264,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1264,49) strerror(int)
+  -> EXTERN: (1264,58) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: get_home_directory(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (get_home_directory(void)) [59/85=69.4%] src/util.c(1272,1)
+  -> EXTERN: (1273,18) getenv(const char *)
+  -> EXTERN: (1285,24) getpwuid(__uid_t)
+  -> EXTERN: (1285,33) getuid(void)
+
+===========================================================================
+
+Begin optimization report for: get_cwd(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (get_cwd(void)) [60/85=70.6%] src/util.c(1298,1)
+  -> INLINE: (1302,14) gnu_getcwd(void) (isz = 47) (sz = 53)
+    -> INLINE: (1190,26) x_malloc(size_t) (isz = 11) (sz = 19)
+      -> EXTERN: (746,14) malloc(size_t)
+      -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> INLINE (MANUAL): (1191,7) getcwd(char *, size_t) (isz = 39) (sz = 50)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(202,7) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(204,12) __builtin_constant_p(...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(205,9) __getcwd_chk(char *, size_t, size_t)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(205,38) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(207,20) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(208,9) __getcwd_chk_warn(char *, size_t, size_t)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(208,43) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(210,10) __getcwd_alias(char *, size_t)
+    -> EXTERN: (1194,3) free(void *)
+    -> EXTERN: (1195,7) __errno_location(void)
+    -> (1196,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1196,36) __errno_location(void)
+    -> EXTERN: (1196,43) strerror(int)
+    -> EXTERN: (1196,52) __errno_location(void)
+  -> EXTERN: (1306,14) getenv(const char *)
+  -> INLINE (MANUAL): (1310,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> INLINE (MANUAL): (1313,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> EXTERN: (1317,3) free(void *)
+  -> INLINE: (1318,10) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: same_executable_name(const char *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (same_executable_name(const char *, const char *)) [61/85=71.8%] src/util.c(1327,1)
+  -> EXTERN: (1337,9) strcmp(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: common_dir_prefix_length(const char *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (common_dir_prefix_length(const char *, const char *)) [62/85=72.9%] src/util.c(1345,1)
+
+===========================================================================
+
+Begin optimization report for: get_relative_path(const char *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (get_relative_path(const char *, const char *)) [63/85=74.1%] src/util.c(1369,1)
+  -> EXTERN: (1373,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> INLINE: (1373,2) is_absolute_path(const char *) (isz = 3) (sz = 9)
+  -> EXTERN: (1374,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> INLINE: (1376,15) is_absolute_path(const char *) (isz = 3) (sz = 9)
+  -> INLINE: (1377,10) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1394,11) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1395,22) common_dir_prefix_length(const char *, const char *) (isz = 96) (sz = 106)
+  -> EXTERN: (1396,32) strcmp(const char *, const char *)
+  -> (1400,5) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1404,6) strlen(const char *)
+  -> (1405,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1407,15) strlen(const char *)
+  -> EXTERN: (1410,6) strcmp(const char *, const char *)
+  -> EXTERN: (1411,3) free(void *)
+  -> INLINE: (1412,12) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: is_absolute_path(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (is_absolute_path(const char *)) [64/85=75.3%] src/util.c(1420,1)
+
+===========================================================================
+
+Begin optimization report for: is_full_path(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (is_full_path(const char *)) [65/85=76.5%] src/util.c(1431,1)
+  -> EXTERN: (1432,6) strchr(const char *, int)
+
+===========================================================================
+
+Begin optimization report for: is_symlink(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (is_symlink(const char *)) [66/85=77.6%] src/util.c(1444,1)
+  -> INLINE: (1450,9) x_lstat(const char *, struct stat *) (isz = 15) (sz = 24)
+    -> INLINE (MANUAL): (808,15) lstat(const char *, struct stat *) (isz = 2) (sz = 11)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(462,10) __lxstat(int, const char *, struct stat *)
+    -> (810,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (810,46) strerror(int)
+    -> EXTERN: (810,55) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: update_mtime(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (update_mtime(const char *)) [67/85=78.8%] src/util.c(1458,1)
+  -> EXTERN: (1460,2) utimes(const char *, const struct timeval *)
+
+===========================================================================
+
+Begin optimization report for: x_rename(const char *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_rename(const char *, const char *)) [68/85=80.0%] src/util.c(1483,1)
+  -> EXTERN: (1485,9) rename(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: tmp_unlink(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (tmp_unlink(const char *)) [69/85=81.2%] src/util.c(1527,1)
+  -> (1528,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1529,11) unlink(const char *)
+  -> (1531,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1531,31) strerror(int)
+  -> EXTERN: (1531,40) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: do_x_unlink(const char *, bool)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (do_x_unlink(const char *, bool)) src/util.c(1538,1)
+
+===========================================================================
+
+Begin optimization report for: x_unlink(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_unlink(const char *)) [71/85=83.5%] src/util.c(1575,1)
+  -> INLINE: (1576,9) do_x_unlink(const char *, bool) (isz = 107) (sz = 116)
+    -> (1544,19) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1544,44) tmp_string(void) (isz = 36) (sz = 41)
+      -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+        -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+        -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+      -> EXTERN: (623,58) getpid(void)
+    -> INLINE: (1547,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+      -> EXTERN: (1485,9) rename(const char *, const char *)
+    -> EXTERN: (1549,17) __errno_location(void)
+    -> EXTERN: (1552,6) unlink(const char *)
+    -> EXTERN: (1554,7) __errno_location(void)
+    -> EXTERN: (1554,26) __errno_location(void)
+    -> EXTERN: (1556,18) __errno_location(void)
+    -> (1562,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> (1564,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1564,34) strerror(int)
+    -> EXTERN: (1567,2) free(void *)
+    -> EXTERN: (1568,2) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: x_try_unlink(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_try_unlink(const char *)) [72/85=84.7%] src/util.c(1582,1)
+  -> INLINE: (1583,9) do_x_unlink(const char *, bool) (isz = 107) (sz = 116)
+    -> (1544,19) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1544,44) tmp_string(void) (isz = 36) (sz = 41)
+      -> (623,9) format(const char *, ...) (isz = 27) (sz = 34)
+         [[ Unable to inline callsite  <1>]]
+      -> INLINE: (623,32) get_hostname(void) (isz = 23) (sz = 29)
+        -> INLINE (MANUAL): (557,2) strcpy(char *__restrict__, const char *__restrict__) (isz = 6) (sz = 15)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,10) __builtin___strcpy_chk(char *, const char *, unsigned long)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(90,49) __builtin_object_size(const void *, int)
+        -> INLINE (MANUAL): (559,2) gethostname(char *, size_t) (isz = 39) (sz = 50)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(346,7) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(348,12) __builtin_constant_p(...)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,9) __gethostname_chk(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(349,45) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(351,22) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,9) __gethostname_chk_warn(char *, size_t, size_t)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(352,50) __builtin_object_size(const void *, int)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(354,10) __gethostname_alias(char *, size_t)
+      -> EXTERN: (623,58) getpid(void)
+    -> INLINE: (1547,6) x_rename(const char *, const char *) (isz = 1) (sz = 10)
+      -> EXTERN: (1485,9) rename(const char *, const char *)
+    -> EXTERN: (1549,17) __errno_location(void)
+    -> EXTERN: (1552,6) unlink(const char *)
+    -> EXTERN: (1554,7) __errno_location(void)
+    -> EXTERN: (1554,26) __errno_location(void)
+    -> EXTERN: (1556,18) __errno_location(void)
+    -> (1562,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> (1564,4) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1564,34) strerror(int)
+    -> EXTERN: (1567,2) free(void *)
+    -> EXTERN: (1568,2) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: x_readlink(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_readlink(const char *)) [73/85=85.9%] src/util.c(1590,1)
+  -> DELETED: (1591,16) path_max(const char *) (isz = 0) (sz = 5)
+  -> INLINE: (1592,14) x_malloc(size_t) (isz = 11) (sz = 19)
+    -> EXTERN: (746,14) malloc(size_t)
+    -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (1593,16) readlink(const char *__restrict__, char *__restrict__, size_t) (isz = 41) (sz = 54)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(142,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(144,12) __builtin_constant_p(...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(145,9) __readlink_chk(const char *__restrict__, char *__restrict__, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(145,47) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(147,20) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(148,9) __readlink_chk_warn(const char *__restrict__, char *__restrict__, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(148,52) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(150,10) __readlink_alias(const char *__restrict__, char *__restrict__, size_t)
+  -> EXTERN: (1595,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: read_file(const char *, size_t, char **, size_t *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (read_file(const char *, size_t, char **, size_t *)) [74/85=87.1%] src/util.c(1607,1)
+  -> INLINE: (1610,7) x_stat(const char *, struct stat *) (isz = 15) (sz = 24)
+    -> INLINE (MANUAL): (819,15) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+    -> (821,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (821,45) strerror(int)
+    -> EXTERN: (821,54) __errno_location(void)
+  -> INLINE: (1616,11) open(const char *, int, ...) (isz = 48) (sz = 60)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(43,7) __builtin_va_arg_pack_len(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(44,5) __open_too_many_args(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(46,7) __builtin_constant_p(...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(48,42) __builtin_va_arg_pack_len(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(50,4) __open_missing_mode(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(51,11) __open_2(const char *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,14) __open_alias(const char *, int, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,45) __builtin_va_arg_pack(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(56,7) __builtin_va_arg_pack_len(void)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(57,12) __open_2(const char *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,10) __open_alias(const char *, int, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,41) __builtin_va_arg_pack(void)
+  -> INLINE: (1621,10) x_malloc(size_t) (isz = 11) (sz = 19)
+    -> EXTERN: (746,14) malloc(size_t)
+    -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1627,12) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+    -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+      -> EXTERN: (746,14) malloc(size_t)
+      -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (776,13) realloc(void *, size_t)
+    -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> INLINE (MANUAL): (1629,9) read(int, void *, size_t) (isz = 41) (sz = 54)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(36,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(38,12) __builtin_constant_p(...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(39,9) __read_chk(int, void *, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(39,44) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(41,22) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(42,9) __read_chk_warn(int, void *, size_t, size_t)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(42,49) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(44,10) __read_alias(int, void *, size_t)
+  -> EXTERN: (1630,33) __errno_location(void)
+  -> EXTERN: (1637,2) close(int)
+  -> (1639,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (1640,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: read_text_file(const char *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (read_text_file(const char *, size_t)) [75/85=88.2%] src/util.c(1653,1)
+  -> INLINE: (1656,6) read_file(const char *, size_t, char **, size_t *) (isz = 133) (sz = 148)
+    -> INLINE: (1610,7) x_stat(const char *, struct stat *) (isz = 15) (sz = 24)
+      -> INLINE (MANUAL): (819,15) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+        -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+      -> (821,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+         [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (821,45) strerror(int)
+      -> EXTERN: (821,54) __errno_location(void)
+    -> INLINE: (1616,11) open(const char *, int, ...) (isz = 48) (sz = 60)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(43,7) __builtin_va_arg_pack_len(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(44,5) __open_too_many_args(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(46,7) __builtin_constant_p(...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(48,42) __builtin_va_arg_pack_len(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(50,4) __open_missing_mode(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(51,11) __open_2(const char *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,14) __open_alias(const char *, int, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(53,45) __builtin_va_arg_pack(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(56,7) __builtin_va_arg_pack_len(void)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(57,12) __open_2(const char *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,10) __open_alias(const char *, int, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/fcntl2.h:(59,41) __builtin_va_arg_pack(void)
+    -> INLINE: (1621,10) x_malloc(size_t) (isz = 11) (sz = 19)
+      -> EXTERN: (746,14) malloc(size_t)
+      -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1627,12) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+      -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+        -> EXTERN: (746,14) malloc(size_t)
+        -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+           [[ Unable to inline callsite  <1>]]
+      -> EXTERN: (776,13) realloc(void *, size_t)
+      -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> INLINE (MANUAL): (1629,9) read(int, void *, size_t) (isz = 41) (sz = 54)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(36,7) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(38,12) __builtin_constant_p(...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(39,9) __read_chk(int, void *, size_t, size_t)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(39,44) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(41,22) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(42,9) __read_chk_warn(int, void *, size_t, size_t)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(42,49) __builtin_object_size(const void *, int)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/unistd.h:(44,10) __read_alias(int, void *, size_t)
+    -> EXTERN: (1630,33) __errno_location(void)
+    -> EXTERN: (1637,2) close(int)
+    -> (1639,3) cc_log(const char *, ...) (isz = 385) (sz = 390)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1640,3) free(void *)
+  -> INLINE: (1657,10) x_realloc(void *, size_t) (isz = 25) (sz = 35)
+    -> INLINE: (774,10) x_malloc(size_t) (isz = 11) (sz = 19)
+      -> EXTERN: (746,14) malloc(size_t)
+      -> (748,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (776,13) realloc(void *, size_t)
+    -> (778,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: expand_variable(const char **, char **, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (expand_variable(const char **, char **, char **)) src/util.c(1667,1)
+
+===========================================================================
+
+Begin optimization report for: subst_env_in_string(const char *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (subst_env_in_string(const char *, char **)) [77/85=90.6%] src/util.c(1718,1)
+  -> EXTERN: (1719,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> INLINE: (1722,17) x_strdup(const char *) (isz = 7) (sz = 14)
+    -> EXTERN: (704,14) strdup(const char *)
+    -> (706,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+       [[ Unable to inline callsite  <1>]]
+  -> (1727,4) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (1728,9) expand_variable(const char **, char **, char **) (isz = 116) (sz = 130)
+    -> EXTERN: (1668,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+    -> EXTERN: (1680,9) __ctype_b_loc(void)
+    -> (1685,14) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> (1692,3) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+       [[ Unable to inline callsite  <1>]]
+    -> INLINE: (1696,15) x_strndup(const char *, size_t) (isz = 8) (sz = 17)
+      -> EXTERN: (729,14) strndup(const char *, size_t)
+      -> (732,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+         [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1697,22) getenv(const char *)
+    -> (1699,13) format(const char *, ...) (isz = 27) (sz = 34)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1700,3) free(void *)
+    -> (1703,2) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+       [[ Unable to inline callsite  <1>]]
+    -> EXTERN: (1708,2) free(void *)
+  -> EXTERN: (1729,5) free(void *)
+  -> (1735,2) reformat(char **, const char *, ...) (isz = 25) (sz = 32)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: format(const char *, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (format(const char *, ...)) [78/85=91.8%] src/util.c(684,1)
+  -> EXTERN: (686,2) __builtin_stdarg_start
+  -> INLINE (MANUAL): (689,6) vasprintf(char **__restrict__, const char *__restrict__, struct __va_list_tag *) (isz = 2) (sz = 13)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(213,10) __vasprintf_chk(char **__restrict__, int, const char *__restrict__, struct __va_list_tag *)
+  -> (690,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (692,2) __builtin_va_end
+  -> (695,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+
+===========================================================================
+
+Begin optimization report for: reformat(char **, const char *, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (reformat(char **, const char *, ...)) [79/85=92.9%] src/util.c(830,1)
+  -> EXTERN: (835,2) __builtin_stdarg_start
+  -> INLINE (MANUAL): (836,6) vasprintf(char **__restrict__, const char *__restrict__, struct __va_list_tag *) (isz = 2) (sz = 13)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(213,10) __vasprintf_chk(char **__restrict__, int, const char *__restrict__, struct __va_list_tag *)
+  -> (837,3) fatal(const char *, ...) (isz = 39) (sz = 43)
+     [[ Unable to inline callsite  <1>]]
+  -> EXTERN: (839,2) __builtin_va_end
+  -> EXTERN: (842,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: set_cloexec_flag(int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (set_cloexec_flag(int)) [80/85=94.1%] src/util.c(1741,1)
+  -> EXTERN: (1743,14) fcntl(int, int, ...)
+  -> EXTERN: (1745,3) fcntl(int, int, ...)
+
+===========================================================================
+
+Begin optimization report for: x_exit(int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (x_exit(int)) [81/85=95.3%] src/util.c(1470,1)
+  -> EXTERN: (1474,3) exit(int)
+  -> EXTERN: (1476,3) _exit(int)
+
+===========================================================================
+
+Begin optimization report for: fatal(const char *, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (fatal(const char *, ...)) [82/85=96.5%] src/util.c(229,1)
+  -> EXTERN: (231,2) __builtin_stdarg_start
+  -> INLINE (MANUAL): (233,2) vsnprintf(char *__restrict__, size_t, const char *__restrict__, struct __va_list_tag *) (isz = 7) (sz = 20)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(80,10) __builtin___vsnprintf_chk(char *, unsigned long, int, unsigned long, const char *, struct __va_list_tag *)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(81,9) __builtin_object_size(const void *, int)
+  -> EXTERN: (234,2) __builtin_va_end
+  -> (236,2) cc_log(const char *, ...) (isz = 385) (sz = 390)
+     [[ Unable to inline callsite  <1>]]
+  -> INLINE: (237,2) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+  -> INLINE: (239,2) x_exit(int) (isz = 6) (sz = 10)
+    -> EXTERN: (1474,3) exit(int)
+    -> EXTERN: (1476,3) _exit(int)
+
+===========================================================================
+
+Begin optimization report for: cc_dump_log_buffer(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (cc_dump_log_buffer(const char *)) [83/85=97.6%] src/util.c(220,1)
+  -> EXTERN: (221,15) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (222,9) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (223,2) fclose(FILE *)
+
+===========================================================================
+
+Begin optimization report for: warn_log_fail(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (warn_log_fail(void)) src/util.c(133,1)
+
+===========================================================================
+
+Begin optimization report for: init_log(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (init_log(void)) src/util.c(45,1)
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> Inlining the function will lead to incorrect program behavior.
+
+<2> The compiler's heuristics indicate that the function is not profitable to 
+    inline.  Override this decision by adding "inline 
+    __attribute__((always_inline))" to the declaration of the called function, 
+    or add "#pragma forceinline" before the call site.
+

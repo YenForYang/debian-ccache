@@ -1,0 +1,257 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/hash.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/hash.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: do_hash_buffer(struct hash *, const void *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (do_hash_buffer(struct hash *, const void *, size_t)) src/hash.c(32,1)
+
+===========================================================================
+
+Begin optimization report for: do_debug_text(struct hash *, const void *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (do_debug_text(struct hash *, const void *, size_t)) src/hash.c(41,1)
+
+===========================================================================
+
+Begin optimization report for: hash_copy(struct hash *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_copy(struct hash *)) [3/17=17.6%] src/hash.c(59,1)
+  -> EXTERN: (60,24) malloc(size_t)
+
+===========================================================================
+
+Begin optimization report for: hash_free(struct hash *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_free(struct hash *)) [4/17=23.5%] src/hash.c(68,1)
+  -> EXTERN: (69,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: hash_enable_debug(struct hash *, const char *, FILE *, FILE *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_enable_debug(struct hash *, const char *, FILE *, FILE *)) [5/17=29.4%] src/hash.c(75,1)
+  -> INLINE: (79,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> INLINE: (80,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (80,36) strlen(const char *)
+  -> INLINE: (81,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+
+===========================================================================
+
+Begin optimization report for: hash_input_size(struct hash *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_input_size(struct hash *)) [6/17=35.3%] src/hash.c(86,1)
+
+===========================================================================
+
+Begin optimization report for: hash_buffer(struct hash *, const void *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_buffer(struct hash *, const void *, size_t)) [7/17=41.2%] src/hash.c(92,1)
+  -> INLINE: (93,2) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+    -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> INLINE: (94,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+
+===========================================================================
+
+Begin optimization report for: hash_result(struct hash *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_result(struct hash *)) [8/17=47.1%] src/hash.c(99,1)
+  -> INLINE: (102,2) hash_result_as_bytes(struct hash *, unsigned char *) (isz = 8) (sz = 15)
+    -> EXTERN: (109,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (110,2) mdfour_result(struct mdfour *, unsigned char *)
+  -> EXTERN: (103,9) format_hash_as_string(const unsigned char *, int)
+
+===========================================================================
+
+Begin optimization report for: hash_result_as_bytes(struct hash *, unsigned char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_result_as_bytes(struct hash *, unsigned char *)) [9/17=52.9%] src/hash.c(108,1)
+  -> EXTERN: (109,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+  -> EXTERN: (110,2) mdfour_result(struct mdfour *, unsigned char *)
+
+===========================================================================
+
+Begin optimization report for: hash_equal(struct hash *, struct hash *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_equal(struct hash *, struct hash *)) [10/17=58.8%] src/hash.c(115,1)
+  -> INLINE: (117,2) hash_result_as_bytes(struct hash *, unsigned char *) (isz = 8) (sz = 15)
+    -> EXTERN: (109,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (110,2) mdfour_result(struct mdfour *, unsigned char *)
+  -> INLINE: (119,2) hash_result_as_bytes(struct hash *, unsigned char *) (isz = 8) (sz = 15)
+    -> EXTERN: (109,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (110,2) mdfour_result(struct mdfour *, unsigned char *)
+  -> EXTERN: (120,9) memcmp(const void *, const void *, size_t)
+
+===========================================================================
+
+Begin optimization report for: hash_delimiter(struct hash *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_delimiter(struct hash *, const char *)) [11/17=64.7%] src/hash.c(125,1)
+  -> INLINE: (126,2) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+    -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> INLINE: (127,2) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+    -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (127,29) strlen(const char *)
+  -> INLINE: (128,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> INLINE: (129,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (129,28) strlen(const char *)
+  -> INLINE: (130,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+
+===========================================================================
+
+Begin optimization report for: hash_string(struct hash *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_string(struct hash *, const char *)) [12/17=70.6%] src/hash.c(135,1)
+  -> INLINE: (136,2) hash_string_buffer(struct hash *, const char *, int) (isz = 39) (sz = 48)
+    -> INLINE: (142,2) hash_buffer(struct hash *, const void *, size_t) (isz = 26) (sz = 35)
+      -> INLINE: (93,2) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+        -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+        -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+      -> INLINE: (94,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+        -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+    -> INLINE: (143,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+      -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (136,30) strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: hash_string_buffer(struct hash *, const char *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_string_buffer(struct hash *, const char *, int)) [13/17=76.5%] src/hash.c(141,1)
+  -> INLINE: (142,2) hash_buffer(struct hash *, const void *, size_t) (isz = 26) (sz = 35)
+    -> INLINE: (93,2) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+      -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+      -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+    -> INLINE: (94,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+      -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> INLINE: (143,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+
+===========================================================================
+
+Begin optimization report for: hash_int(struct hash *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_int(struct hash *, int)) [14/17=82.4%] src/hash.c(148,1)
+  -> INLINE: (149,2) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+    -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (152,2) snprintf(char *__restrict__, size_t, const char *__restrict__, ...)
+  -> INLINE: (153,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (153,27) strlen(const char *)
+  -> INLINE: (154,2) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+
+===========================================================================
+
+Begin optimization report for: hash_fd(struct hash *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_fd(struct hash *, int)) [15/17=88.2%] src/hash.c(159,1)
+  -> EXTERN: (163,14) read(int, void *, size_t)
+  -> EXTERN: (163,14) read(int, void *, size_t)
+  -> EXTERN: (164,18) __errno_location(void)
+  -> INLINE: (168,4) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+    -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+    -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> INLINE: (169,4) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+    -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+
+===========================================================================
+
+Begin optimization report for: hash_file(struct hash *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_file(struct hash *, const char *)) [16/17=94.1%] src/hash.c(177,1)
+  -> EXTERN: (178,11) open(const char *, int, ...)
+  -> EXTERN: (180,3) cc_log(const char *, ...)
+  -> EXTERN: (180,42) strerror(int)
+  -> EXTERN: (180,51) __errno_location(void)
+  -> INLINE: (184,13) hash_fd(struct hash *, int) (isz = 73) (sz = 82)
+    -> EXTERN: (163,14) read(int, void *, size_t)
+    -> EXTERN: (163,14) read(int, void *, size_t)
+    -> EXTERN: (164,18) __errno_location(void)
+    -> INLINE: (168,4) do_hash_buffer(struct hash *, const void *, size_t) (isz = 14) (sz = 23)
+      -> EXTERN: (33,2) mdfour_update(struct mdfour *, const unsigned char *, size_t)
+      -> EXTERN: (35,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+    -> INLINE: (169,4) do_debug_text(struct hash *, const void *, size_t) (isz = 8) (sz = 17)
+      -> EXTERN: (43,10) fwrite(const void *__restrict__, size_t, size_t, FILE *__restrict__)
+  -> EXTERN: (185,2) close(int)
+
+===========================================================================
+
+Begin optimization report for: hash_init(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_init(void)) [17/17=100.0%] src/hash.c(49,1)
+  -> EXTERN: (50,22) malloc(size_t)
+  -> EXTERN: (51,2) mdfour_begin(struct mdfour *)
+
+===========================================================================

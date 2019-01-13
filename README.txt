@@ -1,0 +1,3 @@
+one-line command to build
+
+icc.pl -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -I. -I./src -I./unittest -D_FORTIFY_SOURCE=2 -g -o ccache src/main.c src/args.c src/ccache.c src/cleanup.c src/compopt.c src/conf.c src/confitems.c src/counters.c src/execute.c src/exitfn.c src/hash.c src/hashutil.c src/language.c src/lockfile.c src/manifest.c src/mdfour.c src/stats.c src/unify.c src/util.c src/confitems_lookup.c src/envtoconfitems_lookup.c src/version.c src/getopt_long.c src/hashtable.c src/hashtable_itr.c src/murmurhashneutral2.c src/snprintf.c -Wl,-z,now  -lz -no-inline-max-total-size -qopt-report-file=OPTRPT.optrpt

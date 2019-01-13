@@ -3,6 +3,7 @@ dpkg-buildpackage: info: source package ccache
 dpkg-buildpackage: info: source version 3.5.1a-1
 dpkg-buildpackage: info: source distribution UNRELEASED
 dpkg-buildpackage: info: source changed by Richard Yang <richard@yenforyang.com>
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
  dpkg-source --before-build .
 dpkg-buildpackage: info: host architecture amd64
  fakeroot debian/rules clean
@@ -10,10 +11,10 @@ dh_testdir
 dh_testroot
 rm -f build-stamp configure-stamp
 [ ! -f Makefile ] || /usr/bin/make distclean
-make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
-rm -rf src/main.o src/args.o src/ccache.o src/cleanup.o src/compopt.o src/conf.o src/confitems.o src/counters.o src/execute.o src/exitfn.o src/hash.o src/hashutil.o src/language.o src/lockfile.o src/manifest.o src/mdfour.o src/stats.o src/unify.o src/util.o src/version.o src/confitems_lookup.o src/envtoconfitems_lookup.o src/hashtable.o src/hashtable_itr.o src/murmurhashneutral2.o src/snprintf.o unittest/main.o unittest/framework.o unittest/util.o unittest/test_args.o unittest/test_argument_processing.o unittest/test_compopt.o unittest/test_conf.o unittest/test_counters.o unittest/test_hash.o unittest/test_hashutil.o unittest/test_lockfile.o unittest/test_stats.o unittest/test_util.o src/zlib/adler32.o src/zlib/crc32.o src/zlib/deflate.o src/zlib/gzclose.o src/zlib/gzlib.o src/zlib/gzread.o src/zlib/gzwrite.o src/zlib/inffast.o src/zlib/inflate.o src/zlib/inftrees.o src/zlib/trees.o src/zlib/zutil.o ccache src/*~ src/zlib/libz.a testdir.* unittest/run *~
-rm -rf Makefile config.h config.log config.status
-make[1]: Leaving directory '/dev/shm/ccache/ccache-3.5.1a'
+make[1]: Entering directory '/dev/shm/ccache/ccache'
+rm -rf src/main.o src/args.o src/ccache.o src/cleanup.o src/compopt.o src/conf.o src/confitems.o src/counters.o src/execute.o src/exitfn.o src/hash.o src/hashutil.o src/language.o src/lockfile.o src/manifest.o src/mdfour.o src/stats.o src/unify.o src/util.o src/confitems_lookup.o src/envtoconfitems_lookup.o src/version.o src/getopt_long.o src/hashtable.o src/hashtable_itr.o src/murmurhashneutral2.o src/snprintf.o unittest/main.o unittest/framework.o unittest/util.o unittest/test_args.o unittest/test_argument_processing.o unittest/test_compopt.o unittest/test_conf.o unittest/test_counters.o unittest/test_hash.o unittest/test_hashutil.o unittest/test_lockfile.o unittest/test_stats.o unittest/test_util.o src/zlib/adler32.o src/zlib/crc32.o src/zlib/deflate.o src/zlib/gzclose.o src/zlib/gzlib.o src/zlib/gzread.o src/zlib/gzwrite.o src/zlib/inffast.o src/zlib/inflate.o src/zlib/inftrees.o src/zlib/trees.o src/zlib/zutil.o ccache src/*~ src/zlib/libz.a testdir.* unittest/run *~ *.tar.bz2 *.tar.gz *.tar.xz *.xml .deps/* perfdir.* compile_commands.json src/confitems_lookup.c src/envtoconfitems_lookup.c
+rm -rf Makefile config.h config.log config.status src/confitems_lookup.c src/envtoconfitems_lookup.c src/version.c LICENSE.html doc/AUTHORS.html doc/MANUAL.html doc/NEWS.html doc/ccache.1 src/version.c unittest/suites.h .deps dev.mk
+make[1]: Leaving directory '/dev/shm/ccache/ccache'
 rm -f config.guess config.sub
 dh_clean
 	rm -f debian/debhelper-build-stamp
@@ -29,7 +30,7 @@ dh_clean
 		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
 		\) -exec rm -f {} + \) -o \
 		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
-FAKEROOTKEY=303477996 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+FAKEROOTKEY=404836352 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
  debian/rules build
 dh_testdir
 cp -f /usr/share/misc/config.sub config.sub
@@ -100,6 +101,7 @@ checking for getpwuid... yes
 checking for gettimeofday... yes
 checking for mkstemp... yes
 checking for realpath... yes
+checking for setenv... yes
 checking for strndup... yes
 checking for strtok_r... yes
 checking for unsetenv... yes
@@ -120,16 +122,17 @@ checking for gzdopen in -lz... yes
 checking whether byte ordering is bigendian... no
 checking for inline... inline
 checking for extern inline... no
-configure: developer mode disabled
+configure: developer mode enabled
 checking whether C compiler supports -Wno-implicit-fallthrough... yes
 configure: creating ./config.status
+config.status: creating dev.mk
 config.status: creating Makefile
 config.status: creating config.h
 configure: now build ccache by running make
 touch configure-stamp
 dh_testdir
 /usr/bin/make
-make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
+make[1]: Entering directory '/dev/shm/ccache/ccache'
   CC       src/main.o
   CC       src/args.o
   CC       src/ccache.o
@@ -149,53 +152,9 @@ make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
   CC       src/stats.o
   CC       src/unify.o
   CC       src/util.o
-  CC       src/version.o
-  CC       src/confitems_lookup.o
-  CC       src/envtoconfitems_lookup.o
-  CC       src/hashtable.o
-  CC       src/hashtable_itr.o
-  CC       src/murmurhashneutral2.o
-  CC       src/snprintf.o
-  LD       ccache
-ipo: warning #11021: unresolved __open_missing_mode
-        Referenced in /tmp/intel/ipo_icc8Vzmvi.o
-ipo: warning #11021: unresolved __open_too_many_args
-        Referenced in /tmp/intel/ipo_icc8Vzmvi.o
-ipo: remark #11000: performing multi-file optimizations
-ipo: remark #11074: Inlining inhibited by limit max-total-size 
-ipo: remark #11076: To get full report use -qopt-report=4 -qopt-report-phase ipo
-ipo: remark #11006: generating object file /tmp/intel/ipo_icc8Vzmvi.o
-x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
-make[1]: Leaving directory '/dev/shm/ccache/ccache-3.5.1a'
-touch build-stamp
- fakeroot debian/rules binary
-dh_testdir
-dh_testroot
-dh_prep
-	rm -f -- debian/ccache.substvars
-	rm -fr -- debian/.debhelper/generated/ccache/ debian/ccache/ debian/tmp/
-dh_installdirs
-	install -d debian/ccache
-	install -d debian/ccache/usr/bin debian/ccache/usr/lib/ccache debian/ccache/usr/sbin debian/ccache/usr/share/man/man1 debian/ccache/usr/share/man/man8
-sed s/%DEB_HOST_MULTIARCH%/x86_64-linux-gnu/ debian/ccache.triggers.in >debian/ccache.triggers
-sed s/%DEB_HOST_MULTIARCH%/x86_64-linux-gnu/ debian/update-ccache-symlinks.in >debian/ccache/usr/sbin/update-ccache-symlinks
-/usr/bin/make install prefix=/dev/shm/ccache/ccache-3.5.1a/debian/ccache/usr
-make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
-  INSTALL  ccache
-  INSTALL  ccache.1
-make[1]: Leaving directory '/dev/shm/ccache/ccache-3.5.1a'
-chmod +x debian/ccache/usr/sbin/update-ccache-symlinks
-dh_testdir
-dh_testroot
-dh_installdocs
-	install -d debian/ccache/usr/share/doc/ccache
-	install -d debian/.debhelper/generated/ccache
-	install -p -m0644 debian/README.Debian debian/ccache/usr/share/doc/ccache/README.Debian
-	install -p -m0644 debian/copyright debian/ccache/usr/share/doc/ccache/copyright
-cd debian/ccache/usr/share/doc/ccache && mv NEWS.html changelog.html
-mv: cannot stat 'NEWS.html': No such file or directory
-make: *** [debian/rules:80: binary-arch] Error 1
-FAKEROOTKEY=757283866 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
- dpkg-genbuildinfo --build=binary
-dpkg-genbuildinfo: error: binary build with no binary artifacts found; .buildinfo is meaningless
-dpkg-buildpackage: error: dpkg-genbuildinfo --build=binary subprocess returned exit status 25
+  GEN      src/confitems_lookup.c
+/bin/sh: 1: gperf: not found
+make[1]: *** [dev.mk:134: src/confitems_lookup.c] Error 127
+make[1]: Leaving directory '/dev/shm/ccache/ccache'
+make: *** [debian/rules:50: build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build subprocess returned exit status 2

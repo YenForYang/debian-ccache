@@ -1,0 +1,101 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/exitfn.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/exitfn.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: exitfn_call(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (exitfn_call(void)) [1/6=16.7%] src/exitfn.c(91,1)
+  -> INDIRECT-: (95,3)  p.977_V$14.0.6->function_V$d
+     [[ Unable to inline indirect callsite  <1>]]
+  -> EXTERN: (98,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: exitfn_add_last(void (*)(void *), void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (exitfn_add_last(void (*)(void *), void *)) [2/6=33.3%] src/exitfn.c(75,1)
+  -> EXTERN: (76,28) x_malloc(size_t)
+
+===========================================================================
+
+Begin optimization report for: exitfn_add(void (*)(void *), void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (exitfn_add(void (*)(void *), void *)) [3/6=50.0%] src/exitfn.c(62,1)
+  -> EXTERN: (63,28) x_malloc(size_t)
+
+===========================================================================
+
+Begin optimization report for: exitfn_add_nullary(void (*)(void))
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (exitfn_add_nullary(void (*)(void))) [4/6=66.7%] src/exitfn.c(52,1)
+  -> EXTERN: (53,36) x_malloc(size_t)
+  -> INLINE: (55,2) exitfn_add(void (*)(void *), void *) (isz = 9) (sz = 16)
+    -> EXTERN: (63,28) x_malloc(size_t)
+
+===========================================================================
+
+Begin optimization report for: exitfn_init(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (exitfn_init(void)) [5/6=83.3%] src/exitfn.c(42,1)
+  -> EXTERN: (43,6) atexit(void (*)(void))
+  -> EXTERN: (44,3) fatal(const char *, ...)
+  -> EXTERN: (44,30) strerror(int)
+  -> EXTERN: (44,39) __errno_location(void)
+
+===========================================================================
+
+Begin optimization report for: call_nullary_exit_function(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (call_nullary_exit_function(void *)) [6/6=100.0%] src/exitfn.c(33,1)
+  -> INDIRECT-: (35,2)  p.965_V$4.0.1->function_V$5
+     [[ Unable to inline indirect callsite  <1>]]
+  -> EXTERN: (36,2) free(void *)
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The indirectly called function must be resolved to its targets before it 
+can be inlined.  Consider compiling with -ipo or -prof-gen followed by 
+-prof-use.
+

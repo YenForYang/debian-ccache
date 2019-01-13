@@ -1,0 +1,457 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/manifest.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/manifest.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: stat(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (stat(const char *, struct stat *))/usr/include/x86_64-linux-gnu/sys/stat.h(454,1)
+
+===========================================================================
+
+Begin optimization report for: hash_from_file_info(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_from_file_info(void *)) [2/17=11.8%] src/manifest.c(125,1)
+  -> EXTERN: (127,9) murmurhashneutral2(const void *, int, unsigned int)
+
+===========================================================================
+
+Begin optimization report for: file_infos_equal(void *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (file_infos_equal(void *, void *)) [3/17=17.6%] src/manifest.c(132,1)
+  -> EXTERN: (136,12) memcmp(const void *, const void *, size_t)
+
+===========================================================================
+
+Begin optimization report for: free_manifest(struct manifest *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (free_manifest(struct manifest *)) src/manifest.c(144,1)
+
+===========================================================================
+
+Begin optimization report for: create_empty_manifest(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (create_empty_manifest(void)) src/manifest.c(213,1)
+
+===========================================================================
+
+Begin optimization report for: read_manifest(gzFile)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (read_manifest(gzFile)) src/manifest.c(228,1)
+
+===========================================================================
+
+Begin optimization report for: write_manifest(gzFile, const struct manifest *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (write_manifest(gzFile, const struct manifest *)) src/manifest.c(323,1)
+
+===========================================================================
+
+Begin optimization report for: verify_object(struct conf *, struct manifest *, struct object *, struct hashtable *, struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (verify_object(struct conf *, struct manifest *, struct object *, struct hashtable *, struct hashtable *)) src/manifest.c(363,1)
+
+===========================================================================
+
+Begin optimization report for: create_string_index_map(char **, uint32_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (create_string_index_map(char **, uint32_t)) src/manifest.c(442,1)
+
+===========================================================================
+
+Begin optimization report for: create_file_info_index_map(struct file_info *, uint32_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (create_file_info_index_map(struct file_info *, uint32_t)) src/manifest.c(455,1)
+
+===========================================================================
+
+Begin optimization report for: get_include_file_index(struct manifest *, char *, struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (get_include_file_index(struct manifest *, char *, struct hashtable *)) src/manifest.c(471,1)
+
+===========================================================================
+
+Begin optimization report for: get_file_hash_index(struct manifest *, char *, struct file_hash *, struct hashtable *, struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (get_file_hash_index(struct manifest *, char *, struct file_hash *, struct hashtable *, struct hashtable *)) src/manifest.c(490,1)
+
+===========================================================================
+
+Begin optimization report for: add_object_entry(struct manifest *, struct file_hash *, struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (add_object_entry(struct manifest *, struct file_hash *, struct hashtable *)) src/manifest.c(558,1)
+
+===========================================================================
+
+Begin optimization report for: add_file_info_indexes(uint32_t *, uint32_t, struct manifest *, struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (add_file_info_indexes(uint32_t *, uint32_t, struct manifest *, struct hashtable *)) src/manifest.c(528,1)
+
+===========================================================================
+
+Begin optimization report for: manifest_get(struct conf *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (manifest_get(struct conf *, const char *)) [15/17=88.2%] src/manifest.c(576,1)
+  -> EXTERN: (583,11) open(const char *, int, ...)
+  -> EXTERN: (586,3) cc_log(const char *, ...)
+  -> EXTERN: (589,6) gzdopen(int, const char *)
+  -> EXTERN: (591,3) close(int)
+  -> EXTERN: (592,3) cc_log(const char *, ...)
+  -> INLINE: (595,7) read_manifest(gzFile) (isz = 986) (sz = 994)
+    -> INLINE: (229,24) create_empty_manifest(void) (isz = 18) (sz = 23)
+      -> EXTERN: (214,24) x_malloc(size_t)
+    -> EXTERN: (232,2) gzgetc(gzFile)
+    -> EXTERN: (234,3) cc_log(const char *, ...)
+    -> EXTERN: (238,2) gzgetc(gzFile)
+    -> EXTERN: (240,3) cc_log(const char *, ...)
+    -> EXTERN: (244,2) gzgetc(gzFile)
+    -> EXTERN: (247,3) cc_log(const char *, ...)
+    -> EXTERN: (251,2) gzgetc(gzFile)
+    -> EXTERN: (253,2) gzgetc(gzFile)
+    -> EXTERN: (254,14) x_calloc(size_t, size_t)
+    -> EXTERN: (256,3) x_strdup(const char *)
+    -> EXTERN: (256,3) gzgetc(gzFile)
+    -> EXTERN: (259,2) gzgetc(gzFile)
+    -> EXTERN: (260,19) x_calloc(size_t, size_t)
+    -> EXTERN: (262,3) gzgetc(gzFile)
+    -> EXTERN: (263,3) gzgetc(gzFile)
+    -> EXTERN: (264,3) gzgetc(gzFile)
+    -> EXTERN: (265,3) gzgetc(gzFile)
+    -> EXTERN: (266,3) gzgetc(gzFile)
+    -> EXTERN: (269,2) gzgetc(gzFile)
+    -> EXTERN: (270,16) x_calloc(size_t, size_t)
+    -> EXTERN: (272,3) gzgetc(gzFile)
+    -> EXTERN: (274,4) x_calloc(size_t, size_t)
+    -> EXTERN: (277,4) gzgetc(gzFile)
+    -> EXTERN: (279,3) gzgetc(gzFile)
+    -> EXTERN: (280,3) gzgetc(gzFile)
+    -> EXTERN: (286,2) cc_log(const char *, ...)
+    -> INLINE: (287,2) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+      -> EXTERN: (146,3) free(void *)
+      -> EXTERN: (148,2) free(void *)
+      -> EXTERN: (149,2) free(void *)
+      -> EXTERN: (151,3) free(void *)
+      -> EXTERN: (153,2) free(void *)
+      -> EXTERN: (154,2) free(void *)
+  -> EXTERN: (597,3) cc_log(const char *, ...)
+  -> EXTERN: (601,17) create_hashtable(unsigned int, unsigned int (*)(void *), int (*)(void *, void *))
+  -> EXTERN: (602,17) create_hashtable(unsigned int, unsigned int (*)(void *), int (*)(void *, void *))
+  -> INLINE: (606,7) verify_object(struct conf *, struct manifest *, struct object *, struct hashtable *, struct hashtable *) (isz = 195) (sz = 216)
+    -> EXTERN: (367,27) hashtable_search(struct hashtable *, void *)
+    -> EXTERN: (370,8) x_stat(const char *, struct stat *)
+    -> EXTERN: (373,9) x_malloc(size_t)
+    -> EXTERN: (377,4) hashtable_insert(struct hashtable *, void *, void *)
+    -> EXTERN: (377,35) x_strdup(const char *)
+    -> EXTERN: (390,4) cc_log(const char *, ...)
+    -> EXTERN: (397,6) cc_log(const char *, ...)
+    -> EXTERN: (400,6) cc_log(const char *, ...)
+    -> EXTERN: (404,6) cc_log(const char *, ...)
+    -> EXTERN: (407,6) cc_log(const char *, ...)
+    -> EXTERN: (412,30) hashtable_search(struct hashtable *, void *)
+    -> EXTERN: (414,24) hash_init(void)
+    -> EXTERN: (415,17) hash_source_code_file(struct conf *, struct hash *, const char *)
+    -> EXTERN: (417,5) cc_log(const char *, ...)
+    -> EXTERN: (418,5) hash_free(struct hash *)
+    -> EXTERN: (422,5) hash_free(struct hash *)
+    -> EXTERN: (425,13) x_malloc(size_t)
+    -> EXTERN: (426,4) hash_result_as_bytes(struct hash *, unsigned char *)
+    -> EXTERN: (427,19) hash_input_size(struct hash *)
+    -> EXTERN: (428,4) hashtable_insert(struct hashtable *, void *, void *)
+    -> EXTERN: (428,35) x_strdup(const char *)
+    -> EXTERN: (429,4) hash_free(struct hash *)
+    -> EXTERN: (431,7) memcmp(const void *, const void *, size_t)
+  -> EXTERN: (608,9) x_malloc(size_t)
+  -> EXTERN: (616,3) hashtable_destroy(struct hashtable *, int)
+  -> EXTERN: (619,3) hashtable_destroy(struct hashtable *, int)
+  -> EXTERN: (622,3) gzclose(gzFile)
+  -> INLINE: (625,3) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+    -> EXTERN: (146,3) free(void *)
+    -> EXTERN: (148,2) free(void *)
+    -> EXTERN: (149,2) free(void *)
+    -> EXTERN: (151,3) free(void *)
+    -> EXTERN: (153,2) free(void *)
+    -> EXTERN: (154,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: manifest_put(const char *, struct file_hash *, struct hashtable *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (manifest_put(const char *, struct file_hash *, struct hashtable *)) [16/17=94.1%] src/manifest.c(635,1)
+  -> EXTERN: (645,12) open(const char *, int, ...)
+  -> INLINE: (648,8) create_empty_manifest(void) (isz = 18) (sz = 23)
+    -> EXTERN: (214,24) x_malloc(size_t)
+  -> EXTERN: (650,15) gzdopen(int, const char *)
+  -> EXTERN: (652,4) cc_log(const char *, ...)
+  -> EXTERN: (653,4) close(int)
+  -> INLINE: (656,8) read_manifest(gzFile) (isz = 986) (sz = 994)
+    -> INLINE: (229,24) create_empty_manifest(void) (isz = 18) (sz = 23)
+      -> EXTERN: (214,24) x_malloc(size_t)
+    -> EXTERN: (232,2) gzgetc(gzFile)
+    -> EXTERN: (234,3) cc_log(const char *, ...)
+    -> EXTERN: (238,2) gzgetc(gzFile)
+    -> EXTERN: (240,3) cc_log(const char *, ...)
+    -> EXTERN: (244,2) gzgetc(gzFile)
+    -> EXTERN: (247,3) cc_log(const char *, ...)
+    -> EXTERN: (251,2) gzgetc(gzFile)
+    -> EXTERN: (253,2) gzgetc(gzFile)
+    -> EXTERN: (254,14) x_calloc(size_t, size_t)
+    -> EXTERN: (256,3) x_strdup(const char *)
+    -> EXTERN: (256,3) gzgetc(gzFile)
+    -> EXTERN: (259,2) gzgetc(gzFile)
+    -> EXTERN: (260,19) x_calloc(size_t, size_t)
+    -> EXTERN: (262,3) gzgetc(gzFile)
+    -> EXTERN: (263,3) gzgetc(gzFile)
+    -> EXTERN: (264,3) gzgetc(gzFile)
+    -> EXTERN: (265,3) gzgetc(gzFile)
+    -> EXTERN: (266,3) gzgetc(gzFile)
+    -> EXTERN: (269,2) gzgetc(gzFile)
+    -> EXTERN: (270,16) x_calloc(size_t, size_t)
+    -> EXTERN: (272,3) gzgetc(gzFile)
+    -> EXTERN: (274,4) x_calloc(size_t, size_t)
+    -> EXTERN: (277,4) gzgetc(gzFile)
+    -> EXTERN: (279,3) gzgetc(gzFile)
+    -> EXTERN: (280,3) gzgetc(gzFile)
+    -> EXTERN: (286,2) cc_log(const char *, ...)
+    -> INLINE: (287,2) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+      -> EXTERN: (146,3) free(void *)
+      -> EXTERN: (148,2) free(void *)
+      -> EXTERN: (149,2) free(void *)
+      -> EXTERN: (151,3) free(void *)
+      -> EXTERN: (153,2) free(void *)
+      -> EXTERN: (154,2) free(void *)
+  -> EXTERN: (657,3) gzclose(gzFile)
+  -> EXTERN: (659,4) cc_log(const char *, ...)
+  -> EXTERN: (660,4) x_unlink(const char *)
+  -> INLINE: (661,9) create_empty_manifest(void) (isz = 18) (sz = 23)
+    -> EXTERN: (214,24) x_malloc(size_t)
+  -> EXTERN: (676,3) cc_log(const char *, ...)
+  -> INLINE: (678,3) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+    -> EXTERN: (146,3) free(void *)
+    -> EXTERN: (148,2) free(void *)
+    -> EXTERN: (149,2) free(void *)
+    -> EXTERN: (151,3) free(void *)
+    -> EXTERN: (153,2) free(void *)
+    -> EXTERN: (154,2) free(void *)
+  -> INLINE: (679,8) create_empty_manifest(void) (isz = 18) (sz = 23)
+    -> EXTERN: (214,24) x_malloc(size_t)
+  -> EXTERN: (684,3) cc_log(const char *, ...)
+  -> INLINE: (686,3) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+    -> EXTERN: (146,3) free(void *)
+    -> EXTERN: (148,2) free(void *)
+    -> EXTERN: (149,2) free(void *)
+    -> EXTERN: (151,3) free(void *)
+    -> EXTERN: (153,2) free(void *)
+    -> EXTERN: (154,2) free(void *)
+  -> INLINE: (687,8) create_empty_manifest(void) (isz = 18) (sz = 23)
+    -> EXTERN: (214,24) x_malloc(size_t)
+  -> EXTERN: (690,13) format(const char *, ...)
+  -> EXTERN: (691,12) create_tmp_fd(char **)
+  -> EXTERN: (692,7) gzdopen(int, const char *)
+  -> EXTERN: (694,3) cc_log(const char *, ...)
+  -> INLINE: (698,2) add_object_entry(struct manifest *, struct file_hash *, struct hashtable *) (isz = 49) (sz = 58)
+    -> EXTERN: (560,16) x_realloc(void *, size_t)
+    -> EXTERN: (564,19) hashtable_count(struct hashtable *)
+    -> EXTERN: (566,27) x_malloc(size_t)
+    -> INLINE: (567,2) add_file_info_indexes(uint32_t *, uint32_t, struct manifest *, struct hashtable *) (isz = 233) (sz = 245)
+      -> INLINE: (535,3) create_string_index_map(char **, uint32_t) (isz = 31) (sz = 40)
+        -> EXTERN: (444,3) create_hashtable(unsigned int, unsigned int (*)(void *), int (*)(void *, void *))
+        -> EXTERN: (446,21) x_malloc(size_t)
+        -> EXTERN: (448,3) hashtable_insert(struct hashtable *, void *, void *)
+        -> EXTERN: (448,23) x_strdup(const char *)
+      -> INLINE: (538,3) create_file_info_index_map(struct file_info *, uint32_t) (isz = 44) (sz = 53)
+        -> EXTERN: (457,3) create_hashtable(unsigned int, unsigned int (*)(void *), int (*)(void *, void *))
+        -> EXTERN: (459,26) x_malloc(size_t)
+        -> EXTERN: (461,21) x_malloc(size_t)
+        -> EXTERN: (463,3) hashtable_insert(struct hashtable *, void *, void *)
+      -> EXTERN: (539,31) hashtable_iterator(struct hashtable *)
+      -> EXTERN: (542,16) hashtable_iterator_key(struct hashtable_itr *)
+      -> EXTERN: (543,33) hashtable_iterator_value(struct hashtable_itr *)
+      -> INLINE: (544,16) get_file_hash_index(struct manifest *, char *, struct file_hash *, struct hashtable *, struct hashtable *) (isz = 97) (sz = 113)
+        -> INLINE: (492,13) get_include_file_index(struct manifest *, char *, struct hashtable *) (isz = 29) (sz = 41)
+          -> EXTERN: (472,20) hashtable_search(struct hashtable *, void *)
+          -> EXTERN: (478,14) x_realloc(void *, size_t)
+          -> EXTERN: (480,17) x_strdup(const char *)
+        -> EXTERN: (493,2) memcpy(void *__restrict__, const void *__restrict__, size_t)
+        -> INLINE (MANUAL): (504,6) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+          -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+        -> EXTERN: (513,23) hashtable_search(struct hashtable *, void *)
+        -> EXTERN: (519,19) x_realloc(void *, size_t)
+      -> EXTERN: (547,11) hashtable_iterator_advance(struct hashtable_itr *)
+      -> EXTERN: (548,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+      -> EXTERN: (550,2) hashtable_destroy(struct hashtable *, int)
+      -> EXTERN: (551,2) hashtable_destroy(struct hashtable *, int)
+    -> EXTERN: (568,2) memcpy(void *__restrict__, const void *__restrict__, size_t)
+  -> INLINE: (699,6) write_manifest(gzFile, const struct manifest *) (isz = 436) (sz = 446)
+    -> EXTERN: (324,2) gzputc(gzFile, int)
+    -> EXTERN: (325,2) gzputc(gzFile, int)
+    -> EXTERN: (326,2) gzputc(gzFile, int)
+    -> EXTERN: (327,2) gzputc(gzFile, int)
+    -> EXTERN: (329,2) gzputc(gzFile, int)
+    -> EXTERN: (331,3) gzputc(gzFile, int)
+    -> EXTERN: (331,3) gzputs(gzFile, const char *)
+    -> EXTERN: (334,2) gzputc(gzFile, int)
+    -> EXTERN: (336,3) gzputc(gzFile, int)
+    -> EXTERN: (337,3) gzputc(gzFile, int)
+    -> EXTERN: (338,3) gzputc(gzFile, int)
+    -> EXTERN: (339,3) gzputc(gzFile, int)
+    -> EXTERN: (340,3) gzputc(gzFile, int)
+    -> EXTERN: (343,2) gzputc(gzFile, int)
+    -> EXTERN: (345,3) gzputc(gzFile, int)
+    -> EXTERN: (347,4) gzputc(gzFile, int)
+    -> EXTERN: (349,3) gzputc(gzFile, int)
+    -> EXTERN: (350,3) gzputc(gzFile, int)
+    -> EXTERN: (356,2) cc_log(const char *, ...)
+  -> EXTERN: (700,3) gzclose(gzFile)
+  -> EXTERN: (702,7) x_rename(const char *, const char *)
+  -> EXTERN: (705,4) cc_log(const char *, ...)
+  -> EXTERN: (709,3) cc_log(const char *, ...)
+  -> INLINE: (715,3) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+    -> EXTERN: (146,3) free(void *)
+    -> EXTERN: (148,2) free(void *)
+    -> EXTERN: (149,2) free(void *)
+    -> EXTERN: (151,3) free(void *)
+    -> EXTERN: (153,2) free(void *)
+    -> EXTERN: (154,2) free(void *)
+  -> EXTERN: (718,3) free(void *)
+  -> EXTERN: (721,3) gzclose(gzFile)
+
+===========================================================================
+
+Begin optimization report for: manifest_dump(const char *, FILE *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (manifest_dump(const char *, FILE *)) [17/17=100.0%] src/manifest.c(728,1)
+  -> EXTERN: (733,11) open(const char *, int, ...)
+  -> EXTERN: (735,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (738,6) gzdopen(int, const char *)
+  -> EXTERN: (740,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (741,3) close(int)
+  -> INLINE: (744,7) read_manifest(gzFile) (isz = 986) (sz = 994)
+    -> INLINE: (229,24) create_empty_manifest(void) (isz = 18) (sz = 23)
+      -> EXTERN: (214,24) x_malloc(size_t)
+    -> EXTERN: (232,2) gzgetc(gzFile)
+    -> EXTERN: (234,3) cc_log(const char *, ...)
+    -> EXTERN: (238,2) gzgetc(gzFile)
+    -> EXTERN: (240,3) cc_log(const char *, ...)
+    -> EXTERN: (244,2) gzgetc(gzFile)
+    -> EXTERN: (247,3) cc_log(const char *, ...)
+    -> EXTERN: (251,2) gzgetc(gzFile)
+    -> EXTERN: (253,2) gzgetc(gzFile)
+    -> EXTERN: (254,14) x_calloc(size_t, size_t)
+    -> EXTERN: (256,3) x_strdup(const char *)
+    -> EXTERN: (256,3) gzgetc(gzFile)
+    -> EXTERN: (259,2) gzgetc(gzFile)
+    -> EXTERN: (260,19) x_calloc(size_t, size_t)
+    -> EXTERN: (262,3) gzgetc(gzFile)
+    -> EXTERN: (263,3) gzgetc(gzFile)
+    -> EXTERN: (264,3) gzgetc(gzFile)
+    -> EXTERN: (265,3) gzgetc(gzFile)
+    -> EXTERN: (266,3) gzgetc(gzFile)
+    -> EXTERN: (269,2) gzgetc(gzFile)
+    -> EXTERN: (270,16) x_calloc(size_t, size_t)
+    -> EXTERN: (272,3) gzgetc(gzFile)
+    -> EXTERN: (274,4) x_calloc(size_t, size_t)
+    -> EXTERN: (277,4) gzgetc(gzFile)
+    -> EXTERN: (279,3) gzgetc(gzFile)
+    -> EXTERN: (280,3) gzgetc(gzFile)
+    -> EXTERN: (286,2) cc_log(const char *, ...)
+    -> INLINE: (287,2) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+      -> EXTERN: (146,3) free(void *)
+      -> EXTERN: (148,2) free(void *)
+      -> EXTERN: (149,2) free(void *)
+      -> EXTERN: (151,3) free(void *)
+      -> EXTERN: (153,2) free(void *)
+      -> EXTERN: (154,2) free(void *)
+  -> EXTERN: (746,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (750,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (755,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (756,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (757,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (758,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (760,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (762,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (765,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (766,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (767,10) format_hash_as_string(const unsigned char *, int)
+  -> EXTERN: (768,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (769,3) free(void *)
+  -> EXTERN: (770,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (771,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (772,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (774,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (777,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (778,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (780,4) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (782,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (783,10) format_hash_as_string(const unsigned char *, int)
+  -> EXTERN: (784,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (785,3) free(void *)
+  -> EXTERN: (786,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> INLINE: (793,3) free_manifest(struct manifest *) (isz = 45) (sz = 50)
+    -> EXTERN: (146,3) free(void *)
+    -> EXTERN: (148,2) free(void *)
+    -> EXTERN: (149,2) free(void *)
+    -> EXTERN: (151,3) free(void *)
+    -> EXTERN: (153,2) free(void *)
+    -> EXTERN: (154,2) free(void *)
+  -> EXTERN: (796,3) gzclose(gzFile)
+
+===========================================================================

@@ -1,0 +1,251 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/args.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/args.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: sprintf(char *__restrict__, const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (sprintf(char *__restrict__, const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(35,1)
+
+===========================================================================
+
+Begin optimization report for: memmove(void *, const void *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (memmove(void *, const void *, size_t))/usr/include/x86_64-linux-gnu/bits/string_fortified.h(39,1)
+
+===========================================================================
+
+Begin optimization report for: args_copy(struct args *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_copy(struct args *)) [3/17=17.6%] src/args.c(128,1)
+  -> INLINE: (129,9) args_init(int, char **) (isz = 56) (sz = 65)
+    -> EXTERN: (23,37) x_malloc(size_t)
+    -> EXTERN: (25,24) x_malloc(size_t)
+    -> INLINE: (28,3) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+      -> EXTERN: (207,24) x_realloc(void *, size_t)
+      -> EXTERN: (209,27) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: args_insert(struct args *, int, struct args *, bool)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_insert(struct args *, int, struct args *, bool)) [4/17=23.5%] src/args.c(140,1)
+  -> EXTERN: (146,3) free(void *)
+  -> INLINE: (158,3) args_free(struct args *) (isz = 29) (sz = 35)
+    -> EXTERN: (197,4) free(void *)
+    -> EXTERN: (200,2) free(void *)
+    -> EXTERN: (201,2) free(void *)
+  -> INLINE: (166,3) args_free(struct args *) (isz = 29) (sz = 35)
+    -> EXTERN: (197,4) free(void *)
+    -> EXTERN: (200,2) free(void *)
+    -> EXTERN: (201,2) free(void *)
+  -> EXTERN: (170,24) x_realloc(void *, size_t)
+  -> INLINE: (186,2) args_free(struct args *) (isz = 29) (sz = 35)
+    -> EXTERN: (197,4) free(void *)
+    -> EXTERN: (200,2) free(void *)
+    -> EXTERN: (201,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: args_free(struct args *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_free(struct args *)) [5/17=29.4%] src/args.c(191,1)
+  -> EXTERN: (197,4) free(void *)
+  -> EXTERN: (200,2) free(void *)
+  -> EXTERN: (201,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: args_add(struct args *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_add(struct args *, const char *)) [6/17=35.3%] src/args.c(206,1)
+  -> EXTERN: (207,24) x_realloc(void *, size_t)
+  -> EXTERN: (209,27) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: args_extend(struct args *, struct args *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_extend(struct args *, struct args *)) [7/17=41.2%] src/args.c(217,1)
+  -> INLINE: (219,3) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+    -> EXTERN: (207,24) x_realloc(void *, size_t)
+    -> EXTERN: (209,27) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: args_pop(struct args *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_pop(struct args *, int)) [8/17=47.1%] src/args.c(226,1)
+  -> EXTERN: (229,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: args_set(struct args *, int, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_set(struct args *, int, const char *)) [9/17=52.9%] src/args.c(237,1)
+  -> EXTERN: (238,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (239,2) free(void *)
+  -> EXTERN: (240,22) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: args_remove_first(struct args *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_remove_first(struct args *)) [10/17=58.8%] src/args.c(246,1)
+  -> EXTERN: (247,2) free(void *)
+  -> INLINE (MANUAL): (248,2) memmove(void *, const void *, size_t) (isz = 6) (sz = 17)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(40,10) __builtin___memmove_chk(void *, const void *, unsigned long, unsigned long)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(40,57) __builtin_object_size(const void *, int)
+
+===========================================================================
+
+Begin optimization report for: args_add_prefix(struct args *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_add_prefix(struct args *, const char *)) [11/17=64.7%] src/args.c(255,1)
+  -> EXTERN: (256,24) x_realloc(void *, size_t)
+  -> INLINE (MANUAL): (258,2) memmove(void *, const void *, size_t) (isz = 6) (sz = 17)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(40,10) __builtin___memmove_chk(void *, const void *, unsigned long, unsigned long)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(40,57) __builtin_object_size(const void *, int)
+  -> EXTERN: (260,18) x_strdup(const char *)
+
+===========================================================================
+
+Begin optimization report for: args_strip(struct args *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_strip(struct args *, const char *)) [12/17=70.6%] src/args.c(267,1)
+  -> EXTERN: (269,7) strncmp(const char *, const char *, size_t)
+  -> EXTERN: (269,7) strlen(const char *)
+  -> EXTERN: (270,4) free(void *)
+  -> INLINE (MANUAL): (271,4) memmove(void *, const void *, size_t) (isz = 6) (sz = 17)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(40,10) __builtin___memmove_chk(void *, const void *, unsigned long, unsigned long)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/string_fortified.h:(40,57) __builtin_object_size(const void *, int)
+
+===========================================================================
+
+Begin optimization report for: args_to_string(struct args *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_to_string(struct args *)) [13/17=76.5%] src/args.c(285,1)
+  -> EXTERN: (288,11) strlen(const char *)
+  -> EXTERN: (291,17) x_malloc(size_t)
+  -> INLINE: (294,10) sprintf(char *__restrict__, const char *__restrict__, ...) (isz = 10) (sz = 19)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(36,10) __builtin___sprintf_chk(char *, int, unsigned long, const char *, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(37,7) __builtin_object_size(const void *, int)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(37,27) __builtin_va_arg_pack(void)
+
+===========================================================================
+
+Begin optimization report for: args_equal(struct args *, struct args *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_equal(struct args *, struct args *)) [14/17=82.4%] src/args.c(303,1)
+  -> EXTERN: (308,8) strcmp(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: args_init_from_gcc_atfile(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_init_from_gcc_atfile(const char *)) [15/17=88.2%] src/args.c(51,1)
+  -> EXTERN: (53,18) read_text_file(const char *, size_t)
+  -> INLINE: (57,22) args_init(int, char **) (isz = 56) (sz = 65)
+    -> EXTERN: (23,37) x_malloc(size_t)
+    -> EXTERN: (25,24) x_malloc(size_t)
+    -> INLINE: (28,3) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+      -> EXTERN: (207,24) x_realloc(void *, size_t)
+      -> EXTERN: (209,27) x_strdup(const char *)
+  -> EXTERN: (59,17) x_malloc(size_t)
+  -> EXTERN: (59,26) strlen(const char *)
+  -> INLINE: (104,5) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+    -> EXTERN: (207,24) x_realloc(void *, size_t)
+    -> EXTERN: (209,27) x_strdup(const char *)
+  -> EXTERN: (121,2) free(void *)
+  -> EXTERN: (122,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: args_init_from_string(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_init_from_string(const char *)) [16/17=94.1%] src/args.c(35,1)
+  -> EXTERN: (36,12) x_strdup(const char *)
+  -> INLINE: (39,22) args_init(int, char **) (isz = 56) (sz = 65)
+    -> EXTERN: (23,37) x_malloc(size_t)
+    -> EXTERN: (25,24) x_malloc(size_t)
+    -> INLINE: (28,3) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+      -> EXTERN: (207,24) x_realloc(void *, size_t)
+      -> EXTERN: (209,27) x_strdup(const char *)
+  -> EXTERN: (40,17) strtok_r(char *__restrict__, const char *__restrict__, char **__restrict__)
+  -> EXTERN: (40,17) strtok_r(char *__restrict__, const char *__restrict__, char **__restrict__)
+  -> INLINE: (41,3) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+    -> EXTERN: (207,24) x_realloc(void *, size_t)
+    -> EXTERN: (209,27) x_strdup(const char *)
+  -> EXTERN: (45,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: args_init(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (args_init(int, char **)) [17/17=100.0%] src/args.c(22,1)
+  -> EXTERN: (23,37) x_malloc(size_t)
+  -> EXTERN: (25,24) x_malloc(size_t)
+  -> INLINE: (28,3) args_add(struct args *, const char *) (isz = 27) (sz = 34)
+    -> EXTERN: (207,24) x_realloc(void *, size_t)
+    -> EXTERN: (209,27) x_strdup(const char *)
+
+===========================================================================

@@ -1,0 +1,198 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/compopt.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/compopt.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: fprintf(FILE *__restrict__, const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (fprintf(FILE *__restrict__, const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(99,1)
+
+===========================================================================
+
+Begin optimization report for: bsearch(const void *, const void *, size_t, size_t, __compar_fn_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (bsearch(const void *, const void *, size_t, size_t, __compar_fn_t))/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h(22,1)
+
+===========================================================================
+
+Begin optimization report for: find(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (find(const char *)) src/compopt.c(117,1)
+
+===========================================================================
+
+Begin optimization report for: compare_compopts(const void *, const void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compare_compopts(const void *, const void *)) [4/15=26.7%] src/compopt.c(101,1)
+  -> EXTERN: (104,9) strcmp(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: find_prefix(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (find_prefix(const char *)) src/compopt.c(127,1)
+
+===========================================================================
+
+Begin optimization report for: compare_prefix_compopts(const void *, const void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compare_prefix_compopts(const void *, const void *)) [6/15=40.0%] src/compopt.c(109,1)
+  -> EXTERN: (112,9) strncmp(const char *, const char *, size_t)
+  -> EXTERN: (112,41) strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: compopt_short(bool (*)(const char *), const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_short(bool (*)(const char *), const char *)) [7/15=46.7%] src/compopt.c(138,1)
+  -> EXTERN: (139,20) x_strndup(const char *, size_t)
+  -> INDIRECT-: (140,16)  fn_1331_V$74.0.7
+     [[ Callee not marked with inlining pragma  <1>]]
+  -> EXTERN: (141,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: compopt_verify_sortedness(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_verify_sortedness(void)) [8/15=53.3%] src/compopt.c(151,1)
+  -> EXTERN: (153,7) strcmp(const char *, const char *)
+  -> INLINE: (154,4) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+
+===========================================================================
+
+Begin optimization report for: compopt_affects_cpp(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_affects_cpp(const char *)) [9/15=60.0%] src/compopt.c(166,1)
+  -> INLINE: (167,29) find(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (120,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_compopts(const void *, const void *) (isz = 5) (sz = 14)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+Begin optimization report for: compopt_too_hard(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_too_hard(const char *)) [10/15=66.7%] src/compopt.c(173,1)
+  -> INLINE: (174,29) find(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (120,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_compopts(const void *, const void *) (isz = 5) (sz = 14)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+Begin optimization report for: compopt_too_hard_for_direct_mode(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_too_hard_for_direct_mode(const char *)) [11/15=73.3%] src/compopt.c(180,1)
+  -> INLINE: (181,29) find(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (120,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_compopts(const void *, const void *) (isz = 5) (sz = 14)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+Begin optimization report for: compopt_takes_path(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_takes_path(const char *)) [12/15=80.0%] src/compopt.c(187,1)
+  -> INLINE: (188,29) find(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (120,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_compopts(const void *, const void *) (isz = 5) (sz = 14)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+Begin optimization report for: compopt_takes_arg(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_takes_arg(const char *)) [13/15=86.7%] src/compopt.c(194,1)
+  -> INLINE: (195,29) find(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (120,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_compopts(const void *, const void *) (isz = 5) (sz = 14)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+Begin optimization report for: compopt_takes_concat_arg(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_takes_concat_arg(const char *)) [14/15=93.3%] src/compopt.c(201,1)
+  -> INLINE: (202,29) find(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (120,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_compopts(const void *, const void *) (isz = 5) (sz = 14)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+Begin optimization report for: compopt_prefix_affects_cpp(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (compopt_prefix_affects_cpp(const char *)) [15/15=100.0%] src/compopt.c(210,1)
+  -> INLINE: (212,29) find_prefix(const char *) (isz = 10) (sz = 17)
+    -> INLINE (MANUAL): (130,9) bsearch(const void *, const void *, size_t, size_t, __compar_fn_t) (isz = 24) (sz = 40)
+      -> /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:(33,22) compare_prefix_compopts(const void *, const void *) (isz = 10) (sz = 19)
+         [[ Callee not marked with inlining pragma  <1>]]
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The compiler's heuristics indicate that the function is not profitable to 
+    inline.  Override this decision by adding "inline 
+    __attribute__((always_inline))" to the declaration of the called function, 
+    or add "#pragma forceinline" before the call site.
+

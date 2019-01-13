@@ -2430,6 +2430,7 @@ configure:2852: icc.pl --version >&5
 icc (ICC) 19.0.1.144 20181018
 Copyright (C) 1985-2018 Intel Corporation.  All rights reserved.
 
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
 configure:2863: $? = 0
 configure:2852: icc.pl -v >&5
 __INTEL_PRE_CFLAGS options:  
@@ -2449,19 +2450,22 @@ GNU ld (GNU Binutils for Debian) 2.31.1
 Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
 Copyright (C) 1985-2018 Intel Corporation.  All rights reserved.
 
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
 x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
 x86_64-linux-gnu-ld: /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
 (.text+0x20): undefined reference to `main'
 configure:2863: $? = 1
 configure:2852: icc.pl -qversion >&5
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
 x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
 x86_64-linux-gnu-ld: /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
 (.text+0x20): undefined reference to `main'
 configure:2863: $? = 1
 configure:2883: checking whether the C compiler works
 configure:2905: icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/ccache/ccache-3.5.1a=. -Wformat -march=native -pipe -Wformat-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,now conftest.c  >&5
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
 ipo: remark #11001: performing single-file optimizations
-ipo: remark #11006: generating object file /tmp/intel/ipo_iccxNzZLj.o
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc31Djpx.o
 x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
 configure:2909: $? = 0
 configure:2957: result: yes
@@ -2470,7 +2474,7 @@ configure:2962: result: a.out
 configure:2968: checking for suffix of executables
 configure:2975: icc.pl -o conftest -g -O2 -fdebug-prefix-map=/dev/shm/ccache/ccache-3.5.1a=. -Wformat -march=native -pipe -Wformat-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,now conftest.c  >&5
 ipo: remark #11001: performing single-file optimizations
-ipo: remark #11006: generating object file /tmp/intel/ipo_icc6hmNg0.o
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccl4VYQo.o
 x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
 configure:2979: $? = 0
 configure:3001: result: 
@@ -2481,7 +2485,7 @@ conftest.c(25): remark #111: statement is unreachable
     ^
 
 ipo: remark #11001: performing single-file optimizations
-ipo: remark #11006: generating object file /tmp/intel/ipo_iccWBF7Ty.o
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccoQLuZ4.o
 x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
 configure:3035: $? = 0
 configure:3042: ./conftest

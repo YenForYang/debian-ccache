@@ -1,0 +1,382 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=22222 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wformat -Wformat-security -Wall -W -qopt-report-file=src/stats.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/etc -D_FORTIFY_SOURCE=2 -c -o src/stats.o -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 22222 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: format_timestamp(uint64_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (format_timestamp(uint64_t)) [1/19=5.3%] src/stats.c(268,1)
+  -> EXTERN: (270,19) localtime(const time_t *)
+  -> EXTERN: (272,3) strftime(char *__restrict__, size_t, const char *__restrict__, const struct tm *__restrict__)
+  -> EXTERN: (273,10) format(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: format_size_times_1024(uint64_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (format_size_times_1024(uint64_t)) [2/19=10.5%] src/stats.c(262,1)
+  -> INLINE: (263,9) format_size(uint64_t) (isz = 8) (sz = 15)
+    -> EXTERN: (255,12) format_human_readable_size(uint64_t)
+    -> EXTERN: (256,2) reformat(char **, const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: stat(const char *, struct stat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (stat(const char *, struct stat *))/usr/include/x86_64-linux-gnu/sys/stat.h(454,1)
+
+===========================================================================
+
+Begin optimization report for: fprintf(FILE *__restrict__, const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (fprintf(FILE *__restrict__, const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(99,1)
+
+===========================================================================
+
+Begin optimization report for: printf(const char *__restrict__, ...)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (printf(const char *__restrict__, ...))/usr/include/x86_64-linux-gnu/bits/stdio2.h(106,1)
+
+===========================================================================
+
+Begin optimization report for: format_size(uint64_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (format_size(uint64_t)) src/stats.c(254,1)
+
+===========================================================================
+
+Begin optimization report for: parse_stats(struct counters *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (parse_stats(struct counters *, const char *)) src/stats.c(282,1)
+
+===========================================================================
+
+Begin optimization report for: stats_write(const char *, struct counters *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_write(const char *, struct counters *)) [8/19=42.1%] src/stats.c(303,1)
+  -> EXTERN: (304,19) format(const char *, ...)
+  -> EXTERN: (305,12) create_tmp_file(char **, const char *)
+  -> INLINE: (307,7) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+  -> EXTERN: (308,4) fatal(const char *, ...)
+  -> EXTERN: (311,2) fclose(FILE *)
+  -> EXTERN: (312,2) x_rename(const char *, const char *)
+  -> EXTERN: (313,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: stats_update_size(int64_t, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_update_size(int64_t, int)) [9/19=47.4%] src/stats.c(328,1)
+  -> INLINE: (329,2) init_counter_updates(void) (isz = 5) (sz = 8)
+    -> EXTERN: (320,21) counters_init(size_t)
+
+===========================================================================
+
+Begin optimization report for: stats_read(const char *, struct counters *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_read(const char *, struct counters *)) [10/19=52.6%] src/stats.c(337,1)
+  -> EXTERN: (338,15) read_text_file(const char *, size_t)
+  -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+    -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+    -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+  -> EXTERN: (342,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: stats_flush(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_flush(void)) [11/19=57.9%] src/stats.c(348,1)
+  -> EXTERN: (349,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (375,15) format(const char *, ...)
+  -> EXTERN: (375,48) hash_from_int(int)
+  -> EXTERN: (375,62) getpid(void)
+  -> EXTERN: (376,16) format(const char *, ...)
+  -> EXTERN: (377,3) free(void *)
+  -> EXTERN: (380,7) lockfile_acquire(const char *, unsigned int)
+  -> EXTERN: (384,30) counters_init(size_t)
+  -> INLINE: (385,2) stats_read(const char *, struct counters *) (isz = 41) (sz = 48)
+    -> EXTERN: (338,15) read_text_file(const char *, size_t)
+    -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+      -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+      -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+    -> EXTERN: (342,2) free(void *)
+  -> INLINE: (389,2) stats_write(const char *, struct counters *) (isz = 49) (sz = 56)
+    -> EXTERN: (304,19) format(const char *, ...)
+    -> EXTERN: (305,12) create_tmp_file(char **, const char *)
+    -> INLINE: (307,7) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> EXTERN: (308,4) fatal(const char *, ...)
+    -> EXTERN: (311,2) fclose(FILE *)
+    -> EXTERN: (312,2) x_rename(const char *, const char *)
+    -> EXTERN: (313,2) free(void *)
+  -> EXTERN: (390,2) lockfile_release(const char *)
+  -> EXTERN: (392,7) strcmp(const char *, const char *)
+  -> EXTERN: (396,5) cc_log(const char *, ...)
+  -> EXTERN: (401,17) dirname(const char *)
+  -> EXTERN: (406,3) cc_log(const char *, ...)
+  -> EXTERN: (414,3) cc_log(const char *, ...)
+  -> EXTERN: (422,3) clean_up_dir(struct conf *, const char *, double)
+  -> EXTERN: (425,2) free(void *)
+  -> EXTERN: (426,2) counters_free(struct counters *)
+
+===========================================================================
+
+Begin optimization report for: stats_update(enum stats)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_update(enum stats)) [12/19=63.2%] src/stats.c(432,1)
+  -> EXTERN: (433,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> INLINE: (434,2) init_counter_updates(void) (isz = 5) (sz = 8)
+    -> EXTERN: (320,21) counters_init(size_t)
+
+===========================================================================
+
+Begin optimization report for: stats_get_pending(enum stats)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_get_pending(enum stats)) [13/19=68.4%] src/stats.c(441,1)
+  -> INLINE: (442,2) init_counter_updates(void) (isz = 5) (sz = 8)
+    -> EXTERN: (320,21) counters_init(size_t)
+
+===========================================================================
+
+Begin optimization report for: stats_summary(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_summary(void)) [14/19=73.7%] src/stats.c(449,1)
+  -> EXTERN: (450,30) counters_init(size_t)
+  -> EXTERN: (455,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (462,12) format(const char *, ...)
+  -> EXTERN: (464,12) format(const char *, ...)
+  -> INLINE: (468,3) stats_read(const char *, struct counters *) (isz = 41) (sz = 48)
+    -> EXTERN: (338,15) read_text_file(const char *, size_t)
+    -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+      -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+      -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+    -> EXTERN: (342,2) free(void *)
+  -> INLINE (MANUAL): (470,7) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> EXTERN: (473,3) free(void *)
+  -> INLINE: (478,2) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> INLINE: (479,2) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> INLINE: (481,2) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> EXTERN: (484,19) localtime(const time_t *)
+  -> EXTERN: (486,3) strftime(char *__restrict__, size_t, const char *__restrict__, const struct tm *__restrict__)
+  -> INLINE: (487,3) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> INDIRECT: format_fn_V$18_2.4.0[(EXPR_CONV.SI32.SI64(i.1422_V$c9.0.15))]
+     -gpt-> format_size_times_1024(uint64_t)
+     -gpt-> format_timestamp(uint64_t)
+      -> INLINE: (503,12) format_timestamp(uint64_t) (isz = 23) (sz = 31)
+        -> EXTERN: (270,19) localtime(const time_t *)
+        -> EXTERN: (272,3) strftime(char *__restrict__, size_t, const char *__restrict__, const struct tm *__restrict__)
+        -> EXTERN: (273,10) format(const char *, ...)
+      -> INLINE: (503,12) format_size_times_1024(uint64_t) (isz = 10) (sz = 17)
+        -> INLINE: (263,9) format_size(uint64_t) (isz = 8) (sz = 15)
+          -> EXTERN: (255,12) format_human_readable_size(uint64_t)
+          -> EXTERN: (256,2) reformat(char **, const char *, ...)
+  -> EXTERN: (505,12) format(const char *, ...)
+  -> INLINE: (508,4) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> EXTERN: (509,4) free(void *)
+  -> INLINE: (519,4) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> INLINE: (524,3) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> INLINE: (527,17) format_size(uint64_t) (isz = 8) (sz = 15)
+    -> EXTERN: (255,12) format_human_readable_size(uint64_t)
+    -> EXTERN: (256,2) reformat(char **, const char *, ...)
+  -> INLINE: (528,3) printf(const char *__restrict__, ...) (isz = 5) (sz = 12)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,10) __printf_chk(int, const char *__restrict__, ...)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(107,56) __builtin_va_arg_pack(void)
+  -> EXTERN: (529,3) free(void *)
+  -> EXTERN: (532,2) counters_free(struct counters *)
+
+===========================================================================
+
+Begin optimization report for: stats_zero(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_zero(void)) [15/19=78.9%] src/stats.c(538,1)
+  -> EXTERN: (539,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (541,16) format(const char *, ...)
+  -> EXTERN: (542,2) x_unlink(const char *)
+  -> EXTERN: (543,2) free(void *)
+  -> EXTERN: (545,21) time(time_t *)
+  -> EXTERN: (548,31) counters_init(size_t)
+  -> EXTERN: (550,11) format(const char *, ...)
+  -> INLINE (MANUAL): (551,7) stat(const char *, struct stat *) (isz = 2) (sz = 11)
+    -> EXTERN: /usr/include/x86_64-linux-gnu/sys/stat.h:(455,10) __xstat(int, const char *, struct stat *)
+  -> EXTERN: (553,4) free(void *)
+  -> EXTERN: (556,7) lockfile_acquire(const char *, unsigned int)
+  -> INLINE: (557,4) stats_read(const char *, struct counters *) (isz = 41) (sz = 48)
+    -> EXTERN: (338,15) read_text_file(const char *, size_t)
+    -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+      -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+      -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+    -> EXTERN: (342,2) free(void *)
+  -> INLINE: (564,4) stats_write(const char *, struct counters *) (isz = 49) (sz = 56)
+    -> EXTERN: (304,19) format(const char *, ...)
+    -> EXTERN: (305,12) create_tmp_file(char **, const char *)
+    -> INLINE: (307,7) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> EXTERN: (308,4) fatal(const char *, ...)
+    -> EXTERN: (311,2) fclose(FILE *)
+    -> EXTERN: (312,2) x_rename(const char *, const char *)
+    -> EXTERN: (313,2) free(void *)
+  -> EXTERN: (565,4) lockfile_release(const char *)
+  -> EXTERN: (567,3) counters_free(struct counters *)
+  -> EXTERN: (568,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: stats_get_obsolete_limits(const char *, unsigned int *, uint64_t *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_get_obsolete_limits(const char *, unsigned int *, uint64_t *)) [16/19=84.2%] src/stats.c(576,1)
+  -> EXTERN: (577,30) counters_init(size_t)
+  -> EXTERN: (578,16) format(const char *, ...)
+  -> INLINE: (579,2) stats_read(const char *, struct counters *) (isz = 41) (sz = 48)
+    -> EXTERN: (338,15) read_text_file(const char *, size_t)
+    -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+      -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+      -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+    -> EXTERN: (342,2) free(void *)
+  -> EXTERN: (582,2) free(void *)
+  -> EXTERN: (583,2) counters_free(struct counters *)
+
+===========================================================================
+
+Begin optimization report for: stats_set_sizes(const char *, unsigned int, uint64_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_set_sizes(const char *, unsigned int, uint64_t)) [17/19=89.5%] src/stats.c(589,1)
+  -> EXTERN: (590,30) counters_init(size_t)
+  -> EXTERN: (591,20) format(const char *, ...)
+  -> EXTERN: (592,6) lockfile_acquire(const char *, unsigned int)
+  -> INLINE: (593,3) stats_read(const char *, struct counters *) (isz = 41) (sz = 48)
+    -> EXTERN: (338,15) read_text_file(const char *, size_t)
+    -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+      -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+      -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+    -> EXTERN: (342,2) free(void *)
+  -> INLINE: (596,3) stats_write(const char *, struct counters *) (isz = 49) (sz = 56)
+    -> EXTERN: (304,19) format(const char *, ...)
+    -> EXTERN: (305,12) create_tmp_file(char **, const char *)
+    -> INLINE: (307,7) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> EXTERN: (308,4) fatal(const char *, ...)
+    -> EXTERN: (311,2) fclose(FILE *)
+    -> EXTERN: (312,2) x_rename(const char *, const char *)
+    -> EXTERN: (313,2) free(void *)
+  -> EXTERN: (597,3) lockfile_release(const char *)
+  -> EXTERN: (599,2) free(void *)
+  -> EXTERN: (600,2) counters_free(struct counters *)
+
+===========================================================================
+
+Begin optimization report for: stats_add_cleanup(const char *, unsigned int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (stats_add_cleanup(const char *, unsigned int)) [18/19=94.7%] src/stats.c(606,1)
+  -> EXTERN: (607,30) counters_init(size_t)
+  -> EXTERN: (608,20) format(const char *, ...)
+  -> EXTERN: (609,6) lockfile_acquire(const char *, unsigned int)
+  -> INLINE: (610,3) stats_read(const char *, struct counters *) (isz = 41) (sz = 48)
+    -> EXTERN: (338,15) read_text_file(const char *, size_t)
+    -> INLINE: (340,3) parse_stats(struct counters *, const char *) (isz = 32) (sz = 39)
+      -> EXTERN: (287,14) strtol(const char *__restrict__, char **__restrict__, int)
+      -> EXTERN: (292,4) counters_resize(struct counters *, size_t)
+    -> EXTERN: (342,2) free(void *)
+  -> INLINE: (612,3) stats_write(const char *, struct counters *) (isz = 49) (sz = 56)
+    -> EXTERN: (304,19) format(const char *, ...)
+    -> EXTERN: (305,12) create_tmp_file(char **, const char *)
+    -> INLINE: (307,7) fprintf(FILE *__restrict__, const char *__restrict__, ...) (isz = 5) (sz = 14)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(100,10) __fprintf_chk(FILE *__restrict__, int, const char *__restrict__, ...)
+      -> EXTERN: /usr/include/x86_64-linux-gnu/bits/stdio2.h:(101,4) __builtin_va_arg_pack(void)
+    -> EXTERN: (308,4) fatal(const char *, ...)
+    -> EXTERN: (311,2) fclose(FILE *)
+    -> EXTERN: (312,2) x_rename(const char *, const char *)
+    -> EXTERN: (313,2) free(void *)
+  -> EXTERN: (613,3) lockfile_release(const char *)
+  -> EXTERN: (615,2) free(void *)
+  -> EXTERN: (616,2) counters_free(struct counters *)
+
+===========================================================================
+
+Begin optimization report for: init_counter_updates(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (init_counter_updates(void)) src/stats.c(318,1)
+
+===========================================================================

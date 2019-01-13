@@ -1,0 +1,188 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/hashutil.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/hashutil.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: hash_from_string(void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_from_string(void *)) [1/9=11.1%] src/hashutil.c(24,1)
+  -> EXTERN: (25,9) murmurhashneutral2(const void *, int, unsigned int)
+  -> EXTERN: (25,33) strlen(const char *)
+
+===========================================================================
+
+Begin optimization report for: hash_from_int(int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_from_int(int)) [2/9=22.2%] src/hashutil.c(30,1)
+  -> EXTERN: (31,9) murmurhashneutral2(const void *, int, unsigned int)
+
+===========================================================================
+
+Begin optimization report for: strings_equal(void *, void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (strings_equal(void *, void *)) [3/9=33.3%] src/hashutil.c(36,1)
+  -> EXTERN: (37,9) strcmp(const char *, const char *)
+
+===========================================================================
+
+Begin optimization report for: file_hashes_equal(struct file_hash *, struct file_hash *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (file_hashes_equal(struct file_hash *, struct file_hash *)) [4/9=44.4%] src/hashutil.c(42,1)
+  -> EXTERN: (43,9) memcmp(const void *, const void *, size_t)
+
+===========================================================================
+
+Begin optimization report for: check_for_temporal_macros(const char *, size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (check_for_temporal_macros(const char *, size_t)) [5/9=55.6%] src/hashutil.c(53,1)
+
+===========================================================================
+
+Begin optimization report for: hash_source_code_string(struct conf *, struct hash *, const char *, size_t, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_source_code_string(struct conf *, struct hash *, const char *, size_t, const char *)) [6/9=66.7%] src/hashutil.c(94,1)
+  -> INLINE: (100,13) check_for_temporal_macros(const char *, size_t) (isz = 84) (sz = 93)
+  -> EXTERN: (104,2) hash_string_buffer(struct hash *, const char *, int)
+  -> EXTERN: (109,14) time(time_t *)
+  -> EXTERN: (110,20) localtime(const time_t *)
+  -> EXTERN: (111,3) cc_log(const char *, ...)
+  -> EXTERN: (112,3) hash_delimiter(struct hash *, const char *)
+  -> EXTERN: (113,3) hash_int(struct hash *, int)
+  -> EXTERN: (114,3) hash_int(struct hash *, int)
+  -> EXTERN: (115,3) hash_int(struct hash *, int)
+  -> EXTERN: (124,3) cc_log(const char *, ...)
+
+===========================================================================
+
+Begin optimization report for: hash_source_code_file(struct conf *, struct hash *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_source_code_file(struct conf *, struct hash *, const char *)) [7/9=77.8%] src/hashutil.c(134,1)
+  -> EXTERN: (135,6) is_precompiled_header(const char *)
+  -> EXTERN: (136,7) hash_file(struct hash *, const char *)
+  -> EXTERN: (144,8) read_file(const char *, size_t, char **, size_t *)
+  -> INLINE: (147,16) hash_source_code_string(struct conf *, struct hash *, const char *, size_t, const char *) (isz = 133) (sz = 148)
+    -> INLINE: (100,13) check_for_temporal_macros(const char *, size_t) (isz = 84) (sz = 93)
+    -> EXTERN: (104,2) hash_string_buffer(struct hash *, const char *, int)
+    -> EXTERN: (109,14) time(time_t *)
+    -> EXTERN: (110,20) localtime(const time_t *)
+    -> EXTERN: (111,3) cc_log(const char *, ...)
+    -> EXTERN: (112,3) hash_delimiter(struct hash *, const char *)
+    -> EXTERN: (113,3) hash_int(struct hash *, int)
+    -> EXTERN: (114,3) hash_int(struct hash *, int)
+    -> EXTERN: (115,3) hash_int(struct hash *, int)
+    -> EXTERN: (124,3) cc_log(const char *, ...)
+  -> EXTERN: (148,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: hash_command_output(struct hash *, const char *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_command_output(struct hash *, const char *, const char *)) [8/9=88.9%] src/hashutil.c(156,1)
+  -> EXTERN: (178,22) args_init_from_string(const char *)
+  -> EXTERN: (180,7) strcmp(const char *, const char *)
+  -> EXTERN: (181,4) args_set(struct args *, int, const char *)
+  -> EXTERN: (184,2) cc_log_argv(const char *, char **)
+  -> EXTERN: (250,6) pipe(int *)
+  -> EXTERN: (251,3) fatal(const char *, ...)
+  -> EXTERN: (254,14) fork(void)
+  -> EXTERN: (256,3) fatal(const char *, ...)
+  -> EXTERN: (261,3) close(int)
+  -> EXTERN: (262,3) close(int)
+  -> EXTERN: (263,3) dup2(int, int)
+  -> EXTERN: (264,3) dup2(int, int)
+  -> EXTERN: (265,3) _exit(int)
+  -> EXTERN: (265,9) execvp(const char *, char *const *)
+  -> EXTERN: (269,3) args_free(struct args *)
+  -> EXTERN: (270,3) close(int)
+  -> EXTERN: (271,13) hash_fd(struct hash *, int)
+  -> EXTERN: (273,4) cc_log(const char *, ...)
+  -> EXTERN: (274,11) strerror(int)
+  -> EXTERN: (274,20) __errno_location(void)
+  -> EXTERN: (275,4) stats_update(enum stats)
+  -> EXTERN: (277,3) close(int)
+  -> EXTERN: (280,7) waitpid(__pid_t, int *, int)
+  -> EXTERN: (281,4) cc_log(const char *, ...)
+  -> EXTERN: (285,4) cc_log(const char *, ...)
+  -> EXTERN: (286,4) stats_update(enum stats)
+
+===========================================================================
+
+Begin optimization report for: hash_multicommand_output(struct hash *, const char *, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (hash_multicommand_output(struct hash *, const char *, const char *)) [9/9=100.0%] src/hashutil.c(297,1)
+  -> EXTERN: (298,25) x_strdup(const char *)
+  -> EXTERN: (303,20) strtok_r(char *__restrict__, const char *__restrict__, char **__restrict__)
+  -> EXTERN: (303,20) strtok_r(char *__restrict__, const char *__restrict__, char **__restrict__)
+  -> INLINE: (304,8) hash_command_output(struct hash *, const char *, const char *) (isz = 136) (sz = 149)
+    -> EXTERN: (178,22) args_init_from_string(const char *)
+    -> EXTERN: (180,7) strcmp(const char *, const char *)
+    -> EXTERN: (181,4) args_set(struct args *, int, const char *)
+    -> EXTERN: (184,2) cc_log_argv(const char *, char **)
+    -> EXTERN: (250,6) pipe(int *)
+    -> EXTERN: (251,3) fatal(const char *, ...)
+    -> EXTERN: (254,14) fork(void)
+    -> EXTERN: (256,3) fatal(const char *, ...)
+    -> EXTERN: (261,3) close(int)
+    -> EXTERN: (262,3) close(int)
+    -> EXTERN: (263,3) dup2(int, int)
+    -> EXTERN: (264,3) dup2(int, int)
+    -> EXTERN: (265,3) _exit(int)
+    -> EXTERN: (265,9) execvp(const char *, char *const *)
+    -> EXTERN: (269,3) args_free(struct args *)
+    -> EXTERN: (270,3) close(int)
+    -> EXTERN: (271,13) hash_fd(struct hash *, int)
+    -> EXTERN: (273,4) cc_log(const char *, ...)
+    -> EXTERN: (274,11) strerror(int)
+    -> EXTERN: (274,20) __errno_location(void)
+    -> EXTERN: (275,4) stats_update(enum stats)
+    -> EXTERN: (277,3) close(int)
+    -> EXTERN: (280,7) waitpid(__pid_t, int *, int)
+    -> EXTERN: (281,4) cc_log(const char *, ...)
+    -> EXTERN: (285,4) cc_log(const char *, ...)
+    -> EXTERN: (286,4) stats_update(enum stats)
+  -> EXTERN: (309,2) free(void *)
+
+===========================================================================

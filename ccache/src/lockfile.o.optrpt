@@ -1,0 +1,103 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/lockfile.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/lockfile.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: lockfile_acquire(const char *, unsigned int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (lockfile_acquire(const char *, unsigned int)) [1/2=50.0%] src/lockfile.c(29,1)
+  -> EXTERN: (30,19) format(const char *, ...)
+  -> EXTERN: (34,25) get_hostname(void)
+  -> EXTERN: (40,3) free(void *)
+  -> EXTERN: (41,16) format(const char *, ...)
+  -> EXTERN: (41,50) getpid(void)
+  -> EXTERN: (41,65) time(time_t *)
+  -> EXTERN: (96,7) symlink(const char *, const char *)
+  -> EXTERN: (101,21) __errno_location(void)
+  -> EXTERN: (102,3) cc_log(const char *, ...)
+  -> EXTERN: (102,56) strerror(int)
+  -> EXTERN: (105,8) create_parent_dirs(const char *)
+  -> EXTERN: (120,3) free(void *)
+  -> EXTERN: (121,13) x_readlink(const char *)
+  -> EXTERN: (123,8) __errno_location(void)
+  -> EXTERN: (128,5) cc_log(const char *, ...)
+  -> EXTERN: (128,59) strerror(int)
+  -> EXTERN: (128,68) __errno_location(void)
+  -> EXTERN: (134,7) strcmp(const char *, const char *)
+  -> EXTERN: (136,4) cc_log(const char *, ...)
+  -> EXTERN: (143,3) cc_log(const char *, ...)
+  -> EXTERN: (145,22) x_strdup(const char *)
+  -> EXTERN: (148,8) strcmp(const char *, const char *)
+  -> EXTERN: (150,5) cc_log(const char *, ...)
+  -> (152,9) lockfile_acquire(const char *, unsigned int) (isz = 202) (sz = 211)
+     [[ Callee not marked with inlining pragma  <1>]]
+  -> INLINE: (153,6) lockfile_release(const char *) (isz = 13) (sz = 18)
+    -> EXTERN: (188,19) format(const char *, ...)
+    -> EXTERN: (189,2) cc_log(const char *, ...)
+    -> EXTERN: (190,2) tmp_unlink(const char *)
+    -> EXTERN: (191,2) free(void *)
+  -> INLINE: (154,6) lockfile_release(const char *) (isz = 13) (sz = 18)
+    -> EXTERN: (188,19) format(const char *, ...)
+    -> EXTERN: (189,2) cc_log(const char *, ...)
+    -> EXTERN: (190,2) tmp_unlink(const char *)
+    -> EXTERN: (191,2) free(void *)
+  -> EXTERN: (160,4) cc_log(const char *, ...)
+  -> EXTERN: (163,3) cc_log(const char *, ...)
+  -> EXTERN: (165,3) usleep(__useconds_t)
+  -> EXTERN: (172,3) cc_log(const char *, ...)
+  -> EXTERN: (174,3) cc_log(const char *, ...)
+  -> EXTERN: (176,2) free(void *)
+  -> EXTERN: (177,2) free(void *)
+  -> EXTERN: (178,2) free(void *)
+  -> EXTERN: (179,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: lockfile_release(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (lockfile_release(const char *)) [2/2=100.0%] src/lockfile.c(187,1)
+  -> EXTERN: (188,19) format(const char *, ...)
+  -> EXTERN: (189,2) cc_log(const char *, ...)
+  -> EXTERN: (190,2) tmp_unlink(const char *)
+  -> EXTERN: (191,2) free(void *)
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The compiler's heuristics indicate that the function is not profitable to 
+    inline.  Override this decision by adding "inline 
+    __attribute__((always_inline))" to the declaration of the called function, 
+    or add "#pragma forceinline" before the call site.
+

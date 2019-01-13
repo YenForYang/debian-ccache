@@ -1,0 +1,702 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.0.1.144 Build 20181018
+
+Compiler options: -I. -I./src -I./unittest -diag-disable=10013,10385,10237,10346 -Wremarks -w3 -O3 -fabi-version=13 -falign-functions -falign-loops -fbuiltin -fdata-sections -ffunction-sections -ffat-lto-objects -fpermissive -gcc-name=gcc-8 -gnu-prefix=x86_64-linux-gnu- -gxx-name=g++-8 -inline-level=2 -inline-min-caller-growth=0 -ipo -par-schedule-auto -parallel -qoverride-limits -qopt-matmul -qopt-mem-layout-trans -qopt-multi-version-aggressive -qopt-prefetch -static-intel -no-inline-max-per-routine -no-inline-max-per-compile -no-inline-max-size -inline-max-total-size=25555 -Wl,--as-needed -qopt-report=5 -qopt-report-phase ipo -g -Wall -W -Werror -Wextra -Wpedantic -qopt-report-file=src/conf.o.optrpt -DHAVE_CONFIG_H -DSYSCONFDIR=/usr/local/etc -c -o src/conf.o -Wl,--as-needed,--gc-sections,--relax -Wl,--relax,--gc-sections,-O,2 -pipe -D__POPCNT__ -D__PCLMUL__ -D__AES__ -D__RDRND__ -axSSE4.2 -minstruction=movbe -xATOM_SSE4.2
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: disabled (user-specified)
+  -inline-max-total-size: 25555 (user-specified)
+  -inline-max-per-routine: disabled (user-specified)
+  -inline-max-per-compile: disabled (user-specified)
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: find_conf(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (find_conf(const char *)) src/conf.c(24,1)
+
+===========================================================================
+
+Begin optimization report for: find_env_to_conf(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (find_env_to_conf(const char *)) src/conf.c(30,1)
+
+===========================================================================
+
+Begin optimization report for: handle_conf_setting(struct conf *, const char *, const char *, char **, bool, bool, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (handle_conf_setting(struct conf *, const char *, const char *, char **, bool, bool, const char *)) src/conf.c(38,1)
+
+===========================================================================
+
+Begin optimization report for: parse_line(const char *, char **, char **, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (parse_line(const char *, char **, char **, char **)) src/conf.c(77,1)
+
+===========================================================================
+
+Begin optimization report for: conf_create(void)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_create(void)) [5/12=41.7%] src/conf.c(123,1)
+  -> EXTERN: (124,22) x_malloc(size_t)
+  -> EXTERN: (125,19) x_strdup(const char *)
+  -> EXTERN: (126,20) format(const char *, ...)
+  -> EXTERN: (126,41) get_home_directory(void)
+  -> EXTERN: (128,19) x_strdup(const char *)
+  -> EXTERN: (129,25) x_strdup(const char *)
+  -> EXTERN: (132,24) x_strdup(const char *)
+  -> EXTERN: (137,30) x_strdup(const char *)
+  -> EXTERN: (140,37) x_strdup(const char *)
+  -> EXTERN: (143,19) x_strdup(const char *)
+  -> EXTERN: (146,15) x_strdup(const char *)
+  -> EXTERN: (148,25) x_strdup(const char *)
+  -> EXTERN: (149,29) x_strdup(const char *)
+  -> EXTERN: (156,24) x_strdup(const char *)
+  -> EXTERN: (159,23) x_malloc(size_t)
+  -> EXTERN: (159,32) confitems_count(void)
+  -> EXTERN: (160,25) confitems_count(void)
+  -> EXTERN: (160,25) confitems_count(void)
+
+===========================================================================
+
+Begin optimization report for: conf_free(struct conf *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_free(struct conf *)) [6/12=50.0%] src/conf.c(168,1)
+  -> EXTERN: (172,2) free(void *)
+  -> EXTERN: (173,2) free(void *)
+  -> EXTERN: (174,2) free(void *)
+  -> EXTERN: (175,2) free(void *)
+  -> EXTERN: (176,2) free(void *)
+  -> EXTERN: (177,2) free(void *)
+  -> EXTERN: (178,2) free(void *)
+  -> EXTERN: (179,2) free(void *)
+  -> EXTERN: (180,2) free(void *)
+  -> EXTERN: (181,2) free(void *)
+  -> EXTERN: (182,2) free(void *)
+  -> EXTERN: (183,2) free(void *)
+  -> EXTERN: (184,2) free(void *)
+  -> EXTERN: (185,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: conf_read(struct conf *, const char *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_read(struct conf *, const char *, char **)) [7/12=58.3%] src/conf.c(194,1)
+  -> EXTERN: (195,2) __assert_fail(const char *, const char *, unsigned int, const char *)
+  -> EXTERN: (198,12) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (200,13) format(const char *, ...)
+  -> EXTERN: (200,36) strerror(int)
+  -> EXTERN: (200,45) __errno_location(void)
+  -> EXTERN: (207,9) fgets(char *__restrict__, int, FILE *__restrict__)
+  -> EXTERN: (207,9) fgets(char *__restrict__, int, FILE *__restrict__)
+  -> INLINE: (213,13) parse_line(const char *, char **, char **, char **) (isz = 202) (sz = 217)
+    -> EXTERN: (84,2) __ctype_b_loc(void)
+    -> EXTERN: (84,2) __ctype_b_loc(void)
+    -> EXTERN: (89,9) __ctype_b_loc(void)
+    -> EXTERN: (92,9) x_strndup(const char *, size_t)
+    -> EXTERN: (94,2) __ctype_b_loc(void)
+    -> EXTERN: (94,2) __ctype_b_loc(void)
+    -> EXTERN: (96,13) x_strdup(const char *)
+    -> EXTERN: (97,3) free(void *)
+    -> EXTERN: (104,2) __ctype_b_loc(void)
+    -> EXTERN: (104,2) __ctype_b_loc(void)
+    -> EXTERN: (110,9) __ctype_b_loc(void)
+    -> EXTERN: (110,9) __ctype_b_loc(void)
+    -> EXTERN: (113,11) x_strndup(const char *, size_t)
+  -> INLINE: (215,9) handle_conf_setting(struct conf *, const char *, const char *, char **, bool, bool, const char *) (isz = 93) (sz = 115)
+    -> INLINE: (39,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> EXTERN: (41,13) format(const char *, ...)
+    -> EXTERN: (53,7) strcmp(const char *, const char *)
+    -> EXTERN: (53,29) strcasecmp(const char *, const char *)
+    -> EXTERN: (54,10) strcasecmp(const char *, const char *)
+    -> EXTERN: (54,47) strcasecmp(const char *, const char *)
+    -> EXTERN: (55,4) fatal(const char *, ...)
+    -> INDIRECT-: (63,7)  item.990_V$f.0.3.88->parser_V$20
+       [[ Unable to inline indirect callsite  <1>]]
+    -> INDIRECT-: (66,25)  item.990_V$f.0.3.88->verifier_V$22
+       [[ Unable to inline indirect callsite  <1>]]
+  -> EXTERN: (217,3) free(void *)
+  -> EXTERN: (218,3) free(void *)
+  -> EXTERN: (220,14) format(const char *, ...)
+  -> EXTERN: (221,4) free(void *)
+  -> EXTERN: (222,4) __errno_location(void)
+  -> EXTERN: (227,6) ferror(FILE *)
+  -> EXTERN: (228,13) x_strdup(const char *)
+  -> EXTERN: (228,22) strerror(int)
+  -> EXTERN: (228,31) __errno_location(void)
+  -> EXTERN: (233,2) fclose(FILE *)
+
+===========================================================================
+
+Begin optimization report for: conf_update_from_environment(struct conf *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_update_from_environment(struct conf *, char **)) [8/12=66.7%] src/conf.c(239,1)
+  -> EXTERN: (241,8) strncmp(const char *, const char *, size_t)
+  -> EXTERN: (244,13) strchr(const char *, int)
+  -> EXTERN: (251,7) strncmp(const char *, const char *, size_t)
+  -> EXTERN: (258,15) x_strndup(const char *, size_t)
+  -> INLINE: (262,53) find_env_to_conf(const char *) (isz = 5) (sz = 12)
+    -> EXTERN: (31,9) envtoconfitems_get(const char *, size_t)
+    -> EXTERN: (31,34) strlen(const char *)
+  -> EXTERN: (264,4) free(void *)
+  -> INLINE: (269,13) handle_conf_setting(struct conf *, const char *, const char *, char **, bool, bool, const char *) (isz = 93) (sz = 115)
+    -> INLINE: (39,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> EXTERN: (41,13) format(const char *, ...)
+    -> EXTERN: (53,7) strcmp(const char *, const char *)
+    -> EXTERN: (53,29) strcasecmp(const char *, const char *)
+    -> EXTERN: (54,10) strcasecmp(const char *, const char *)
+    -> EXTERN: (54,47) strcasecmp(const char *, const char *)
+    -> EXTERN: (55,4) fatal(const char *, ...)
+    -> INDIRECT-: (63,7)  item.990_V$f.0.3.86->parser_V$20
+       [[ Unable to inline indirect callsite  <1>]]
+    -> INDIRECT-: (66,25)  item.990_V$f.0.3.86->verifier_V$22
+       [[ Unable to inline indirect callsite  <1>]]
+  -> EXTERN: (273,14) format(const char *, ...)
+  -> EXTERN: (274,4) free(void *)
+  -> EXTERN: (275,4) free(void *)
+  -> EXTERN: (279,3) free(void *)
+
+===========================================================================
+
+Begin optimization report for: conf_set_value_in_file(const char *, const char *, const char *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_set_value_in_file(const char *, const char *, const char *, char **)) [9/12=75.0%] src/conf.c(288,1)
+  -> INLINE: (289,33) find_conf(const char *) (isz = 5) (sz = 12)
+    -> EXTERN: (25,9) confitems_get(const char *, size_t)
+    -> EXTERN: (25,29) strlen(const char *)
+  -> EXTERN: (291,13) format(const char *, ...)
+  -> EXTERN: (295,17) fopen(const char *__restrict__, const char *__restrict__)
+  -> EXTERN: (297,13) format(const char *, ...)
+  -> EXTERN: (297,36) strerror(int)
+  -> EXTERN: (297,45) __errno_location(void)
+  -> EXTERN: (301,18) format(const char *, ...)
+  -> EXTERN: (302,18) create_tmp_file(char **, const char *)
+  -> EXTERN: (304,13) format(const char *, ...)
+  -> EXTERN: (304,39) strerror(int)
+  -> EXTERN: (304,48) __errno_location(void)
+  -> EXTERN: (305,3) free(void *)
+  -> EXTERN: (306,3) fclose(FILE *)
+  -> EXTERN: (312,9) fgets(char *__restrict__, int, FILE *__restrict__)
+  -> EXTERN: (312,9) fgets(char *__restrict__, int, FILE *__restrict__)
+  -> INLINE: (316,13) parse_line(const char *, char **, char **, char **) (isz = 202) (sz = 217)
+    -> EXTERN: (84,2) __ctype_b_loc(void)
+    -> EXTERN: (84,2) __ctype_b_loc(void)
+    -> EXTERN: (89,9) __ctype_b_loc(void)
+    -> EXTERN: (92,9) x_strndup(const char *, size_t)
+    -> EXTERN: (94,2) __ctype_b_loc(void)
+    -> EXTERN: (94,2) __ctype_b_loc(void)
+    -> EXTERN: (96,13) x_strdup(const char *)
+    -> EXTERN: (97,3) free(void *)
+    -> EXTERN: (104,2) __ctype_b_loc(void)
+    -> EXTERN: (104,2) __ctype_b_loc(void)
+    -> EXTERN: (110,9) __ctype_b_loc(void)
+    -> EXTERN: (110,9) __ctype_b_loc(void)
+    -> EXTERN: (113,11) x_strndup(const char *, size_t)
+  -> EXTERN: (317,21) strcmp(const char *, const char *)
+  -> EXTERN: (319,4) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (321,4) fputs(const char *__restrict__, FILE *__restrict__)
+  -> EXTERN: (323,3) free(void *)
+  -> EXTERN: (324,3) free(void *)
+  -> EXTERN: (328,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (331,2) fclose(FILE *)
+  -> EXTERN: (332,2) fclose(FILE *)
+  -> EXTERN: (333,6) x_rename(const char *, const char *)
+  -> EXTERN: (334,13) format(const char *, ...)
+  -> EXTERN: (334,58) strerror(int)
+  -> EXTERN: (334,67) __errno_location(void)
+  -> EXTERN: (337,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: conf_print_value(struct conf *, const char *, FILE *, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_print_value(struct conf *, const char *, FILE *, char **)) [10/12=83.3%] src/conf.c(345,1)
+  -> INLINE: (346,33) find_conf(const char *) (isz = 5) (sz = 12)
+    -> EXTERN: (25,9) confitems_get(const char *, size_t)
+    -> EXTERN: (25,29) strlen(const char *)
+  -> EXTERN: (348,13) format(const char *, ...)
+  -> INDIRECT-: (352,14)  item.1069_V$91.0.10->formatter_V$21
+     [[ Unable to inline indirect callsite  <1>]]
+  -> EXTERN: (353,2) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (354,2) free(void *)
+
+===========================================================================
+
+Begin optimization report for: print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *)) src/conf.c(363,1)
+
+===========================================================================
+
+Begin optimization report for: conf_print_items(struct conf *, void (*)(const char *, const char *, void *), void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (conf_print_items(struct conf *, void (*)(const char *, const char *, void *), void *)) [12/12=100.0%] src/conf.c(383,1)
+  -> INLINE: (385,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.84->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.84
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (386,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.82->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.82
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (387,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.80->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.80
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (388,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.78->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.78
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (389,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.76->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.76
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (390,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.74->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.74
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (391,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.72->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.72
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (392,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.70->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.70
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (393,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.68->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.68
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (394,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.66->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.66
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (395,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.64->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.64
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (396,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.62->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.62
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (397,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.60->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.60
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (398,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.58->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.58
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (399,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.56->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.56
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (400,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.54->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.54
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (401,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.52->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.52
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (402,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.50->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.50
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (403,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.48->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.48
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (404,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.46->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.46
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (405,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.44->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.44
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (406,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.42->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.42
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (407,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.40->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.40
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (408,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.38->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.38
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (409,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.36->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.36
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (410,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.34->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.34
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (411,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.32->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.32
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (412,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.30->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.30
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (413,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.28->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.28
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (414,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.26->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.26
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (415,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.24->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.24
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (416,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.22->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.22
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (417,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.20->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.20
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+  -> INLINE: (418,8) print_item(struct conf *, const char *, void (*)(const char *, const char *, void *), void *) (isz = 40) (sz = 54)
+    -> INLINE: (364,33) find_conf(const char *) (isz = 5) (sz = 12)
+      -> EXTERN: (25,9) confitems_get(const char *, size_t)
+      -> EXTERN: (25,29) strlen(const char *)
+    -> INDIRECT-: (369,14)  item.1072_V$9a.0.11.18->formatter_V$21
+       [[ Unable to inline indirect callsite  <1>]]
+    -> EXTERN: (370,14) x_strdup(const char *)
+    -> EXTERN: (371,2) reformat(char **, const char *, ...)
+    -> INDIRECT-: (372,2)  printer_1072_V$98.0.11.18
+       [[ Callee not marked with inlining pragma  <2>]]
+    -> EXTERN: (373,2) free(void *)
+    -> EXTERN: (374,2) free(void *)
+
+===========================================================================
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING FOOTNOTES:
+
+<1> The indirectly called function must be resolved to its targets before it 
+can be inlined.  Consider compiling with -ipo or -prof-gen followed by 
+-prof-use.
+
+<2> The compiler's heuristics indicate that the function is not profitable to 
+    inline.  Override this decision by adding "inline 
+    __attribute__((always_inline))" to the declaration of the called function, 
+    or add "#pragma forceinline" before the call site.
+
