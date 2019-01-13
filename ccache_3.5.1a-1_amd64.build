@@ -1,0 +1,201 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package ccache
+dpkg-buildpackage: info: source version 3.5.1a-1
+dpkg-buildpackage: info: source distribution UNRELEASED
+dpkg-buildpackage: info: source changed by Richard Yang <richard@yenforyang.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp configure-stamp
+[ ! -f Makefile ] || /usr/bin/make distclean
+make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
+rm -rf src/main.o src/args.o src/ccache.o src/cleanup.o src/compopt.o src/conf.o src/confitems.o src/counters.o src/execute.o src/exitfn.o src/hash.o src/hashutil.o src/language.o src/lockfile.o src/manifest.o src/mdfour.o src/stats.o src/unify.o src/util.o src/version.o src/confitems_lookup.o src/envtoconfitems_lookup.o src/hashtable.o src/hashtable_itr.o src/murmurhashneutral2.o src/snprintf.o unittest/main.o unittest/framework.o unittest/util.o unittest/test_args.o unittest/test_argument_processing.o unittest/test_compopt.o unittest/test_conf.o unittest/test_counters.o unittest/test_hash.o unittest/test_hashutil.o unittest/test_lockfile.o unittest/test_stats.o unittest/test_util.o src/zlib/adler32.o src/zlib/crc32.o src/zlib/deflate.o src/zlib/gzclose.o src/zlib/gzlib.o src/zlib/gzread.o src/zlib/gzwrite.o src/zlib/inffast.o src/zlib/inflate.o src/zlib/inftrees.o src/zlib/trees.o src/zlib/zutil.o ccache src/*~ src/zlib/libz.a testdir.* unittest/run *~
+rm -rf Makefile config.h config.log config.status
+make[1]: Leaving directory '/dev/shm/ccache/ccache-3.5.1a'
+rm -f config.guess config.sub
+dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f debian/ccache.debhelper.log
+	rm -f -- debian/ccache.substvars debian/files
+	rm -fr -- debian/ccache/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=303477996 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh_testdir
+cp -f /usr/share/misc/config.sub config.sub
+cp -f /usr/share/misc/config.guess config.guess
+./configure --build x86_64-linux-gnu \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--infodir=\${prefix}/share/info \
+	--sysconfdir=/etc
+configure: loading site script /usr/share/config.site
+configure: configuring ccache
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for gcc... icc.pl
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether icc.pl accepts -g... yes
+checking for icc.pl option to accept ISO C89... none needed
+checking whether we are using the clang C compiler... no
+checking for icc.pl option to accept ISO C99... none needed
+checking how to run the C preprocessor... ccache /usr/bin/cpp.intel
+checking for a BSD-compatible install... /usr/bin/install
+checking for ranlib... ranlib
+checking for ar... xiar.pl
+checking for bash... /bin/bash
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking whether time.h and sys/time.h may both be included... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for long long... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking for gethostname... yes
+checking for getopt_long... yes
+checking for getpwuid... yes
+checking for gettimeofday... yes
+checking for mkstemp... yes
+checking for realpath... yes
+checking for strndup... yes
+checking for strtok_r... yes
+checking for unsetenv... yes
+checking for utimes... yes
+checking for compar_fn_t in stdlib.h... yes
+checking for stdarg.h... yes
+checking for varargs.h... no
+checking for unsigned long long int... yes
+checking for vsnprintf... yes
+checking whether vsnprintf is C99 compliant... yes
+checking for snprintf... yes
+checking whether snprintf is C99 compliant... yes
+checking for vasprintf... yes
+checking for asprintf... yes
+checking for library containing cos... none required
+checking for zlib >= 1.2.3... yes
+checking for gzdopen in -lz... yes
+checking whether byte ordering is bigendian... no
+checking for inline... inline
+checking for extern inline... no
+configure: developer mode disabled
+checking whether C compiler supports -Wno-implicit-fallthrough... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+configure: now build ccache by running make
+touch configure-stamp
+dh_testdir
+/usr/bin/make
+make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
+  CC       src/main.o
+  CC       src/args.o
+  CC       src/ccache.o
+  CC       src/cleanup.o
+  CC       src/compopt.o
+  CC       src/conf.o
+  CC       src/confitems.o
+  CC       src/counters.o
+  CC       src/execute.o
+  CC       src/exitfn.o
+  CC       src/hash.o
+  CC       src/hashutil.o
+  CC       src/language.o
+  CC       src/lockfile.o
+  CC       src/manifest.o
+  CC       src/mdfour.o
+  CC       src/stats.o
+  CC       src/unify.o
+  CC       src/util.o
+  CC       src/version.o
+  CC       src/confitems_lookup.o
+  CC       src/envtoconfitems_lookup.o
+  CC       src/hashtable.o
+  CC       src/hashtable_itr.o
+  CC       src/murmurhashneutral2.o
+  CC       src/snprintf.o
+  LD       ccache
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_icc8Vzmvi.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_icc8Vzmvi.o
+ipo: remark #11000: performing multi-file optimizations
+ipo: remark #11074: Inlining inhibited by limit max-total-size 
+ipo: remark #11076: To get full report use -qopt-report=4 -qopt-report-phase ipo
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc8Vzmvi.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[1]: Leaving directory '/dev/shm/ccache/ccache-3.5.1a'
+touch build-stamp
+ fakeroot debian/rules binary
+dh_testdir
+dh_testroot
+dh_prep
+	rm -f -- debian/ccache.substvars
+	rm -fr -- debian/.debhelper/generated/ccache/ debian/ccache/ debian/tmp/
+dh_installdirs
+	install -d debian/ccache
+	install -d debian/ccache/usr/bin debian/ccache/usr/lib/ccache debian/ccache/usr/sbin debian/ccache/usr/share/man/man1 debian/ccache/usr/share/man/man8
+sed s/%DEB_HOST_MULTIARCH%/x86_64-linux-gnu/ debian/ccache.triggers.in >debian/ccache.triggers
+sed s/%DEB_HOST_MULTIARCH%/x86_64-linux-gnu/ debian/update-ccache-symlinks.in >debian/ccache/usr/sbin/update-ccache-symlinks
+/usr/bin/make install prefix=/dev/shm/ccache/ccache-3.5.1a/debian/ccache/usr
+make[1]: Entering directory '/dev/shm/ccache/ccache-3.5.1a'
+  INSTALL  ccache
+  INSTALL  ccache.1
+make[1]: Leaving directory '/dev/shm/ccache/ccache-3.5.1a'
+chmod +x debian/ccache/usr/sbin/update-ccache-symlinks
+dh_testdir
+dh_testroot
+dh_installdocs
+	install -d debian/ccache/usr/share/doc/ccache
+	install -d debian/.debhelper/generated/ccache
+	install -p -m0644 debian/README.Debian debian/ccache/usr/share/doc/ccache/README.Debian
+	install -p -m0644 debian/copyright debian/ccache/usr/share/doc/ccache/copyright
+cd debian/ccache/usr/share/doc/ccache && mv NEWS.html changelog.html
+mv: cannot stat 'NEWS.html': No such file or directory
+make: *** [debian/rules:80: binary-arch] Error 1
+FAKEROOTKEY=757283866 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+dpkg-genbuildinfo: error: binary build with no binary artifacts found; .buildinfo is meaningless
+dpkg-buildpackage: error: dpkg-genbuildinfo --build=binary subprocess returned exit status 25

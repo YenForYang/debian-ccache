@@ -1,0 +1,13 @@
+aa8346656f5b9cd4c3f27c75f8182998  usr/bin/ccache
+1f8f2b50bc40ec480a95e379ac8c4036  usr/sbin/update-ccache-symlinks
+cd9d72e22d7be3570f0ed66ecb44e53a  usr/share/doc-base/ccache
+80a3e2cc90b7a92ad637e42be9a9b74d  usr/share/doc/ccache/NEWS.Debian.gz
+6eec3fdfaa2def34e92d1d3ed00b1e0f  usr/share/doc/ccache/README.Debian
+e6b33a7a6f3c21e46bcf68ee672355ec  usr/share/doc/ccache/changelog.Debian.gz
+415ca044f74a482c836127fe11602a0c  usr/share/doc/ccache/changelog.gz
+8ea2e5689674b7256a4bfbbf50adb71b  usr/share/doc/ccache/changelog.html.gz
+6c37e3d086545c42177ca5164151ff3d  usr/share/doc/ccache/copyright
+35fa2bb93cc647239f938cb5ffdfff8a  usr/share/doc/ccache/manual.html
+dc9ce2b6ddab8c0809c982d7de8a70f1  usr/share/lintian/overrides/ccache
+7d5b30988d90f7ea8e4ae391373f6ebd  usr/share/man/man1/ccache.1.gz
+5c8333efb1eafafa9738b31ea05589c2  usr/share/man/man8/update-ccache-symlinks.8.gz
