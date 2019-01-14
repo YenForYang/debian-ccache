@@ -38,10 +38,10 @@
 -MD
 -MP
 -MF
-.deps/src_ccache.c.d
+.deps/unittest_framework.c.d
 -Werror
 -Wextra
 -Wpedantic
 -c
--osrc/ccache.o
-src/ccache.c
+-ounittest/framework.o
+unittest/framework.c

@@ -1,5 +1,3 @@
--Wremarks
--w3
 -O3
 -fabi-version=13
 -falign-functions
@@ -26,11 +24,8 @@
 -no-inline-max-per-routine
 -no-inline-max-per-compile
 -no-inline-max-size
--inline-max-total-size=25555
+-inline-max-total-size=15555
 -Wl,--as-needed
--qopt-report=5
--qopt-report-phase
-ipo
 -DHAVE_CONFIG_H
 -DSYSCONFDIR=/etc
 -I.
@@ -39,7 +34,6 @@ ipo
 -D_FORTIFY_SOURCE=2
 -g
 -occache
--qopt-report-file=ccache.optrpt
 src/main.c
 src/args.c
 src/ccache.c
@@ -70,4 +64,4 @@ src/snprintf.c
 -Wl,-z,now
 -lz
 -no-inline-max-total-size
--qopt-report-file=OPTRPT.optrpt
+-prof-use

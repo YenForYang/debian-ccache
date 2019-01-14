@@ -38,10 +38,10 @@
 -MD
 -MP
 -MF
-.deps/src_ccache.c.d
+.deps/unittest_test_hashutil.c.d
 -Werror
 -Wextra
 -Wpedantic
 -c
--osrc/ccache.o
-src/ccache.c
+-ounittest/test_hashutil.o
+unittest/test_hashutil.c

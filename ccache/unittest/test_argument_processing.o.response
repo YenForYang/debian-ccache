@@ -38,10 +38,10 @@
 -MD
 -MP
 -MF
-.deps/src_ccache.c.d
+.deps/unittest_test_argument_processing.c.d
 -Werror
 -Wextra
 -Wpedantic
 -c
--osrc/ccache.o
-src/ccache.c
+-ounittest/test_argument_processing.o
+unittest/test_argument_processing.c

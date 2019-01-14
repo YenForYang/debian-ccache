@@ -38,10 +38,10 @@
 -MD
 -MP
 -MF
-.deps/src_ccache.c.d
+.deps/unittest_test_counters.c.d
 -Werror
 -Wextra
 -Wpedantic
 -c
--osrc/ccache.o
-src/ccache.c
+-ounittest/test_counters.o
+unittest/test_counters.c
